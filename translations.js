@@ -26,8 +26,8 @@ const translations = {
     talk1Desc2: "Una conferencia basada en cinco fases que ayudan a transformar la adversidad en crecimiento, recuperar el control, desarrollar confianza y construir una nueva visión de futuro.",
     talk1Audience: "Todo tipo de público",
     talk2Name: "De la supervivencia a la reconstrucción",
-    talk2Subtitle: "",
-    talk2Desc: "Un método práctico para reconstruirte cuando la vida cambia tus planes.\n\nUna conferencia basada en cinco fases que ayudan a transformar la adversidad en crecimiento, recuperar el control, desarrollar confianza y construir una nueva visión de futuro.",
+    talk2Subtitle: "Un método práctico para reconstruirte cuando la vida cambia tus planes.",
+    talk2Desc: "Una conferencia basada en cinco fases que ayudan a transformar la adversidad en crecimiento, recuperar el control, desarrollar confianza y construir una nueva visión de futuro.",
     talk2Audience: "Todo tipo de público",
     talkCTA: "Quiero esta conferencia",
 
@@ -88,8 +88,8 @@ const translations = {
     talk1Desc2: "A talk based on five phases that help transform adversity into growth, regain control, develop confidence, and build a new vision for the future.",
     talk1Audience: "All audiences",
     talk2Name: "From survival to reconstruction",
-    talk2Subtitle: "",
-    talk2Desc: "A practical method to rebuild yourself when life changes your plans.\n\nA talk based on five phases that help transform adversity into growth, regain control, develop confidence, and build a new vision for the future.",
+    talk2Subtitle: "A practical method to rebuild yourself when life changes your plans.",
+    talk2Desc: "A talk based on five phases that help transform adversity into growth, regain control, develop confidence, and build a new vision for the future.",
     talk2Audience: "All audiences",
     talkCTA: "I want this talk",
 
