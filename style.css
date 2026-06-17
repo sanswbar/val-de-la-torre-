@@ -1014,6 +1014,24 @@ a {
   color: var(--black);
 }
 
+.footer-signature-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.footer-signature {
+  width: 80px;
+  opacity: 0.25;
+  filter: grayscale(1);
+  transition: opacity var(--transition);
+}
+
+.footer-signature:hover {
+  opacity: 0.5;
+}
+
 .footer-copy {
   font-size: 10px;
   font-weight: 400;
