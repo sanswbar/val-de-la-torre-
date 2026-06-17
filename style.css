@@ -969,7 +969,7 @@ a {
 .site-footer {
   background-color: var(--white);
   border-top: 1px solid var(--sand);
-  padding: 48px 40px;
+  padding: 24px 40px;
 }
 
 .footer-inner {
@@ -1022,7 +1022,7 @@ a {
 }
 
 .footer-signature {
-  width: 80px;
+  width: 60px;
   opacity: 0.25;
   filter: grayscale(1);
   transition: opacity var(--transition);
