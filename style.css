@@ -1061,7 +1061,6 @@ a {
     padding: 0 28px;
   }
 
-  /* Hero: foto arriba, texto abajo */
   .hero {
     grid-template-columns: 1fr;
     grid-template-rows: 56vw 1fr;
@@ -1087,17 +1086,14 @@ a {
     max-height: 400px;
   }
 
-  .ted-section {
+  .talks-grid {
     grid-template-columns: 1fr;
-  }
-
-  .ted-photo {
-    aspect-ratio: 16 / 7;
+    gap: 2px;
   }
 
   .contact-layout {
     grid-template-columns: 1fr;
-    gap: 56px;
+    gap: 48px;
   }
 
   .footer-inner {
@@ -1116,6 +1112,15 @@ a {
     border-color: rgba(13, 13, 13, 0.25);
     color: var(--black);
   }
+
+  .quote-mujica {
+    width: 92vw;
+    padding: 18px 32px;
+  }
+
+  .brand-slot {
+    width: 160px;
+  }
 }
 
 
@@ -1125,67 +1130,140 @@ a {
 
 @media (max-width: 640px) {
   :root {
-    --section-padding: 72px 20px;
+    --section-padding: 64px 20px;
   }
 
   .container {
     padding: 0 20px;
   }
 
-  body {
-    font-size: 16px;
+  /* Header */
+  .site-header {
+    padding: 18px 20px;
   }
 
+  .site-name {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+
+  /* Hero */
   .hero {
-    grid-template-rows: 70vw 1fr;
+    grid-template-rows: 75vw 1fr;
   }
 
   .hero-photo-side {
-    min-height: 70vw;
+    min-height: 75vw;
   }
 
   .hero-text-side {
-    padding: 40px 20px 96px;
+    padding: 36px 20px 88px;
   }
 
   .hero-title {
-    font-size: clamp(46px, 12vw, 66px);
+    font-size: clamp(40px, 11vw, 60px);
   }
 
-  .talks-grid {
-    grid-template-columns: 1fr;
-    gap: 2px;
-    padding: 0 20px;
-  }
-
-  .talk-card-body {
-    padding: 24px 20px 32px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .mobile-cta-bar {
-    display: block;
+  .hero-subtitle {
+    font-size: 9px;
+    letter-spacing: 0.12em;
   }
 
   .hero-text-side .btn-primary {
     display: none;
   }
 
+  .mobile-cta-bar {
+    display: block;
+  }
+
+  /* Quote */
+  .quote-strip {
+    padding: 24px 16px;
+  }
+
+  .quote-mujica {
+    width: 100%;
+    padding: 18px 24px;
+  }
+
+  .quote-mujica p {
+    font-size: 1.2rem;
+  }
+
+  /* About */
+  .about {
+    padding: 48px 20px 72px;
+  }
+
+  .about .container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .about-photo-wrap {
+    aspect-ratio: 4 / 3;
+    max-height: 320px;
+  }
+
+  .about-text p {
+    font-size: 15px;
+  }
+
+  /* Talks */
+  .talks-grid {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: 0;
+  }
+
+  .talk-card-photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .talk-card-body {
+    padding: 28px 20px 36px;
+  }
+
+  .talk-card-name {
+    font-size: 1.5rem;
+  }
+
+  /* Brands */
+  .brands .section-title {
+    margin-bottom: 36px;
+  }
+
+  .brand-slot {
+    width: 120px;
+  }
+
+  /* Contact */
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .contact-info h2 {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  /* Footer */
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
   .footer-socials {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 24px;
-  }
-
-  .brands-track {
-    gap: 40px;
-  }
-
-  .site-header {
-    padding: 20px 20px;
+    gap: 20px;
   }
 }
