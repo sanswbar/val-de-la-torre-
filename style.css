@@ -497,10 +497,9 @@ a {
 
 .talk-card-body {
   padding: 36px 48px 48px;
-  display: grid;
-  grid-template-rows: auto auto auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
-  gap: 0;
 }
 
 .talk-card-label {
@@ -520,9 +519,6 @@ a {
   line-height: 1.1;
   margin-bottom: 10px;
   color: var(--black);
-  min-height: 3.3em;
-  display: flex;
-  align-items: flex-start;
 }
 
 .talk-card-subtitle {
@@ -532,7 +528,8 @@ a {
   font-style: italic;
   color: var(--gray-dark);
   letter-spacing: 0.01em;
-  margin-bottom: 12px;
+  margin-top: 4px;
+  margin-bottom: 16px;
 }
 
 .talk-card-semblanza {
