@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Valeria de la Torre — Conferencista y creadora de contenido. Conferencias para empresas, universidades y eventos." />
+  <meta property="og:title" content="Valeria de la Torre" />
+  <meta property="og:description" content="Conferencista · Creadora de contenido" />
+  <!-- OG Image: reemplazar con foto real -->
+  <!-- <meta property="og:image" content="assets/images/og-val.jpg" /> -->
+  <title>Valeria de la Torre</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER — Language toggle
+       ========================================== -->
+  <header class="site-header" role="banner">
+    <a href="#" class="site-name">Valeria de la Torre</a>
+    <button
+      id="lang-toggle"
+      class="lang-toggle"
+      aria-label="Switch to English"
+    >
+      EN
+    </button>
+  </header>
+
+
+  <!-- ==========================================
+       HERO — split: texto izquierda, foto derecha
+       ========================================== -->
+  <section class="hero" id="hero" aria-label="Hero">
+
+    <!-- Lado izquierdo: texto -->
+    <div class="hero-text-side">
+      <!-- COPY: Val puede ajustar este título -->
+      <h1 class="hero-title" data-i18n="heroTitle">Redefiniendo<br><em>los límites.</em></h1>
+
+      <!-- Signature element — línea delgada acento -->
+      <hr class="hero-line" aria-hidden="true" />
+
+      <p class="hero-subtitle" data-i18n="heroSubtitle">
+        Conferencista &nbsp;·&nbsp; Creadora de contenido
+      </p>
+
+      <!-- Visible en desktop; en mobile lo cubre la barra fija inferior -->
+      <a href="#contacto" class="btn-primary" data-i18n="heroCTA">
+        Trabajemos juntos
+      </a>
+    </div>
+
+    <!-- Lado derecho: foto -->
+    <div class="hero-photo-side" aria-hidden="true">
+      <!-- PLACEHOLDER: Foto principal de Val
+           Formato vertical · mínimo 800 × 1000 px · JPG o WebP
+           Para activar: en style.css, en .hero-bg agregar:
+           background-image: url('assets/images/hero-val.jpg');
+      -->
+      <div class="hero-bg" role="img" aria-label="Valeria de la Torre"></div>
+    </div>
+
+  </section>
+
+
+  <!-- ==========================================
+       ABOUT / QUIÉN ES VAL
+       ========================================== -->
+  <div class="quote-strip">
+    <blockquote class="quote-mujica">
+      <p>"Dejar de luchar es dejar de soñar."</p>
+      <cite>Pepe Mujica</cite>
+    </blockquote>
+  </div>
+
+  <section class="about" id="quien-es-val" aria-labelledby="about-title">
+    <div class="container">
+
+      <!-- Columna izquierda: foto secundaria -->
+      <div class="about-photo-wrap fade-in">
+        <img src="assets/images/about-val.jpg" alt="Valeria de la Torre" />
+      </div>
+
+      <!-- Columna derecha: texto -->
+      <div class="about-text fade-in">
+        <span class="section-label">Val</span>
+        <h2 class="section-title" id="about-title" data-i18n="aboutTitle">Quién soy</h2>
+
+        <!-- COPY: Val puede ajustar estos textos si quiere cambiar algo -->
+        <p data-i18n="aboutText1">
+          A raíz de un atropello en diciembre de 2024 perdí ambas piernas. Hoy comparto mi proceso de adaptación, mi mentalidad y lo que aprendí sobre la fuerza real.
+        </p>
+        <p data-i18n="aboutText2">
+          Lo que viví me dio claridad sobre la mente, el cuerpo y la disciplina que se necesita para seguir. Eso es lo que llevo a escenarios, marcas y pantallas. No como teoría. Como experiencia vivida.
+        </p>
+        <p data-i18n="aboutText3">
+          Creo que la fortaleza no es no caerse. Es lo que decides hacer en el piso.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       TALKS / CONFERENCIAS
+       ========================================== -->
+  <section class="talks" id="conferencias" aria-labelledby="talks-title">
+    <div class="container">
+
+      <div class="talks-header fade-in">
+        <span class="section-label">Conferencias</span>
+        <h2 class="section-title" id="talks-title" data-i18n="talksTitle">Mis conferencias</h2>
+        <!-- Credencial TED -->
+        <div class="ted-credential">
+          <span class="ted-dot" aria-hidden="true"></span>
+          <span data-i18n="talksTEDCredential">TED Talk · Oradora internacional</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Las tarjetas van fuera del container para que lleguen al borde -->
+    <div class="talks-grid">
+
+      <!-- Conferencia 1 -->
+      <article class="talk-card fade-in" aria-label="Conferencia: Resiliencia en Fragmentos">
+        <div class="talk-card-photo">
+          <img src="assets/images/conferencia3.jpg" alt="Valeria de la Torre dando conferencia" />
+        </div>
+        <div class="talk-card-body">
+          <p class="talk-card-label">Conferencia 01</p>
+          <h3 data-i18n="talk1Name">Resiliencia en Fragmentos</h3>
+          <p data-i18n="talk1Desc">
+            Una conferencia sobre cómo seguir cuando no tienes el mapa. Hablo desde mi historia: el accidente, la recuperación y la decisión de no parar.
+          </p>
+          <div class="talk-audience" data-i18n="talk1Audience">
+            Familias, universidades, eventos DIF, congresos generales
+          </div>
+          <a href="#contacto" class="btn-secondary" data-i18n="talkCTA">Quiero esta conferencia</a>
+        </div>
+      </article>
+
+      <!-- Conferencia 2 — COPY: confirmar nombre con Val -->
+      <article class="talk-card talk-card--coming-soon fade-in" aria-label="Conferencia para empresas — próximamente">
+        <div class="talk-card-photo talk-card-photo--empty">
+          <div class="talk-card-coming-soon">
+            <span>Coming soon</span>
+          </div>
+        </div>
+        <div class="talk-card-body">
+          <p class="talk-card-label">Conferencia 02</p>
+          <!-- COPY: confirmar con Val el nombre definitivo -->
+          <h3 data-i18n="talk2Name">Adaptación sin manual</h3>
+          <p data-i18n="talk2Desc">
+            Para equipos y empresas que enfrentan cambios que no eligieron. Una conversación honesta sobre inclusión, diversidad y lo que significa adaptarse de verdad.
+          </p>
+          <div class="talk-audience" data-i18n="talk2Audience">
+            Empresas, áreas de RH, liderazgo, equipos de diversidad e inclusión
+          </div>
+          <a href="#contacto" class="btn-secondary" data-i18n="talkCTA">Quiero esta conferencia</a>
+        </div>
+      </article>
+
+    </div>
+
+
+  </section>
+
+
+  <!-- ==========================================
+       BRANDS / MARCAS
+       ========================================== -->
+  <section class="brands" id="marcas" aria-labelledby="brands-title">
+    <div class="container">
+      <span class="section-label fade-in">Colaboraciones</span>
+      <h2 class="section-title fade-in" id="brands-title" data-i18n="brandsTitle">
+        Marcas con las que<br>he trabajado
+      </h2>
+    </div>
+
+    <!-- Scroll horizontal en mobile — va fuera del container -->
+    <div class="container">
+      <div class="brands-track-wrap fade-in">
+        <div class="brands-track" role="list" aria-label="Marcas con las que ha colaborado Valeria de la Torre">
+
+          <!-- primera pasada -->
+          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-ossur.png" alt="Össur" /></div>
+          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-lululemon.png" alt="lululemon" /></div>
+          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-habits.svg" alt="Habits" /></div>
+          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-amex.svg" alt="American Express" /></div>
+          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-meta.svg" alt="Meta" /></div>
+          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-westelm.svg" alt="West Elm" /></div>
+          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-levis.svg" alt="Levi's" /></div>
+          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-nespresso.png" alt="Nespresso" /></div>
+          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-salomon.svg" alt="Salomon" /></div>
+
+          <!-- duplicado para scroll infinito continuo -->
+          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-ossur.png" alt="Össur" /></div>
+          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-lululemon.png" alt="lululemon" /></div>
+          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-habits.svg" alt="Habits" /></div>
+          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-amex.svg" alt="American Express" /></div>
+          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-meta.svg" alt="Meta" /></div>
+          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-westelm.svg" alt="West Elm" /></div>
+          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-levis.svg" alt="Levi's" /></div>
+          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-nespresso.png" alt="Nespresso" /></div>
+          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-salomon.svg" alt="Salomon" /></div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       CONTACT / FORMULARIO
+       ========================================== -->
+  <section class="contact" id="contacto" aria-labelledby="contact-title">
+    <div class="container">
+
+      <div class="contact-layout">
+
+        <!-- Intro text -->
+        <div class="contact-intro fade-in">
+          <span class="section-label">Contacto</span>
+          <h2 class="section-title" id="contact-title" data-i18n="contactTitle">
+            Trabajemos<br>juntos
+          </h2>
+          <p data-i18n="contactSubtitle">
+            Cuéntame qué tienes en mente. Leo cada mensaje y respondo personalmente.
+          </p>
+        </div>
+
+        <!-- Formulario -->
+        <div class="fade-in">
+          <form
+            id="contact-form"
+            class="contact-form"
+            action="https://formspree.io/f/xkoaayrd"
+            method="POST"
+            novalidate
+            aria-label="Formulario de contacto"
+          >
+            <input type="hidden" name="_subject" value="Nuevo contacto — Val de la Torre" />
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true" />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="field-name" data-i18n="fieldName">Nombre completo</label>
+                <input
+                  type="text"
+                  id="field-name"
+                  name="nombre"
+                  autocomplete="name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="field-company" data-i18n="fieldCompany">Empresa u organización</label>
+                <input
+                  type="text"
+                  id="field-company"
+                  name="empresa"
+                  autocomplete="organization"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="field-email" data-i18n="fieldEmail">Correo electrónico</label>
+              <input
+                type="email"
+                id="field-email"
+                name="correo"
+                autocomplete="email"
+                required
+                placeholder="tu@empresa.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="field-type" data-i18n="fieldType">Tipo de colaboración</label>
+              <div class="select-wrap">
+                <select id="field-type" name="tipo_colaboracion" required>
+                  <option value="" disabled selected data-i18n="fieldTypeDefault">Selecciona una opción</option>
+                  <option value="Conferencia" data-i18n="fieldTypeConf">Conferencia</option>
+                  <option value="Colaboración con marca" data-i18n="fieldTypeBrand">Colaboración con marca</option>
+                  <option value="Contenido / Creación" data-i18n="fieldTypeContent">Contenido / Creación</option>
+                  <option value="Otro" data-i18n="fieldTypeOther">Otro</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="field-date" data-i18n="fieldDate">Fecha estimada del evento o colaboración</label>
+              <input
+                type="text"
+                id="field-date"
+                name="fecha_estimada"
+                data-i18n-placeholder="fieldDatePlaceholder"
+                placeholder="Ej. Septiembre 2025, primer trimestre 2026…"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="field-desc" data-i18n="fieldDesc">¿Qué quieres hacer con Val?</label>
+              <textarea
+                id="field-desc"
+                name="descripcion"
+                required
+                data-i18n-placeholder="fieldDescPlaceholder"
+                placeholder="Cuéntame para qué audiencia es, qué esperas lograr y cualquier detalle relevante."
+              ></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn-submit" data-i18n="submitBtn">
+              Enviar
+            </button>
+
+          </form>
+
+          <!-- Mensaje de confirmación — aparece en la misma página, sin redirigir -->
+          <div id="form-success" class="form-success" role="alert" data-i18n="successMsg">
+            Val recibió tu mensaje y se pondrá en contacto pronto.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+
+      <nav class="footer-socials" aria-label="Redes sociales">
+        <a href="https://www.instagram.com/valdelatorre/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Valeria de la Torre" class="footer-social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/valdelatorrega/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Valeria de la Torre" class="footer-social-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+      </nav>
+
+      <p class="footer-copy" data-i18n="footerCopy">Valeria de la Torre, 2025.</p>
+
+    </div>
+  </footer>
+
+
+  <!-- ==========================================
+       MOBILE: Barra CTA fija en la parte inferior
+       ========================================== -->
+  <div class="mobile-cta-bar" role="complementary" aria-label="Acción principal">
+    <a href="#contacto" class="btn-primary" data-i18n="heroCTA">
+      Trabajemos juntos
+    </a>
+  </div>
+
+
+  <script src="translations.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
