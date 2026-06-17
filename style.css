@@ -1016,9 +1016,9 @@ a {
 
 .footer-signature-wrap {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
 }
 
 .footer-signature {
