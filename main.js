@@ -38,6 +38,21 @@ function applyTranslations(lang) {
       : t.heroTitle;
   }
 
+  // Talk 1 subtitle
+  const talk1Subtitle = document.querySelector('[data-i18n="talk1Subtitle"]');
+  if (talk1Subtitle && t.talk1Subtitle) {
+    talk1Subtitle.textContent = t.talk1Subtitle;
+  }
+
+  // Talk 1 description — multi-paragraph
+  const talk1Desc = document.querySelector('[data-i18n="talk1Desc"]');
+  if (talk1Desc && t.talk1Desc) {
+    talk1Desc.innerHTML = t.talk1Desc
+      .split('\n\n')
+      .map(p => `<p>${p}</p>`)
+      .join('');
+  }
+
   // Lang toggle button text + aria-label
   const toggleBtn = document.getElementById('lang-toggle');
   if (toggleBtn) {

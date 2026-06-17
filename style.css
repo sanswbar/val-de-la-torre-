@@ -517,17 +517,30 @@ a {
   font-weight: 300;
   font-style: italic;
   line-height: 1.1;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: var(--black);
 }
 
-.talk-card p {
+.talk-card-subtitle {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--gray-mid);
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+
+.talk-card p,
+.talk1-desc p {
   font-size: 15px;
   font-weight: 300;
   line-height: 1.8;
   color: var(--gray-mid);
-  margin-bottom: 28px;
+  margin-bottom: 16px;
+}
+
+.talk1-desc {
   flex-grow: 1;
+  margin-bottom: 12px;
 }
 
 .talk-audience {
