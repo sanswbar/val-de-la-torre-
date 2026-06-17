@@ -1151,17 +1151,21 @@ a {
 
   /* Hero */
   .hero {
-    grid-template-rows: 75vw 1fr;
+    grid-template-rows: 100vw 1fr;
   }
 
   .hero-photo-side {
-    min-height: 75vw;
+    min-height: 100vw;
     order: -1;
   }
 
   .hero-text-side {
     padding: 36px 20px 88px;
     order: 1;
+  }
+
+  .site-header.on-dark .site-name {
+    color: var(--white);
   }
 
   .hero-title {
