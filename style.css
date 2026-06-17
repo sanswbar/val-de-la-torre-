@@ -1183,16 +1183,21 @@ a {
 
   /* Quote */
   .quote-strip {
-    padding: 24px 16px;
+    padding: 16px;
   }
 
   .quote-mujica {
     width: 100%;
-    padding: 18px 24px;
+    padding: 16px 24px;
   }
 
   .quote-mujica p {
-    font-size: 1.2rem;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  .quote-mujica cite {
+    font-size: 9px;
   }
 
   /* About */
