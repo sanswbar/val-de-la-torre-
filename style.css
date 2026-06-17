@@ -528,7 +528,32 @@ a {
   font-style: italic;
   color: var(--gray-dark);
   letter-spacing: 0.01em;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+}
+
+.talk-card-semblanza {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--gray-mid);
+  margin-bottom: 28px;
+}
+
+.talk-card-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--sand-dark);
+  margin: 28px 0;
+}
+
+.talk-card-name2 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  color: var(--black);
 }
 
 .talk-card p,
