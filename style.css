@@ -1157,6 +1157,7 @@ a {
   .hero-photo-side {
     min-height: 100vw;
     order: -1;
+    background-position: center 20%;
   }
 
   .hero-text-side {
@@ -1164,8 +1165,13 @@ a {
     order: 1;
   }
 
-  .site-header.on-dark .site-name {
+  .site-header .site-name {
     color: var(--white);
+  }
+
+  .site-header .lang-toggle {
+    color: var(--white);
+    border-color: rgba(255,255,255,0.5);
   }
 
   .hero-title {
