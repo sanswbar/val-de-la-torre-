@@ -1069,11 +1069,13 @@ a {
 
   .hero-photo-side {
     min-height: 56vw;
+    order: -1;
   }
 
   .hero-text-side {
     justify-content: flex-start;
     padding: 56px 36px 72px;
+    order: 1;
   }
 
   .about .container {
@@ -1154,10 +1156,12 @@ a {
 
   .hero-photo-side {
     min-height: 75vw;
+    order: -1;
   }
 
   .hero-text-side {
     padding: 36px 20px 88px;
+    order: 1;
   }
 
   .hero-title {
