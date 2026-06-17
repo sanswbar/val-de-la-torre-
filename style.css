@@ -497,9 +497,10 @@ a {
 
 .talk-card-body {
   padding: 36px 48px 48px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr auto;
   flex-grow: 1;
+  gap: 0;
 }
 
 .talk-card-label {
