@@ -44,8 +44,8 @@ function applyTranslations(lang) {
     if (el) el.textContent = t[key] || '';
   });
 
-  // Talk descriptions — multi-paragraph
-  ['talk1Desc', 'talk2Desc'].forEach(key => {
+  // Multi-paragraph fields
+  ['talk1Desc', 'talk2Desc', 'tedDesc'].forEach(key => {
     const el = document.querySelector(`[data-i18n="${key}"]`);
     if (el && t[key]) {
       el.innerHTML = t[key].split('\n\n').map(p => `<p>${p}</p>`).join('');

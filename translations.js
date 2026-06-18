@@ -34,7 +34,7 @@ const translations = {
     // TED
     tedTitle: "No hay prótesis para un espíritu amputado",
     tedLabel: "TEDx · Universidad Panamericana Guadalajara",
-    tedDesc: "Hay barreras que no se ven pero pesan más que cualquier limitación física. En esta TED hablo de lo que encontré después del accidente: que la gratitud, la esperanza y la presencia son las únicas prótesis que el espíritu necesita.",
+    tedDesc: "Cuando enfrentamos una pérdida, una crisis o un cambio profundo, solemos enfocarnos en aquello que ocurrió por fuera. Sin embargo, las batallas más difíciles suelen librarse en otro lugar: en nuestras creencias, nuestros miedos, nuestra esperanza y nuestra capacidad de imaginar un futuro distinto.\n\nA partir de la poderosa analogía detrás de su título, esta TEDx Talk reflexiona sobre aquello para lo que no existen prótesis ni soluciones externas: la voluntad de seguir adelante, la capacidad de adaptarnos y la decisión de no permitir que las circunstancias amputen nuestra forma de vivir, soñar y encontrar sentido. Una invitación a explorar la fortaleza humana que emerge cuando todo parece haberse roto.",
     tedCTA: "Ver TED",
 
     // Brands

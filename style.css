@@ -748,10 +748,15 @@ a {
 }
 
 .ted-desc {
-  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.ted-desc p {
+  font-size: 15px;
   font-weight: 300;
   line-height: 1.8;
-  margin-bottom: 32px;
+  color: var(--gray-dark);
+  margin-bottom: 20px;
 }
 
 .ted-media {
