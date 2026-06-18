@@ -110,7 +110,7 @@ const translations = {
     // TED
     tedTitle: "There's no prosthesis for an amputated spirit",
     tedLabel: "TEDx · Universidad Panamericana Guadalajara",
-    tedDesc: "When we face loss, crisis, or deep change, we tend to focus on what happened on the outside. But the hardest battles are fought somewhere else — in our beliefs, our fears, our hope, and our ability to imagine a different future.\n\nUsing the striking analogy at its heart, this TEDx Talk explores what no prosthesis can replace: the will to keep going, the ability to adapt, and the choice not to let circumstances define how we live, dream, and find meaning. An invitation to discover the strength that surfaces when everything seems broken.",
+    tedDesc: "When we face loss, crisis, or deep change, we tend to focus on what happened on the outside. But the hardest battles are fought somewhere else — in our beliefs, our fears, our hope, and our ability to imagine a different future.\n\nBuilt around the powerful analogy in its title, this TEDx Talk explores what no prosthesis can replace: the will to keep going, the ability to adapt, and the choice not to let circumstances define how we live, dream, and find meaning. An invitation to discover the strength that surfaces when everything seems broken.",
     tedCTA: "Watch TED",
 
     // Brands
