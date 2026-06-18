@@ -194,6 +194,75 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// ── Brands carousel: drag / swipe to scrub ──────────────────────
+
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.brands-track');
+  const wrap  = document.querySelector('.brands-track-wrap');
+  if (!track || !wrap) return;
+
+  let isDragging = false;
+  let startX = 0;
+  let currentOffset = 0;
+  let animOffset = 0;
+  let rafId = null;
+  const SPEED = 0.04; // px per ms for auto-scroll
+
+  // Read current CSS animation progress and convert to a pixel offset
+  function getAnimOffset() {
+    const halfWidth = track.scrollWidth / 2;
+    const elapsed = performance.now();
+    const duration = 28000;
+    return (elapsed % duration) / duration * halfWidth;
+  }
+
+  function startDrag(x) {
+    isDragging = true;
+    startX = x;
+    animOffset = getAnimOffset();
+    currentOffset = animOffset;
+    track.style.animationPlayState = 'paused';
+    track.style.animation = 'none';
+    track.style.transform = `translateX(${-currentOffset}px)`;
+    cancelAnimationFrame(rafId);
+  }
+
+  function moveDrag(x) {
+    if (!isDragging) return;
+    const delta = startX - x;
+    const halfWidth = track.scrollWidth / 2;
+    currentOffset = ((animOffset + delta) % halfWidth + halfWidth) % halfWidth;
+    track.style.transform = `translateX(${-currentOffset}px)`;
+  }
+
+  function endDrag() {
+    if (!isDragging) return;
+    isDragging = false;
+    // Resume auto-scroll from current position
+    let last = performance.now();
+    function autoScroll(now) {
+      const dt = now - last;
+      last = now;
+      const halfWidth = track.scrollWidth / 2;
+      currentOffset = (currentOffset + dt * SPEED) % halfWidth;
+      track.style.transform = `translateX(${-currentOffset}px)`;
+      rafId = requestAnimationFrame(autoScroll);
+    }
+    rafId = requestAnimationFrame(autoScroll);
+  }
+
+  // Touch
+  wrap.addEventListener('touchstart', e => startDrag(e.touches[0].clientX), { passive: true });
+  wrap.addEventListener('touchmove',  e => moveDrag(e.touches[0].clientX),  { passive: true });
+  wrap.addEventListener('touchend',   endDrag);
+
+  // Mouse
+  wrap.addEventListener('mousedown', e => { startDrag(e.clientX); e.preventDefault(); });
+  window.addEventListener('mousemove', e => moveDrag(e.clientX));
+  window.addEventListener('mouseup', endDrag);
+});
+
+
 // ── Smooth scroll for anchor CTAs ───────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {

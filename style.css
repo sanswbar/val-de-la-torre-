@@ -1481,11 +1481,11 @@ a {
   }
 
   .brand-slot {
-    width: 80px;
+    width: 110px;
   }
 
   .brand-logo {
-    transform: scale(0.7);
+    transform: scale(0.85);
   }
 
   /* ── Contact ── */
