@@ -32,8 +32,10 @@ const translations = {
     talkCTA: "Quiero esta conferencia",
 
     // TED
-    tedTitle: "Mi TED Talk",
-    tedDesc: "Próximamente.",
+    tedTitle: "No hay prótesis para un espíritu amputado",
+    tedLabel: "TEDx · Universidad Panamericana Guadalajara",
+    tedDesc: "Hay barreras que no se ven pero pesan más que cualquier limitación física. En esta TED hablo de lo que encontré después del accidente: que la gratitud, la esperanza y la presencia son las únicas prótesis que el espíritu necesita.",
+    tedCTA: "Ver TED",
 
     // Brands
     brandsTitle: "Marcas con las que he trabajado",
@@ -98,8 +100,10 @@ const translations = {
     talkCTA: "I want this talk",
 
     // TED
-    tedTitle: "My TED Talk",
-    tedDesc: "Coming soon.",
+    tedTitle: "There's no prosthesis for an amputated spirit",
+    tedLabel: "TEDx · Universidad Panamericana Guadalajara",
+    tedDesc: "There are barriers you can't see that weigh more than any physical limitation. In this TED I talk about what I found after the accident: that gratitude, hope, and presence are the only prosthetics the spirit needs.",
+    tedCTA: "Watch TED",
 
     // Brands
     brandsTitle: "Brands I've worked with",
