@@ -729,8 +729,20 @@ a {
    ============================================= */
 
 .ted-section {
-  background-color: var(--off-white);
+  background-color: var(--black);
   padding: var(--section-padding);
+}
+
+.ted-section .section-label {
+  color: var(--gray-mid);
+}
+
+.ted-section .section-title {
+  color: var(--white);
+}
+
+.ted-desc {
+  color: var(--gray-light);
 }
 
 .ted-layout {
@@ -750,7 +762,6 @@ a {
   font-size: 16px;
   font-weight: 300;
   line-height: 1.8;
-  color: var(--gray-mid);
 }
 
 .ted-media {
