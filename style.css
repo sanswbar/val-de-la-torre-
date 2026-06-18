@@ -1470,7 +1470,11 @@ a {
   }
 
   .brand-slot {
-    width: 110px;
+    width: 80px;
+  }
+
+  .brand-logo {
+    transform: scale(0.7);
   }
 
   /* ── Contact ── */
