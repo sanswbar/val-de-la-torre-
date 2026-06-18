@@ -374,6 +374,7 @@ a {
   font-weight: 300;
   line-height: 1.9;
   color: var(--gray-dark);
+  text-align: justify;
   margin-bottom: 22px;
 }
 
@@ -572,6 +573,7 @@ a {
   line-height: 1.8;
   color: var(--gray-mid);
   margin-bottom: 16px;
+  text-align: justify;
 }
 
 .talk1-desc {
@@ -763,6 +765,7 @@ a {
   line-height: 1.8;
   color: var(--gray-dark);
   margin-bottom: 20px;
+  text-align: justify;
 }
 
 .ted-media {
