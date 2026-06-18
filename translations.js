@@ -82,9 +82,9 @@ const translations = {
 
     // About
     aboutTitle: "Who I am",
-    aboutText1: "I'm Valeria de la Torre — speaker, content creator, and passionate storyteller of human transformation. For years, I found in the mountains, travel, and movement a way to explore my limits and discover what I was capable of. In 2024, an accident changed my life forever and forced me to rebuild it from scratch.",
-    aboutText2: "That process led me to rethink some of the most important questions we can ask ourselves: who we are when life changes our plans, how we face uncertainty, and what allows us to keep going when the path becomes difficult. Since then, I have dedicated my work to sharing those reflections through talks, content, and conversations that seek to inspire, support, and offer new perspectives on adversity, adaptation, and growth.",
-    aboutText3: "Today I continue building a life full of challenges, learning, and new dreams. I deeply believe in the human capacity to rebuild, in the power of community, and in the fact that our most difficult experiences often end up revealing strengths we never knew we had.",
+    aboutText1: "I'm Valeria de la Torre — speaker, content creator, and storyteller of human transformation. For years, the mountains, travel, and movement were my way of testing my limits and finding out what I was made of. In 2024, an accident changed everything and forced me to start over.",
+    aboutText2: "That experience pushed me to sit with some of life's hardest questions: who are we when things don't go as planned, how do we face uncertainty, and what keeps us going when the road gets tough? Since then, my work has been about sharing those answers — through talks, content, and conversations that inspire people to see adversity, change, and growth differently.",
+    aboutText3: "Today I'm building a life full of challenges, learning, and new dreams. I believe deeply in our ability to rebuild, in the strength that comes from community, and in the idea that our hardest moments often bring out the best in us.",
 
     // Talks
     talksLabel: "Talks",
@@ -92,21 +92,21 @@ const translations = {
     talksTEDCredential: "TED Talk · International speaker",
     talk1Name: "The mountain I didn't choose",
     talk1Subtitle: "A story about loss, adaptation, and the decision to keep going.",
-    talk1Desc: "A testimonial talk that invites reflection on the adversities we don't choose and the human capacity to keep moving forward when life changes for good.",
+    talk1Desc: "A personal talk that invites audiences to reflect on the adversities we don't get to choose — and the remarkable human ability to keep moving forward when life changes for good.",
     talk1Name2: "From survival to reconstruction",
     talk1Subtitle2: "A practical method to rebuild yourself when life changes your plans.",
-    talk1Desc2: "A talk built around five phases that help transform adversity into growth, regain a sense of control, build confidence, and develop a new vision for the future.",
+    talk1Desc2: "A talk built around five phases for turning adversity into growth: regaining a sense of control, rebuilding confidence, and finding a new vision for the future.",
     talk1Audience: "All audiences",
     talk2Name: "From survival to reconstruction",
     talk2Subtitle: "A practical method to rebuild yourself when life changes your plans.",
-    talk2Desc: "A talk built around five phases that help transform adversity into growth, regain a sense of control, build confidence, and develop a new vision for the future.",
+    talk2Desc: "A talk built around five phases for turning adversity into growth: regaining a sense of control, rebuilding confidence, and finding a new vision for the future.",
     talk2Audience: "All audiences",
     talkCTA: "Book this talk",
 
     // TED
     tedTitle: "There's no prosthesis for an amputated spirit",
     tedLabel: "TEDx · Universidad Panamericana Guadalajara",
-    tedDesc: "When we face a loss, a crisis, or a profound change, we tend to focus on what happened on the outside. Yet the hardest battles are usually fought somewhere else: in our beliefs, our fears, our hope, and our capacity to imagine a different future.\n\nDrawing on the powerful analogy behind its title, this TEDx Talk reflects on what no prosthesis or external solution can replace: the will to keep going, the capacity to adapt, and the decision not to let circumstances amputate our way of living, dreaming, and finding meaning. An invitation to explore the human strength that emerges when everything seems to have fallen apart.",
+    tedDesc: "When we face loss, crisis, or deep change, we tend to focus on what happened on the outside. But the hardest battles are fought somewhere else — in our beliefs, our fears, our hope, and our ability to imagine a different future.\n\nUsing the striking analogy at its heart, this TEDx Talk explores what no prosthesis can replace: the will to keep going, the ability to adapt, and the choice not to let circumstances define how we live, dream, and find meaning. An invitation to discover the strength that surfaces when everything seems broken.",
     tedCTA: "Watch TED",
 
     // Brands
