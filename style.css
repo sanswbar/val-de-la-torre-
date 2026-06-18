@@ -321,6 +321,7 @@ a {
 
 .about .container {
   display: block;
+  padding: 0 40px;
 }
 
 .about-grid {
