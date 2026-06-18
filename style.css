@@ -204,7 +204,7 @@ a {
   background-image: url('assets/images/hero-val.jpg');
   background-color: var(--sand-dark);
   background-size: cover;
-  background-position: center top;
+  background-position: center 28%;
 }
 
 
