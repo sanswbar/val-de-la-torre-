@@ -729,20 +729,8 @@ a {
    ============================================= */
 
 .ted-section {
-  background-color: var(--black);
+  background-color: var(--sand);
   padding: var(--section-padding);
-}
-
-.ted-section .section-label {
-  color: var(--gray-mid);
-}
-
-.ted-section .section-title {
-  color: var(--white);
-}
-
-.ted-desc {
-  color: var(--gray-light);
 }
 
 .ted-layout {
