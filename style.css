@@ -1386,6 +1386,12 @@ a {
   .about-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+    width: 100%;
+  }
+
+  .about-text {
+    width: 100%;
+    overflow: hidden;
   }
 
   .about-photo-wrap {
