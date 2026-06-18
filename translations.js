@@ -16,6 +16,7 @@ const translations = {
     aboutText3: "Hoy continúo construyendo una vida llena de retos, aprendizaje y nuevos sueños. Creo profundamente en la capacidad humana de reconstruirse, en el poder de la comunidad y en que muchas veces las experiencias más difíciles terminan revelándonos fortalezas que no sabíamos que teníamos.",
 
     // Talks
+    talksLabel: "Conferencias",
     talksTitle: "Mis conferencias",
     talksTEDCredential: "TED Talk · Oradora internacional",
     talk1Name: "La montaña que no elegí",
@@ -38,9 +39,11 @@ const translations = {
     tedCTA: "Ver TED",
 
     // Brands
+    brandsLabel: "Colaboraciones",
     brandsTitle: "Marcas con las que he trabajado",
 
     // Contact
+    contactLabel: "Contacto",
     contactTitle: "Trabajemos juntos",
     contactSubtitle: "Cuéntame qué tienes en mente. Leo cada mensaje y respondo personalmente.",
     fieldName: "Nombre completo",
@@ -84,6 +87,7 @@ const translations = {
     aboutText3: "I believe strength isn't about not falling. It's about what you decide to do on the floor.",
 
     // Talks
+    talksLabel: "Talks",
     talksTitle: "My talks",
     talksTEDCredential: "TED Talk · International speaker",
     talk1Name: "The mountain I didn't choose",
@@ -106,9 +110,11 @@ const translations = {
     tedCTA: "Watch TED",
 
     // Brands
+    brandsLabel: "Collaborations",
     brandsTitle: "Brands I've worked with",
 
     // Contact
+    contactLabel: "Contact",
     contactTitle: "Let's work together",
     contactSubtitle: "Tell me what you have in mind. I read every message and reply personally.",
     fieldName: "Full name",

@@ -396,11 +396,11 @@ a {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 64px;
+  margin-bottom: 26px;
 }
 
 .talks-header .section-title {
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 
 .ted-credential {
