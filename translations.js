@@ -82,9 +82,9 @@ const translations = {
 
     // About
     aboutTitle: "Who I am",
-    aboutText1: "I'm Valeria de la Torre — speaker, content creator, and storyteller of human transformation. For years, the mountains, travel, and movement were my way of testing my limits and finding out what I was made of. In 2024, an accident changed everything and forced me to start over.",
-    aboutText2: "That experience pushed me to sit with some of life's hardest questions: who are we when things don't go as planned, how do we face uncertainty, and what keeps us going when the road gets tough? Since then, my work has been about sharing those answers — through talks, content, and conversations that inspire people to see adversity, change, and growth differently.",
-    aboutText3: "Today I'm building a life full of challenges, learning, and new dreams. I believe deeply in our ability to rebuild, in the strength that comes from community, and in the idea that our hardest moments often bring out the best in us.",
+    aboutText1: "I'm Valeria de la Torre — speaker, content creator, and deeply passionate about stories of human transformation. For years, I found in the mountains, travel, and movement a way to explore my limits and discover what I was capable of. In 2024, an accident changed my life forever and forced me to rebuild it from scratch.",
+    aboutText2: "That process led me to rethink some of the most important questions we can ask ourselves: who we are when life changes our plans, how we face uncertainty, and what allows us to keep going when the path gets hard. Since then, I have dedicated my work to sharing those reflections through talks, content, and conversations that seek to inspire, support, and offer new perspectives on adversity, adaptation, and growth.",
+    aboutText3: "Today I continue building a life full of challenges, learning, and new dreams. I deeply believe in the human capacity to rebuild, in the power of community, and in the idea that our most difficult experiences often end up revealing strengths we never knew we had.",
 
     // Talks
     talksLabel: "Talks",
