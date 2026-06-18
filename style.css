@@ -320,6 +320,14 @@ a {
 }
 
 .about .container {
+  display: block;
+}
+
+.about-header {
+  margin-bottom: 48px;
+}
+
+.about-grid {
   display: grid;
   grid-template-columns: 5fr 6fr;
   gap: 96px;
@@ -357,14 +365,6 @@ a {
   font-family: var(--font-body);
   text-transform: uppercase;
   line-height: 1.8;
-}
-
-.about-text {
-  padding-top: 0;
-}
-
-.about-text .section-label {
-  margin-top: 0;
 }
 
 .about-text .section-title {
