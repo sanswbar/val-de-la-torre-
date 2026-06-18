@@ -1376,7 +1376,7 @@ a {
 
   /* About */
   .about {
-    padding: 48px 20px 72px;
+    padding: 48px 0 72px;
   }
 
   .about .container {
@@ -1390,13 +1390,24 @@ a {
 
   .about-photo-wrap {
     aspect-ratio: 4 / 3;
-    max-height: 280px;
+    max-height: 300px;
     margin-top: 0;
+    width: 100%;
   }
 
   .about-text p {
     font-size: 15px;
     text-align: left;
+  }
+
+  .about-text .section-title {
+    font-size: clamp(36px, 10vw, 52px);
+    margin-bottom: 24px;
+  }
+
+  /* TED */
+  .ted-section {
+    padding: 64px 20px;
   }
 
   .ted-layout {
@@ -1406,15 +1417,25 @@ a {
 
   .ted-media {
     margin-top: 0;
+    aspect-ratio: 16 / 9;
   }
 
   .ted-desc p {
     text-align: left;
   }
 
+  .ted-text .section-title {
+    font-size: clamp(24px, 7vw, 36px);
+  }
+
+  /* Talks */
   .talk-card p,
   .talk1-desc p {
     text-align: left;
+  }
+
+  .talk-card-subtitle {
+    font-size: clamp(20px, 6vw, 28px);
   }
 
   /* Talks */
