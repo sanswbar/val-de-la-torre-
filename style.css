@@ -24,7 +24,7 @@
   --font-body: 'Jost', 'Helvetica Neue', sans-serif;
   --radius: 2px;
   --transition: 200ms ease;
-  --section-padding: 120px 24px;
+  --section-padding: 120px 40px;
   --max-width: 1120px;
 }
 
@@ -214,7 +214,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 80px 64px 80px 72px;
+  padding: 80px 64px 80px 64px;
 }
 
 .hero-title {
@@ -281,7 +281,7 @@ a {
   background-color: var(--white);
   display: flex;
   justify-content: center;
-  padding: 40px 24px 6px;
+  padding: 40px 40px 6px;
 }
 
 .quote-mujica {
@@ -316,7 +316,7 @@ a {
 
 .about {
   background-color: var(--white);
-  padding: 40px 24px 120px;
+  padding: 40px 40px 120px;
 }
 
 .about .container {
