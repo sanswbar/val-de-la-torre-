@@ -323,15 +323,15 @@ a {
   display: block;
 }
 
-.about-header {
-  margin-bottom: 48px;
-}
-
 .about-grid {
   display: grid;
   grid-template-columns: 5fr 6fr;
   gap: 96px;
   align-items: start;
+}
+
+.about-photo-wrap {
+  margin-top: 120px;
 }
 
 .about-photo-wrap {
