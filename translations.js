@@ -76,15 +76,15 @@ const translations = {
     langToggleLabel: "Cambiar a español",
 
     // Hero
-    heroTitle: "Redefining\nthe limits.",
+    heroTitle: "Redefining\nlimits.",
     heroSubtitle: "Speaker · Content creator",
     heroCTA: "Let's work together",
 
     // About
     aboutTitle: "Who I am",
-    aboutText1: "I'm Valeria de la Torre — speaker, content creator, and someone deeply passionate about stories of human transformation. For years I found in the mountains, travel, and movement a way to explore my limits and discover what I was capable of. In 2024, an accident changed my life forever and forced me to rebuild it from scratch.",
-    aboutText2: "That process led me to rethink many of the most important questions we can ask ourselves: who we are when life changes our plans, how we face uncertainty, and what allows us to keep going when the path becomes difficult. Since then, I have dedicated my work to sharing those reflections through talks, content, and conversations that seek to inspire, accompany, and generate new perspectives on adversity, adaptation, and growth.",
-    aboutText3: "Today I continue building a life full of challenges, learning, and new dreams. I deeply believe in the human capacity to rebuild, in the power of community, and in the fact that often our most difficult experiences end up revealing strengths we didn't know we had.",
+    aboutText1: "I'm Valeria de la Torre — speaker, content creator, and passionate storyteller of human transformation. For years, I found in the mountains, travel, and movement a way to explore my limits and discover what I was capable of. In 2024, an accident changed my life forever and forced me to rebuild it from scratch.",
+    aboutText2: "That process led me to rethink some of the most important questions we can ask ourselves: who we are when life changes our plans, how we face uncertainty, and what allows us to keep going when the path becomes difficult. Since then, I have dedicated my work to sharing those reflections through talks, content, and conversations that seek to inspire, support, and offer new perspectives on adversity, adaptation, and growth.",
+    aboutText3: "Today I continue building a life full of challenges, learning, and new dreams. I deeply believe in the human capacity to rebuild, in the power of community, and in the fact that our most difficult experiences often end up revealing strengths we never knew we had.",
 
     // Talks
     talksLabel: "Talks",
@@ -92,21 +92,21 @@ const translations = {
     talksTEDCredential: "TED Talk · International speaker",
     talk1Name: "The mountain I didn't choose",
     talk1Subtitle: "A story about loss, adaptation, and the decision to keep going.",
-    talk1Desc: "A testimonial talk that invites reflection on the adversities we don't choose and the human capacity to keep moving forward when life changes forever.",
+    talk1Desc: "A testimonial talk that invites reflection on the adversities we don't choose and the human capacity to keep moving forward when life changes for good.",
     talk1Name2: "From survival to reconstruction",
     talk1Subtitle2: "A practical method to rebuild yourself when life changes your plans.",
-    talk1Desc2: "A talk based on five phases that help transform adversity into growth, regain control, develop confidence, and build a new vision for the future.",
+    talk1Desc2: "A talk built around five phases that help transform adversity into growth, regain a sense of control, build confidence, and develop a new vision for the future.",
     talk1Audience: "All audiences",
     talk2Name: "From survival to reconstruction",
     talk2Subtitle: "A practical method to rebuild yourself when life changes your plans.",
-    talk2Desc: "A talk based on five phases that help transform adversity into growth, regain control, develop confidence, and build a new vision for the future.",
+    talk2Desc: "A talk built around five phases that help transform adversity into growth, regain a sense of control, build confidence, and develop a new vision for the future.",
     talk2Audience: "All audiences",
-    talkCTA: "I want this talk",
+    talkCTA: "Book this talk",
 
     // TED
     tedTitle: "There's no prosthesis for an amputated spirit",
     tedLabel: "TEDx · Universidad Panamericana Guadalajara",
-    tedDesc: "When we face a loss, a crisis, or a profound change, we tend to focus on what happened on the outside. Yet the hardest battles are usually fought somewhere else: in our beliefs, our fears, our hope, and our capacity to imagine a different future.\n\nDrawing on the powerful analogy behind its title, this TEDx Talk reflects on what no prosthesis or external solution can replace: the will to keep going, the capacity to adapt, and the decision not to let circumstances amputate our way of living, dreaming, and finding meaning. An invitation to explore the human strength that emerges when everything seems to have broken apart.",
+    tedDesc: "When we face a loss, a crisis, or a profound change, we tend to focus on what happened on the outside. Yet the hardest battles are usually fought somewhere else: in our beliefs, our fears, our hope, and our capacity to imagine a different future.\n\nDrawing on the powerful analogy behind its title, this TEDx Talk reflects on what no prosthesis or external solution can replace: the will to keep going, the capacity to adapt, and the decision not to let circumstances amputate our way of living, dreaming, and finding meaning. An invitation to explore the human strength that emerges when everything seems to have fallen apart.",
     tedCTA: "Watch TED",
 
     // Brands
@@ -128,7 +128,7 @@ const translations = {
     fieldTypeOther: "Other",
     fieldDate: "Estimated date of event or collaboration",
     fieldDatePlaceholder: "E.g. September 2025, Q1 2026…",
-    fieldDesc: "What do you want to work on together?",
+    fieldDesc: "What would you like to work on together?",
     fieldDescPlaceholder: "Tell me about your audience, what you hope to achieve, and any relevant details.",
     submitBtn: "Send",
     successMsg: "Got your message — I'll be in touch soon.",
