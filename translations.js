@@ -82,9 +82,9 @@ const translations = {
 
     // About
     aboutTitle: "Who I am",
-    aboutText1: "After being hit by a car in December 2024, I lost both legs. Today I share my process, my mindset, and what I learned about real strength.",
-    aboutText2: "What I went through gave me clarity about the mind, the body, and the discipline it takes to keep going. That's what I bring to stages, brands, and screens. Not as theory. As lived experience.",
-    aboutText3: "I believe strength isn't about not falling. It's about what you decide to do on the floor.",
+    aboutText1: "I'm Valeria de la Torre — speaker, content creator, and someone deeply passionate about stories of human transformation. For years I found in the mountains, travel, and movement a way to explore my limits and discover what I was capable of. In 2024, an accident changed my life forever and forced me to rebuild it from scratch.",
+    aboutText2: "That process led me to rethink many of the most important questions we can ask ourselves: who we are when life changes our plans, how we face uncertainty, and what allows us to keep going when the path becomes difficult. Since then, I have dedicated my work to sharing those reflections through talks, content, and conversations that seek to inspire, accompany, and generate new perspectives on adversity, adaptation, and growth.",
+    aboutText3: "Today I continue building a life full of challenges, learning, and new dreams. I deeply believe in the human capacity to rebuild, in the power of community, and in the fact that often our most difficult experiences end up revealing strengths we didn't know we had.",
 
     // Talks
     talksLabel: "Talks",
@@ -106,7 +106,7 @@ const translations = {
     // TED
     tedTitle: "There's no prosthesis for an amputated spirit",
     tedLabel: "TEDx · Universidad Panamericana Guadalajara",
-    tedDesc: "There are barriers you can't see that weigh more than any physical limitation. In this TED I talk about what I found after the accident: that gratitude, hope, and presence are the only prosthetics the spirit needs.",
+    tedDesc: "When we face a loss, a crisis, or a profound change, we tend to focus on what happened on the outside. Yet the hardest battles are usually fought somewhere else: in our beliefs, our fears, our hope, and our capacity to imagine a different future.\n\nDrawing on the powerful analogy behind its title, this TEDx Talk reflects on what no prosthesis or external solution can replace: the will to keep going, the capacity to adapt, and the decision not to let circumstances amputate our way of living, dreaming, and finding meaning. An invitation to explore the human strength that emerges when everything seems to have broken apart.",
     tedCTA: "Watch TED",
 
     // Brands
