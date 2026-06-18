@@ -1409,7 +1409,9 @@ a {
   .about-text p {
     font-size: 15px;
     line-height: 1.8;
-    text-align: left;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
   }
 
   /* ── Talks ── */
@@ -1439,7 +1441,9 @@ a {
   .talk-card p,
   .talk1-desc p {
     font-size: 14px;
-    text-align: left;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
   }
 
   /* ── TED ── */
@@ -1466,7 +1470,9 @@ a {
 
   .ted-desc p {
     font-size: 14px;
-    text-align: left;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
   }
 
   /* ── Brands ── */
@@ -1494,7 +1500,9 @@ a {
   }
 
   .contact-intro p {
-    text-align: left;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
   }
 
   .form-row {
