@@ -331,14 +331,11 @@ a {
 }
 
 .about-photo-wrap {
-  margin-top: 120px;
-}
-
-.about-photo-wrap {
   position: relative;
   aspect-ratio: 4 / 5;
   background-color: var(--sand);
   overflow: hidden;
+  margin-top: 160px;
 }
 
 .about-photo-wrap img {
