@@ -1296,14 +1296,14 @@ a {
 
 @media (max-width: 640px) {
   :root {
-    --section-padding: 64px 20px;
+    --section-padding: 56px 20px;
   }
 
   .container {
     padding: 0 20px;
   }
 
-  /* Header */
+  /* ── Header ── */
   .site-header {
     padding: 18px 20px;
   }
@@ -1311,11 +1311,19 @@ a {
   .site-name {
     font-size: 9px;
     letter-spacing: 0.12em;
+    color: var(--white);
   }
 
-  /* Hero */
+  .site-header .lang-toggle {
+    color: var(--white);
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  /* ── Hero ── */
   .hero {
-    grid-template-rows: 100vw 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100vw auto;
+    min-height: unset;
   }
 
   .hero-photo-side {
@@ -1327,19 +1335,11 @@ a {
   .hero-text-side {
     padding: 36px 20px 48px;
     order: 1;
-  }
-
-  .site-header .site-name {
-    color: var(--white);
-  }
-
-  .site-header .lang-toggle {
-    color: var(--white);
-    border-color: rgba(255,255,255,0.5);
+    justify-content: flex-start;
   }
 
   .hero-title {
-    font-size: clamp(40px, 11vw, 60px);
+    font-size: clamp(38px, 10vw, 56px);
   }
 
   .hero-subtitle {
@@ -1355,18 +1355,18 @@ a {
     display: block;
   }
 
-  /* Quote */
+  /* ── Quote ── */
   .quote-strip {
-    padding: 16px;
+    padding: 20px 20px 8px;
   }
 
   .quote-mujica {
     width: 100%;
-    padding: 16px 24px;
+    padding: 12px 20px;
   }
 
   .quote-mujica p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     margin-bottom: 8px;
   }
 
@@ -1374,9 +1374,9 @@ a {
     font-size: 9px;
   }
 
-  /* About */
+  /* ── About ── */
   .about {
-    padding: 48px 0 72px;
+    padding: 48px 0 64px;
   }
 
   .about .container {
@@ -1385,60 +1385,28 @@ a {
 
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 24px;
   }
 
   .about-photo-wrap {
-    aspect-ratio: 4 / 3;
-    max-height: 300px;
-    margin-top: 0;
     width: 100%;
+    aspect-ratio: 4 / 3;
+    max-height: 280px;
+    margin-top: 0;
+  }
+
+  .about-text .section-title {
+    font-size: clamp(32px, 9vw, 48px);
+    margin-bottom: 20px;
   }
 
   .about-text p {
     font-size: 15px;
+    line-height: 1.8;
     text-align: left;
   }
 
-  .about-text .section-title {
-    font-size: clamp(36px, 10vw, 52px);
-    margin-bottom: 24px;
-  }
-
-  /* TED */
-  .ted-section {
-    padding: 64px 20px;
-  }
-
-  .ted-layout {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .ted-media {
-    margin-top: 0;
-    aspect-ratio: 16 / 9;
-  }
-
-  .ted-desc p {
-    text-align: left;
-  }
-
-  .ted-text .section-title {
-    font-size: clamp(24px, 7vw, 36px);
-  }
-
-  /* Talks */
-  .talk-card p,
-  .talk1-desc p {
-    text-align: left;
-  }
-
-  .talk-card-subtitle {
-    font-size: clamp(20px, 6vw, 28px);
-  }
-
-  /* Talks */
+  /* ── Talks ── */
   .talks-grid {
     grid-template-columns: 1fr;
     gap: 2px;
@@ -1446,30 +1414,77 @@ a {
   }
 
   .talk-card-photo {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
   }
 
   .talk-card-body {
     padding: 28px 20px 36px;
   }
 
-  .talk-card-name {
-    font-size: 1.5rem;
+  .talk-card h3 {
+    font-size: clamp(26px, 7vw, 36px);
+    min-height: unset;
   }
 
-  /* Brands */
+  .talk-card-subtitle {
+    font-size: clamp(18px, 5vw, 24px);
+  }
+
+  .talk-card p,
+  .talk1-desc p {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  /* ── TED ── */
+  .ted-section {
+    padding: 56px 20px;
+  }
+
+  .ted-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .ted-media {
+    order: -1;
+    margin-top: 0;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+  }
+
+  .ted-text .section-title {
+    font-size: clamp(22px, 6vw, 32px);
+    margin-bottom: 16px;
+  }
+
+  .ted-desc p {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  /* ── Brands ── */
   .brands .section-title {
-    margin-bottom: 36px;
+    font-size: clamp(32px, 9vw, 48px);
+    margin-bottom: 32px;
   }
 
   .brand-slot {
-    width: 120px;
+    width: 110px;
   }
 
-  /* Contact */
+  /* ── Contact ── */
   .contact-layout {
     grid-template-columns: 1fr;
     gap: 36px;
+  }
+
+  .contact-intro .section-title {
+    font-size: clamp(32px, 9vw, 48px);
+  }
+
+  .contact-intro p {
+    text-align: left;
   }
 
   .form-row {
@@ -1477,21 +1492,31 @@ a {
     gap: 0;
   }
 
-  .contact-info h2 {
-    font-size: clamp(2rem, 9vw, 3rem);
+  /* ── Footer ── */
+  .site-footer {
+    padding: 24px 20px;
   }
 
-  /* Footer */
   .footer-inner {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px;
+    gap: 16px;
   }
 
   .footer-socials {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+  }
+
+  .footer-signature-wrap {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-signature {
+    width: 48px;
   }
 }
