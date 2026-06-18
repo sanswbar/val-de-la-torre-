@@ -316,7 +316,7 @@ a {
 
 .about {
   background-color: var(--white);
-  padding: 40px 40px 120px;
+  padding: 40px 0 120px;
 }
 
 .about .container {
