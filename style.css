@@ -729,7 +729,7 @@ a {
    ============================================= */
 
 .ted-section {
-  background-color: var(--sand);
+  background-color: var(--sand-dark);
   padding: var(--section-padding);
 }
 
