@@ -770,6 +770,7 @@ a {
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background-color: var(--sand);
+  margin-top: 108px;
 }
 
 .ted-media-link {
