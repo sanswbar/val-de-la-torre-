@@ -31,6 +31,10 @@ const translations = {
     talk2Audience: "Todo tipo de público",
     talkCTA: "Quiero esta conferencia",
 
+    // TED
+    tedTitle: "Mi TED Talk",
+    tedDesc: "Próximamente.",
+
     // Brands
     brandsTitle: "Marcas con las que he trabajado",
 
@@ -92,6 +96,10 @@ const translations = {
     talk2Desc: "A talk based on five phases that help transform adversity into growth, regain control, develop confidence, and build a new vision for the future.",
     talk2Audience: "All audiences",
     talkCTA: "I want this talk",
+
+    // TED
+    tedTitle: "My TED Talk",
+    tedDesc: "Coming soon.",
 
     // Brands
     brandsTitle: "Brands I've worked with",
