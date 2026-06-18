@@ -11,9 +11,9 @@ const translations = {
 
     // About
     aboutTitle: "Quién soy",
-    aboutText1: "A raíz de un atropello en diciembre de 2024 perdí ambas piernas. Hoy comparto mi proceso de adaptación, mi mentalidad y lo que aprendí sobre la fuerza real.",
-    aboutText2: "Lo que viví me dio claridad sobre la mente, el cuerpo y la disciplina que se necesita para seguir. Eso es lo que llevo a escenarios, marcas y pantallas. No como teoría. Como experiencia vivida.",
-    aboutText3: "Creo que la fortaleza no es no caerse. Es lo que decides hacer en el piso.",
+    aboutText1: "Soy Valeria de la Torre, conferencista, creadora de contenido y apasionada de las historias de transformación humana. Durante años encontré en la montaña, los viajes y el movimiento una forma de explorar mis límites y descubrir de lo que era capaz. En 2024, un accidente cambió mi vida para siempre y me obligó a reconstruirla desde cero.",
+    aboutText2: "Ese proceso me llevó a replantearme muchas de las preguntas más importantes que podemos hacernos: quiénes somos cuando la vida cambia nuestros planes, cómo enfrentamos la incertidumbre y qué nos permite seguir adelante cuando el camino se vuelve difícil. Desde entonces, he dedicado mi trabajo a compartir esas reflexiones a través de conferencias, contenido y conversaciones que buscan inspirar, acompañar y generar nuevas perspectivas sobre la adversidad, la adaptación y el crecimiento.",
+    aboutText3: "Hoy continúo construyendo una vida llena de retos, aprendizaje y nuevos sueños. Creo profundamente en la capacidad humana de reconstruirse, en el poder de la comunidad y en que muchas veces las experiencias más difíciles terminan revelándonos fortalezas que no sabíamos que teníamos.",
 
     // Talks
     talksTitle: "Mis conferencias",
