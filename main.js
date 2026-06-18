@@ -194,72 +194,72 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// ── Brands carousel: drag / swipe to scrub ──────────────────────
+// ── Brands carousel: JS-driven scroll with touch/drag ───────────
 
 document.addEventListener('DOMContentLoaded', () => {
   const track = document.querySelector('.brands-track');
   const wrap  = document.querySelector('.brands-track-wrap');
   if (!track || !wrap) return;
 
-  let isDragging = false;
-  let startX = 0;
-  let currentOffset = 0;
-  let animOffset = 0;
+  // Kill CSS animation — JS owns the scroll from here
+  track.style.animation = 'none';
+
+  const SPEED = 40; // px per second
+  let offset = 0;
+  let halfWidth = 0;
   let rafId = null;
-  const SPEED = 0.04; // px per ms for auto-scroll
+  let isDragging = false;
+  let dragStartX = 0;
+  let dragStartOffset = 0;
+  let last = performance.now();
 
-  // Read current CSS animation progress and convert to a pixel offset
-  function getAnimOffset() {
-    const halfWidth = track.scrollWidth / 2;
-    const elapsed = performance.now();
-    const duration = 28000;
-    return (elapsed % duration) / duration * halfWidth;
+  function getHalfWidth() {
+    return track.scrollWidth / 2;
   }
 
-  function startDrag(x) {
-    isDragging = true;
-    startX = x;
-    animOffset = getAnimOffset();
-    currentOffset = animOffset;
-    track.style.animationPlayState = 'paused';
-    track.style.animation = 'none';
-    track.style.transform = `translateX(${-currentOffset}px)`;
-    cancelAnimationFrame(rafId);
-  }
-
-  function moveDrag(x) {
-    if (!isDragging) return;
-    const delta = startX - x;
-    const halfWidth = track.scrollWidth / 2;
-    currentOffset = ((animOffset + delta) % halfWidth + halfWidth) % halfWidth;
-    track.style.transform = `translateX(${-currentOffset}px)`;
-  }
-
-  function endDrag() {
-    if (!isDragging) return;
-    isDragging = false;
-    // Resume auto-scroll from current position
-    let last = performance.now();
-    function autoScroll(now) {
-      const dt = now - last;
-      last = now;
-      const halfWidth = track.scrollWidth / 2;
-      currentOffset = (currentOffset + dt * SPEED) % halfWidth;
-      track.style.transform = `translateX(${-currentOffset}px)`;
-      rafId = requestAnimationFrame(autoScroll);
+  function tick(now) {
+    if (!isDragging) {
+      const dt = (now - last) / 1000;
+      halfWidth = getHalfWidth();
+      offset = (offset + SPEED * dt) % halfWidth;
+      track.style.transform = `translateX(${-offset}px)`;
     }
-    rafId = requestAnimationFrame(autoScroll);
+    last = now;
+    rafId = requestAnimationFrame(tick);
+  }
+
+  rafId = requestAnimationFrame(tick);
+
+  function onDragStart(x) {
+    isDragging = true;
+    dragStartX = x;
+    dragStartOffset = offset;
+  }
+
+  function onDragMove(x) {
+    if (!isDragging) return;
+    halfWidth = getHalfWidth();
+    const delta = dragStartX - x;
+    offset = ((dragStartOffset + delta) % halfWidth + halfWidth) % halfWidth;
+    track.style.transform = `translateX(${-offset}px)`;
+    last = performance.now();
+  }
+
+  function onDragEnd() {
+    isDragging = false;
+    last = performance.now();
   }
 
   // Touch
-  wrap.addEventListener('touchstart', e => startDrag(e.touches[0].clientX), { passive: true });
-  wrap.addEventListener('touchmove',  e => moveDrag(e.touches[0].clientX),  { passive: true });
-  wrap.addEventListener('touchend',   endDrag);
+  wrap.addEventListener('touchstart', e => onDragStart(e.touches[0].clientX), { passive: true });
+  wrap.addEventListener('touchmove',  e => onDragMove(e.touches[0].clientX),  { passive: true });
+  wrap.addEventListener('touchend',   onDragEnd);
+  wrap.addEventListener('touchcancel', onDragEnd);
 
   // Mouse
-  wrap.addEventListener('mousedown', e => { startDrag(e.clientX); e.preventDefault(); });
-  window.addEventListener('mousemove', e => moveDrag(e.clientX));
-  window.addEventListener('mouseup', endDrag);
+  wrap.addEventListener('mousedown', e => { onDragStart(e.clientX); e.preventDefault(); });
+  window.addEventListener('mousemove', e => onDragMove(e.clientX));
+  window.addEventListener('mouseup', onDragEnd);
 });
 
 
