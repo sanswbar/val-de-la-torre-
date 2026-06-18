@@ -1229,13 +1229,27 @@ a {
   }
 
   .about .container {
+    padding: 0 24px;
+  }
+
+  .about-grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 36px;
   }
 
   .about-photo-wrap {
     aspect-ratio: 3 / 2;
-    max-height: 400px;
+    max-height: 360px;
+    margin-top: 0;
+  }
+
+  .ted-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .ted-media {
+    margin-top: 0;
   }
 
   .talks-grid {
@@ -1366,17 +1380,41 @@ a {
   }
 
   .about .container {
+    padding: 0 20px;
+  }
+
+  .about-grid {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 28px;
   }
 
   .about-photo-wrap {
     aspect-ratio: 4 / 3;
-    max-height: 320px;
+    max-height: 280px;
+    margin-top: 0;
   }
 
   .about-text p {
     font-size: 15px;
+    text-align: left;
+  }
+
+  .ted-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .ted-media {
+    margin-top: 0;
+  }
+
+  .ted-desc p {
+    text-align: left;
+  }
+
+  .talk-card p,
+  .talk1-desc p {
+    text-align: left;
   }
 
   /* Talks */
