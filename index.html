@@ -88,7 +88,7 @@
       <!-- Grid: foto + texto alineados -->
       <div class="about-grid">
         <div class="about-photo-wrap fade-in">
-          <img src="assets/images/about-val.webp" alt="Valeria de la Torre" />
+          <img src="assets/images/about-val.webp" width="1200" height="800" loading="lazy" alt="Valeria de la Torre" />
         </div>
 
         <div class="about-text fade-in">
@@ -120,39 +120,43 @@
     <div class="talks-grid">
 
       <!-- Conferencia 1 -->
-      <article class="talk-card fade-in" aria-label="Conferencia: Resiliencia en Fragmentos">
+      <article class="talk-card fade-in" aria-labelledby="talk1-title">
         <div class="talk-card-photo">
-          <img src="assets/images/conferencia3.webp" alt="Valeria de la Torre dando conferencia" />
+          <img src="assets/images/conferencia3.webp" width="1000" height="666" loading="lazy" alt="Valeria de la Torre dando conferencia" />
         </div>
         <div class="talk-card-body">
           <p class="talk-card-label" data-i18n="talk1Label">Conferencia 01</p>
-          <h3 data-i18n="talk1Name">La montaña que no elegí</h3>
+          <h3 id="talk1-title" data-i18n="talk1Name">La montaña que no elegí</h3>
           <p class="talk-card-subtitle" data-i18n="talk1Subtitle">Una historia sobre pérdida, adaptación y la decisión de seguir adelante.</p>
           <div class="talk1-desc" data-i18n="talk1Desc"></div>
-          <div class="talk-audience" data-i18n="talk1Audience">
-            Familias, universidades, eventos DIF, congresos generales
-          </div>
-          <a href="#contacto" class="btn-secondary" data-i18n="talkCTA">Quiero esta conferencia</a>
+          <dl class="talk-facts">
+            <div><dt data-i18n="factDuration">Duración</dt><dd data-i18n="factDurationValue">45–60 min</dd></div>
+            <div><dt data-i18n="factFormat">Modalidad</dt><dd data-i18n="factFormatValue">Presencial o virtual</dd></div>
+            <div><dt data-i18n="factLanguage">Idioma</dt><dd data-i18n="factLanguageValue">Español o inglés</dd></div>
+            <div><dt data-i18n="factAudience">Para</dt><dd data-i18n="talk1Audience">Todo tipo de público</dd></div>
+          </dl>
+          <a href="#contacto" class="btn-secondary" data-i18n="talkCTA" data-prefill="prefillTalk1">Quiero esta conferencia</a>
         </div>
       </article>
 
-      <!-- Conferencia 2 — COPY: confirmar nombre con Val -->
-      <article class="talk-card talk-card--coming-soon fade-in" aria-label="Conferencia para empresas — próximamente">
+      <!-- Conferencia 2 — aún no se puede contratar -->
+      <article class="talk-card talk-card--coming-soon fade-in" aria-labelledby="talk2-title">
         <div class="talk-card-photo talk-card-photo--empty">
           <div class="talk-card-coming-soon">
-            <span>Coming soon</span>
+            <span data-i18n="talk2ComingSoon">Próximamente</span>
           </div>
         </div>
         <div class="talk-card-body">
           <p class="talk-card-label" data-i18n="talk2Label">Conferencia 02</p>
-          <!-- COPY: confirmar con Val el nombre definitivo -->
-          <h3 data-i18n="talk2Name">De la supervivencia a la reconstrucción</h3>
+          <h3 id="talk2-title" data-i18n="talk2Name">De la supervivencia a la reconstrucción</h3>
           <p class="talk-card-subtitle" data-i18n="talk2Subtitle">Un método práctico para reconstruirte cuando la vida cambia tus planes.</p>
           <div class="talk1-desc" data-i18n="talk2Desc"></div>
-          <div class="talk-audience" data-i18n="talk2Audience">
-            Empresas, áreas de RH, liderazgo, equipos de diversidad e inclusión
-          </div>
-          <a href="#contacto" class="btn-secondary" data-i18n="talkCTA">Quiero esta conferencia</a>
+          <dl class="talk-facts">
+            <div><dt data-i18n="factFormat">Modalidad</dt><dd data-i18n="factFormatValue">Presencial o virtual</dd></div>
+            <div><dt data-i18n="factLanguage">Idioma</dt><dd data-i18n="factLanguageValue">Español o inglés</dd></div>
+            <div><dt data-i18n="factAudience">Para</dt><dd data-i18n="talk2Audience">Todo tipo de público</dd></div>
+          </dl>
+          <a href="#contacto" class="btn-secondary" data-i18n="talk2CTA" data-prefill="prefillTalk2">Avísame cuando esté lista</a>
         </div>
       </article>
 
@@ -180,7 +184,7 @@
         <!-- Lado derecho: foto con link a YouTube -->
         <div class="ted-media">
           <a href="https://www.youtube.com/watch?v=KGalxsvs9Kg" target="_blank" rel="noopener noreferrer" class="ted-media-link">
-            <img src="assets/images/tedxval.webp" alt="Valeria de la Torre — TED Talk" />
+            <img src="assets/images/tedxval.webp" width="1200" height="671" loading="lazy" alt="Valeria de la Torre — TED Talk" />
             <div class="ted-play-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
             </div>
@@ -248,11 +252,8 @@
         <div class="contact-intro fade-in">
           <span class="section-label" data-i18n="contactLabel">Contacto</span>
           <h2 class="section-title" id="contact-title" data-i18n="contactTitle">
-            Trabajemos<br>juntos
+            Compárteme los detalles de tu proyecto.
           </h2>
-          <p data-i18n="contactSubtitle">
-            Cuéntame qué tienes en mente. Leo cada mensaje y respondo personalmente.
-          </p>
         </div>
 
         <!-- Formulario -->
@@ -260,13 +261,16 @@
           <form
             id="contact-form"
             class="contact-form"
-            action="https://formspree.io/f/xkoaayrd"
+            action="https://script.google.com/macros/s/AKfycbxUbq6BoX2xwKrBCtiuUrmCLL7ZbAgR-z6HWAGFkWosq17ajXgnUr-ZagWhofaBgVlD8g/exec"
             method="POST"
             novalidate
-            aria-label="Formulario de contacto"
+            aria-labelledby="contact-title"
           >
-            <input type="hidden" name="_subject" value="Nuevo contacto — Val de la Torre" />
-            <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true" />
+            <!-- Honeypot: invisible para personas; si un bot lo llena, el envío se descarta -->
+            <div class="form-honeypot" aria-hidden="true">
+              <label for="field-website">Sitio web</label>
+              <input type="text" id="field-website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
 
             <div class="form-row">
               <div class="form-group">
@@ -274,20 +278,28 @@
                 <input
                   type="text"
                   id="field-name"
-                  name="Nombre"
+                  name="name"
                   autocomplete="name"
+                  maxlength="120"
                   required
+                  aria-describedby="field-name-error"
+                  data-error="errName"
                 />
+                <p class="field-error" id="field-name-error" hidden></p>
               </div>
               <div class="form-group">
                 <label for="field-company" data-i18n="fieldCompany">Empresa u organización</label>
                 <input
                   type="text"
                   id="field-company"
-                  name="Empresa"
+                  name="company"
                   autocomplete="organization"
+                  maxlength="160"
                   required
+                  aria-describedby="field-company-error"
+                  data-error="errCompany"
                 />
+                <p class="field-error" id="field-company-error" hidden></p>
               </div>
             </div>
 
@@ -296,17 +308,30 @@
               <input
                 type="email"
                 id="field-email"
-                name="Correo"
+                name="email"
                 autocomplete="email"
+                inputmode="email"
+                spellcheck="false"
+                maxlength="254"
                 required
+                aria-describedby="field-email-error"
+                data-error="errEmailEmpty"
+                data-i18n-placeholder="fieldEmailPlaceholder"
                 placeholder="tu@empresa.com"
               />
+              <p class="field-error" id="field-email-error" hidden></p>
             </div>
 
             <div class="form-group">
               <label for="field-type" data-i18n="fieldType">Tipo de colaboración</label>
               <div class="select-wrap">
-                <select id="field-type" name="Tipo de colaboración" required>
+                <select
+                  id="field-type"
+                  name="type"
+                  required
+                  aria-describedby="field-type-error"
+                  data-error="errType"
+                >
                   <option value="" disabled selected data-i18n="fieldTypeDefault">Selecciona una opción</option>
                   <option value="Conferencia" data-i18n="fieldTypeConf">Conferencia</option>
                   <option value="Colaboración con marca" data-i18n="fieldTypeBrand">Colaboración con marca</option>
@@ -314,29 +339,37 @@
                   <option value="Otro" data-i18n="fieldTypeOther">Otro</option>
                 </select>
               </div>
+              <p class="field-error" id="field-type-error" hidden></p>
             </div>
 
             <div class="form-group">
-              <label for="field-date" data-i18n="fieldDate">Fecha estimada del evento o colaboración</label>
+              <label for="field-date" data-i18n="fieldDate">Fecha estimada (opcional)</label>
               <input
                 type="text"
                 id="field-date"
-                name="Fecha estimada"
+                name="date"
+                maxlength="120"
                 data-i18n-placeholder="fieldDatePlaceholder"
-                placeholder="Ej. Septiembre 2025, primer trimestre 2026…"
+                placeholder="Ej. marzo 2027, primer semestre 2027…"
               />
             </div>
 
             <div class="form-group">
-              <label for="field-desc" data-i18n="fieldDesc">¿Qué quieres hacer con Val?</label>
+              <label for="field-desc" data-i18n="fieldDesc">Cuéntame sobre tu proyecto</label>
               <textarea
                 id="field-desc"
-                name="Descripción"
+                name="message"
+                maxlength="4000"
                 required
+                aria-describedby="field-desc-error"
+                data-error="errDesc"
                 data-i18n-placeholder="fieldDescPlaceholder"
                 placeholder="Cuéntame para qué audiencia es, qué esperas lograr y cualquier detalle relevante."
               ></textarea>
+              <p class="field-error" id="field-desc-error" hidden></p>
             </div>
+
+            <div class="form-error" id="form-error" role="alert" hidden></div>
 
             <button type="submit" id="submit-btn" class="btn-submit" data-i18n="submitBtn">
               Enviar
@@ -345,7 +378,7 @@
           </form>
 
           <!-- Mensaje de confirmación — aparece en la misma página, sin redirigir -->
-          <div id="form-success" class="form-success" role="alert" data-i18n="successMsg">
+          <div id="form-success" class="form-success" role="status" tabindex="-1" data-i18n="successMsg">
             Val recibió tu mensaje y se pondrá en contacto pronto.
           </div>
         </div>
@@ -375,7 +408,7 @@
       </nav>
 
       <div class="footer-signature-wrap">
-        <img src="assets/images/firma-val.png" alt="Firma de Valeria de la Torre" class="footer-signature" />
+        <img src="assets/images/firma-val.png" width="382" height="416" loading="lazy" alt="Firma de Valeria de la Torre" class="footer-signature" />
         <p class="footer-copy" data-i18n="footerCopy">Valeria de la Torre, 2026.</p>
       </div>
 

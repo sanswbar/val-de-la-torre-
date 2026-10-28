@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "italic-serif-display",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-28T16:21:06.681Z",
+        "reason": "user confirmed: North Star 'The Warm Editorial' specifies large italic serif headlines (DESIGN.md)"
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-28T16:21:06.695Z",
+        "reason": "user confirmed: brand carousel stays as-is; now pauses on hover/focus and respects reduced motion"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-28T16:21:06.706Z",
+        "reason": "false positive: .talk-card-photo is a full-bleed image container with no text"
+      }
+    ]
+  }
+}

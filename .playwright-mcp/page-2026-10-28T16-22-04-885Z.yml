@@ -1,0 +1,154 @@
+- generic [active] [ref=f3e1]:
+  - banner:
+    - link "Valeria de la Torre" [ref=f3e2] [cursor=pointer]:
+      - /url: "#"
+    - button "Switch to English" [ref=f3e3] [cursor=pointer]: EN
+  - region "Hero" [ref=f3e4]:
+    - generic [ref=f3e5]:
+      - heading [level=1] [ref=f3e6]:
+        - text: Redefiniendo
+        - emphasis [ref=f3e7]: los límites.
+      - separator [aria-hidden] [ref=f3e8]
+      - paragraph [ref=f3e9]: Conferencista · Creadora de contenido
+      - link "Trabajemos juntos" [ref=f3e10] [cursor=pointer]:
+        - /url: "#contacto"
+  - blockquote [ref=f3e14]:
+    - paragraph [ref=f3e15]: "\"Dejar de luchar es dejar de soñar.\""
+    - text: Pepe Mujica
+  - region [ref=f3e16]:
+    - generic [ref=f3e18]:
+      - img "Valeria de la Torre" [ref=f3e20]
+      - generic [ref=f3e21]:
+        - heading "Quién soy" [level=2] [ref=f3e22]
+        - paragraph [ref=f3e23]: Soy Valeria de la Torre, conferencista, creadora de contenido y apasionada de las historias de transformación humana. Durante años encontré en la montaña, los viajes y el movimiento una forma de explorar mis límites y descubrir de lo que era capaz. En 2024, un accidente cambió mi vida para siempre y me obligó a reconstruirla desde cero.
+        - paragraph [ref=f3e24]: "Ese proceso me llevó a replantearme muchas de las preguntas más importantes que podemos hacernos: quiénes somos cuando la vida cambia nuestros planes, cómo enfrentamos la incertidumbre y qué nos permite seguir adelante cuando el camino se vuelve difícil. Desde entonces, he dedicado mi trabajo a compartir esas reflexiones a través de conferencias, contenido y conversaciones que buscan inspirar, acompañar y generar nuevas perspectivas sobre la adversidad, la adaptación y el crecimiento."
+        - paragraph [ref=f3e25]: Hoy continúo construyendo una vida llena de retos, aprendizaje y nuevos sueños. Creo profundamente en la capacidad humana de reconstruirse, en el poder de la comunidad y en que muchas veces las experiencias más difíciles terminan revelándonos fortalezas que no sabíamos que teníamos.
+  - region [ref=f3e26]:
+    - generic [ref=f3e28]:
+      - generic [ref=f3e29]: Conferencias
+      - heading "Mis conferencias" [level=2] [ref=f3e30]
+    - generic [ref=f3e31]:
+      - article [ref=f3e32]:
+        - img "Valeria de la Torre dando conferencia" [ref=f3e34]
+        - generic [ref=f3e35]:
+          - paragraph [ref=f3e36]: Conferencia 01
+          - heading "La montaña que no elegí" [level=3] [ref=f3e37]
+          - paragraph [ref=f3e38]: Una historia sobre pérdida, adaptación y la decisión de seguir adelante.
+          - paragraph [ref=f3e40]: Una conferencia testimonial que invita a reflexionar sobre las adversidades que no elegimos y la capacidad humana de seguir avanzando cuando la vida cambia para siempre.
+          - generic [ref=f3e41]:
+            - generic [ref=f3e42]:
+              - term [ref=f3e43]: Duración
+              - definition [ref=f3e44]: 45–60 min
+            - generic [ref=f3e45]:
+              - term [ref=f3e46]: Modalidad
+              - definition [ref=f3e47]: Presencial o virtual
+            - generic [ref=f3e48]:
+              - term [ref=f3e49]: Idioma
+              - definition [ref=f3e50]: Español o inglés
+            - generic [ref=f3e51]:
+              - term [ref=f3e52]: Para
+              - definition [ref=f3e53]: Todo tipo de público
+          - link "Quiero esta conferencia →" [ref=f3e54] [cursor=pointer]:
+            - /url: "#contacto"
+      - article [ref=f3e55]:
+        - generic [ref=f3e56]: Próximamente
+        - generic [ref=f3e59]:
+          - paragraph [ref=f3e60]: Conferencia 02
+          - heading "De la supervivencia a la reconstrucción" [level=3] [ref=f3e61]
+          - paragraph [ref=f3e62]: Un método práctico para reconstruirte cuando la vida cambia tus planes.
+          - paragraph [ref=f3e64]: Una conferencia basada en cinco fases que ayudan a transformar la adversidad en crecimiento, recuperar el control, desarrollar confianza y construir una nueva visión de futuro.
+          - generic [ref=f3e65]:
+            - generic [ref=f3e66]:
+              - term [ref=f3e67]: Modalidad
+              - definition [ref=f3e68]: Presencial o virtual
+            - generic [ref=f3e69]:
+              - term [ref=f3e70]: Idioma
+              - definition [ref=f3e71]: Español o inglés
+            - generic [ref=f3e72]:
+              - term [ref=f3e73]: Para
+              - definition [ref=f3e74]: Todo tipo de público
+          - link "Avísame cuando esté lista →" [ref=f3e75] [cursor=pointer]:
+            - /url: "#contacto"
+  - region [ref=f3e76]:
+    - generic [ref=f3e78]:
+      - generic [ref=f3e79]:
+        - generic [ref=f3e80]: TEDx · Universidad Panamericana Guadalajara
+        - heading "No hay prótesis para un espíritu amputado" [level=2] [ref=f3e81]
+        - generic [ref=f3e82]:
+          - paragraph [ref=f3e83]: "Cuando enfrentamos una pérdida, una crisis o un cambio profundo, solemos enfocarnos en aquello que ocurrió por fuera. Sin embargo, las batallas más difíciles suelen librarse en otro lugar: en nuestras creencias, nuestros miedos, nuestra esperanza y nuestra capacidad de imaginar un futuro distinto."
+          - paragraph [ref=f3e84]: "A partir de la poderosa analogía detrás de su título, esta TEDx Talk reflexiona sobre aquello para lo que no existen prótesis ni soluciones externas: la voluntad de seguir adelante, la capacidad de adaptarnos y la decisión de no permitir que las circunstancias amputen nuestra forma de vivir, soñar y encontrar sentido. Una invitación a explorar la fortaleza humana que emerge cuando todo parece haberse roto."
+        - link "Ver TED →" [ref=f3e85] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=KGalxsvs9Kg
+      - link [ref=f3e87] [cursor=pointer]:
+        - /url: https://www.youtube.com/watch?v=KGalxsvs9Kg
+        - img "Valeria de la Torre — TED Talk" [ref=f3e88]
+  - region [ref=f3e89]:
+    - generic [ref=f3e90]:
+      - generic [ref=f3e91]: Colaboraciones
+      - heading "Marcas con las que he trabajado" [level=2] [ref=f3e92]
+    - list "Marcas con las que ha colaborado Valeria de la Torre" [ref=f3e95]:
+      - listitem [ref=f3e96]:
+        - img "Össur" [ref=f3e97]
+      - listitem [ref=f3e98]:
+        - img "lululemon" [ref=f3e99]
+      - listitem [ref=f3e100]:
+        - img "Habits" [ref=f3e101]
+      - listitem [ref=f3e102]:
+        - img "American Express" [ref=f3e103]
+      - listitem [ref=f3e104]:
+        - img "Meta" [ref=f3e105]
+      - listitem [ref=f3e106]:
+        - img "West Elm" [ref=f3e107]
+      - listitem [ref=f3e108]:
+        - img "Levi's" [ref=f3e109]
+      - listitem [ref=f3e110]:
+        - img "Nespresso" [ref=f3e111]
+      - listitem [ref=f3e112]:
+        - img "Salomon" [ref=f3e113]
+  - region [ref=f3e132]:
+    - generic [ref=f3e134]:
+      - generic [ref=f3e135]:
+        - generic [ref=f3e136]: Contacto
+        - heading "Trabajemos juntos" [level=2] [ref=f3e137]
+        - paragraph [ref=f3e138]: Cuéntame qué tienes en mente. Leo cada mensaje y respondo personalmente.
+      - form "Trabajemos juntos" [ref=f3e140]:
+        - generic [ref=f3e141]:
+          - generic [ref=f3e142]:
+            - generic [ref=f3e143]: Nombre completo
+            - textbox "Nombre completo" [ref=f3e144]
+          - generic [ref=f3e145]:
+            - generic [ref=f3e146]: Empresa u organización
+            - textbox "Empresa u organización" [ref=f3e147]
+        - generic [ref=f3e148]:
+          - generic [ref=f3e149]: Correo electrónico
+          - textbox "Correo electrónico" [ref=f3e150]:
+            - /placeholder: tu@empresa.com
+        - generic [ref=f3e151]:
+          - generic [ref=f3e152]: Tipo de colaboración
+          - generic [ref=f3e153]:
+            - combobox "Tipo de colaboración" [ref=f3e154]:
+              - option "Selecciona una opción" [disabled] [selected]
+              - option "Conferencia"
+              - option "Colaboración con marca"
+              - option "Contenido / Creación"
+              - option "Otro"
+            - text: ↓
+        - generic [ref=f3e155]:
+          - generic [ref=f3e156]: Fecha estimada (opcional)
+          - textbox "Fecha estimada (opcional)" [ref=f3e157]:
+            - /placeholder: Ej. marzo 2027, primer semestre 2027…
+        - generic [ref=f3e158]:
+          - generic [ref=f3e159]: ¿Qué tienes en mente?
+          - textbox "¿Qué tienes en mente?" [ref=f3e160]:
+            - /placeholder: Cuéntame para qué audiencia es, qué esperas lograr y cualquier detalle relevante.
+        - button "Enviar" [ref=f3e161] [cursor=pointer]
+  - contentinfo [ref=f3e162]:
+    - generic [ref=f3e163]:
+      - navigation "Redes sociales" [ref=f3e164]:
+        - link "Instagram de Valeria de la Torre" [ref=f3e165] [cursor=pointer]:
+          - /url: https://www.instagram.com/valdelatorre/
+        - link "LinkedIn de Valeria de la Torre" [ref=f3e168] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/valdelatorrega/
+      - generic [ref=f3e171]:
+        - img "Firma de Valeria de la Torre" [ref=f3e172]
+        - paragraph [ref=f3e173]: Valeria de la Torre, 2026.

@@ -2,11 +2,9 @@
    VALERIA DE LA TORRE — Landing Page Styles
    ============================================= */
 
-/* --- Google Fonts ---
-     Cormorant Garamond: serif editorial de alto contraste, estilo Vogue/Didot
-     Jost: sans-serif geométrica limpia, elegante en todas las escalas
+/* --- Fonts ---
+     Cormorant Garamond (display) + Jost (body), cargadas por <link> en index.html
 */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap');
 
 /* --- CSS Variables --- */
 :root {
@@ -16,7 +14,8 @@
   --sand-dark: #DDD6CB;
   --black: #0D0D0D;
   --gray-dark: #3A3835;
-  --gray-mid: #8A847D;
+  --gray-mid: #6B655E;
+  --gray-line: #8A847D;
   --gray-light: #C4BDB5;
   --accent: #C8522A;
   --accent-dark: #A33E1A;
@@ -40,6 +39,20 @@ html {
   overflow-x: hidden;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+::selection {
+  background-color: var(--sand-dark);
+  color: var(--black);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
 body {
   font-family: var(--font-body);
   background-color: var(--off-white);
@@ -54,11 +67,21 @@ body {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Language switch: one class fades the translatable text */
+[data-i18n] {
+  transition: opacity 120ms ease;
+}
+
+.is-switching-lang [data-i18n]:not(.fade-in) {
+  opacity: 0;
 }
 
 /* --- Utility --- */
@@ -70,7 +93,7 @@ a {
 
 .section-label {
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -129,6 +152,9 @@ a {
 
 .site-name {
   pointer-events: all;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-family: var(--font-body);
   font-size: 11px;
   font-weight: 500;
@@ -143,21 +169,20 @@ a {
   opacity: 0.6;
 }
 
-.site-header.on-dark .site-name {
-  color: var(--black);
-}
 
 .lang-toggle {
   pointer-events: all;
-  background: transparent;
+  min-width: 44px;
+  min-height: 44px;
+  background: rgba(247, 245, 242, 0.92);
   border: 1px solid rgba(13, 13, 13, 0.25);
   color: var(--black);
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  padding: 9px 18px;
+  padding: 0 18px;
   border-radius: var(--radius);
   cursor: pointer;
   transition: background var(--transition), border-color var(--transition), color var(--transition);
@@ -169,9 +194,10 @@ a {
   color: var(--white);
 }
 
-/* Hero es la única sección oscura — el toggle se adapta */
+/* Sobre la foto del hero el toggle pasa a contorno blanco; fuera de ella lleva fondo papel */
 .site-header.on-dark .lang-toggle {
-  border-color: rgba(255, 255, 255, 0.35);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.6);
   color: var(--white);
 }
 
@@ -203,7 +229,7 @@ a {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('assets/images/hero-val.jpg');
+  background-image: url('assets/images/hero-val.webp');
   background-color: var(--sand-dark);
   background-size: cover;
   background-position: center 28%;
@@ -243,7 +269,7 @@ a {
 
 .hero-subtitle {
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -258,7 +284,7 @@ a {
   background-color: var(--black);
   color: var(--white);
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -271,7 +297,7 @@ a {
 }
 
 .btn-primary:hover {
-  background-color: var(--accent);
+  background-color: var(--accent-dark);
 }
 
 
@@ -307,12 +333,11 @@ a {
 
 .quote-mujica cite {
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--black);
-  opacity: 0.4;
+  color: var(--gray-mid);
   font-style: normal;
 }
 
@@ -347,26 +372,6 @@ a {
   object-fit: cover;
 }
 
-/* Placeholder — eliminar con foto real */
-.about-photo-placeholder {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  color: var(--gray-light);
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-align: center;
-  padding: 32px;
-  font-family: var(--font-body);
-  text-transform: uppercase;
-  line-height: 1.8;
-}
-
 .about-text .section-title {
   margin-bottom: 40px;
 }
@@ -377,6 +382,8 @@ a {
   line-height: 1.9;
   color: var(--gray-dark);
   text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
   margin-bottom: 22px;
 }
 
@@ -403,29 +410,6 @@ a {
 
 .talks-header .section-title {
   margin-bottom: 0;
-}
-
-.ted-credential {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid var(--sand-dark);
-  color: var(--gray-dark);
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 8px 16px;
-  border-radius: var(--radius);
-}
-
-.ted-dot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--accent);
-  border-radius: 50%;
-  flex-shrink: 0;
 }
 
 .talks-grid {
@@ -476,23 +460,12 @@ a {
   background-color: var(--sand);
 }
 
-/* Foto con blur para coming soon */
-.talk-card-photo--blur img {
-  filter: blur(4px);
-  transform: scale(1.05);
-}
-
-.talk-card:hover .talk-card-photo--blur img {
-  transform: scale(1.06);
-}
-
 .talk-card-coming-soon {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(13, 13, 13, 0.18);
 }
 
 .talk-card-coming-soon span {
@@ -500,9 +473,8 @@ a {
   font-size: clamp(32px, 3.5vw, 48px);
   font-style: italic;
   font-weight: 300;
-  color: var(--white);
-  letter-spacing: 0.1em;
-  text-shadow: 0 1px 12px rgba(0,0,0,0.4);
+  color: var(--gray-dark);
+  letter-spacing: 0.04em;
 }
 
 .talk-card-body {
@@ -513,7 +485,7 @@ a {
 }
 
 .talk-card-label {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -527,71 +499,59 @@ a {
   font-weight: 300;
   font-style: italic;
   line-height: 1.2;
-  min-height: 2.4em;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: var(--black);
 }
 
 .talk-card-subtitle {
   font-family: var(--font-display);
-  font-size: 40px;
-  font-weight: 300;
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 400;
   font-style: italic;
+  line-height: 1.35;
   color: var(--gray-dark);
-  letter-spacing: 0.01em;
-  margin-top: 4px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
-.talk-card-semblanza {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--gray-mid);
-  margin-bottom: 28px;
-  text-align: justify;
-}
-
-.talk-card-divider {
-  width: 40px;
-  height: 1px;
-  background: var(--sand-dark);
-  margin: 28px 0;
-}
-
-.talk-card-name2 {
-  font-family: var(--font-display);
-  font-size: clamp(22px, 2.4vw, 32px);
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.15;
-  margin-bottom: 10px;
-  color: var(--black);
-}
-
-.talk-card p,
 .talk1-desc p {
   font-size: 15px;
   font-weight: 300;
   line-height: 1.8;
-  color: var(--gray-mid);
+  color: var(--gray-dark);
   margin-bottom: 16px;
   text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .talk1-desc {
   margin-bottom: 12px;
 }
 
-.talk-audience {
-  font-size: 10px;
+/* Ficha de la conferencia: lo que un organizador necesita para decidir */
+.talk-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 24px;
+  border-top: 1px solid var(--sand-dark);
+  padding-top: 22px;
+  margin: 8px 0 28px;
+}
+
+.talk-facts dt {
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--gray-mid);
-  border-top: 1px solid var(--sand);
-  padding-top: 20px;
-  margin-bottom: 28px;
+  margin-bottom: 4px;
+}
+
+.talk-facts dd {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--black);
 }
 
 .btn-secondary {
@@ -600,10 +560,11 @@ a {
   background-color: transparent;
   color: var(--black);
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  min-height: 44px;
   padding: 0;
   border: none;
   cursor: pointer;
@@ -620,115 +581,13 @@ a {
 }
 
 .btn-secondary:hover {
-  color: var(--accent);
+  color: var(--accent-dark);
 }
 
 .btn-secondary:hover::after {
   transform: translateX(5px);
 }
 
-/* Video row — TED + TikTok */
-.video-row {
-  display: flex;
-  gap: 24px;
-  margin-top: 56px;
-  align-items: flex-start;
-}
-
-.video-card {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-
-/* TED: formato horizontal 16/9 */
-.video-card:first-child {
-  width: 380px;
-}
-
-/* TikTok: formato vertical 9/16 */
-.video-card:last-child {
-  width: 180px;
-}
-
-.video-card-thumb {
-  position: relative;
-  overflow: hidden;
-  background-color: var(--black);
-  border-radius: 4px;
-  aspect-ratio: 16 / 9;
-}
-
-.video-card-thumb--vertical {
-  aspect-ratio: 9 / 16;
-}
-
-.video-card-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  transition: transform 400ms ease, filter 300ms ease;
-}
-
-.video-card:hover .video-card-thumb img {
-  transform: scale(1.04);
-  filter: brightness(0.78);
-}
-
-.video-card-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(13, 13, 13, 0.25);
-  transition: background 300ms ease;
-}
-
-.video-card:hover .video-card-overlay {
-  background: rgba(13, 13, 13, 0.45);
-}
-
-.ted-play-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.92);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--black);
-  transition: transform 200ms ease;
-}
-
-.video-card:hover .ted-play-btn {
-  transform: scale(1.1);
-}
-
-.video-card-label {
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gray-mid);
-}
-
-@media (max-width: 640px) {
-  .video-row {
-    gap: 16px;
-  }
-  .video-card:first-child {
-    width: 240px;
-  }
-  .video-card:last-child {
-    width: 120px;
-  }
-}
 
 
 /* =============================================
@@ -753,6 +612,10 @@ a {
   margin: 0 auto;
 }
 
+.ted-section .section-label {
+  color: var(--gray-dark);
+}
+
 .ted-text .section-title {
   font-size: clamp(24px, 3vw, 40px);
   margin-bottom: 24px;
@@ -769,6 +632,8 @@ a {
   color: var(--gray-dark);
   margin-bottom: 20px;
   text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .ted-media {
@@ -916,24 +781,6 @@ a {
   opacity: 1;
 }
 
-/* Brand placeholder — eliminar cuando estén los logos reales */
-.brand-placeholder {
-  height: 30px;
-  min-width: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gray-light);
-  flex-shrink: 0;
-  padding: 0 8px;
-  white-space: nowrap;
-}
-
 
 /* =============================================
    CONTACT / FORMULARIO
@@ -953,6 +800,10 @@ a {
 }
 
 .contact-intro .section-title {
+  /* Frase completa: un paso abajo del título de sección, como el título del TEDx */
+  font-size: clamp(36px, 3.6vw, 52px);
+  line-height: 1.12;
+  text-wrap: balance;
   margin-bottom: 28px;
 }
 
@@ -960,14 +811,26 @@ a {
   font-size: 15px;
   font-weight: 300;
   line-height: 1.9;
-  color: var(--gray-mid);
+  color: var(--gray-dark);
   text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+
+/* Spam trap: out of view and out of the flex flow, but still in the DOM for bots */
+.form-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .form-group {
@@ -977,7 +840,7 @@ a {
 }
 
 .form-group label {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -989,7 +852,7 @@ a {
 .form-group textarea {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid var(--sand-dark);
+  border-bottom: 1px solid var(--gray-line);
   color: var(--black);
   font-family: var(--font-body);
   font-size: 15px;
@@ -997,7 +860,7 @@ a {
   padding: 12px 0;
   border-radius: 0;
   outline: none;
-  transition: border-color var(--transition);
+  transition: border-color var(--transition), box-shadow var(--transition);
   width: 100%;
   appearance: none;
   -webkit-appearance: none;
@@ -1005,13 +868,52 @@ a {
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: var(--gray-light);
+  color: var(--gray-mid);
+  opacity: 1;
 }
 
+/* Foco: la línea se vuelve tinta y gana grosor (2px) */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   border-bottom-color: var(--black);
+  box-shadow: 0 1px 0 0 var(--black);
+}
+
+.form-group [aria-invalid="true"] {
+  border-bottom-color: var(--accent-dark);
+}
+
+.form-group [aria-invalid="true"]:focus {
+  box-shadow: 0 1px 0 0 var(--accent-dark);
+}
+
+.field-error {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--accent-dark);
+}
+
+.form-error {
+  border-top: 1px solid var(--sand-dark);
+  padding-top: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--gray-dark);
+}
+
+.form-error a {
+  color: var(--black);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.form-error a:hover {
+  color: var(--accent-dark);
 }
 
 /* Select arrow */
@@ -1025,7 +927,7 @@ a {
   right: 4px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--gray-light);
+  color: var(--gray-mid);
   pointer-events: none;
   font-size: 13px;
   font-family: var(--font-body);
@@ -1055,7 +957,7 @@ a {
   background-color: var(--black);
   color: var(--white);
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1069,12 +971,16 @@ a {
 }
 
 .btn-submit:hover {
-  background-color: var(--accent);
+  background-color: var(--accent-dark);
 }
 
 .btn-submit:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
+  opacity: 0.55;
+  cursor: progress;
+}
+
+.form-success:focus {
+  outline: none;
 }
 
 .form-success {
@@ -1124,7 +1030,11 @@ a {
 .footer-social-link {
   display: flex;
   align-items: center;
-  color: var(--gray-light);
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: -12px;
+  color: var(--gray-line);
   transition: color var(--transition);
 }
 
@@ -1134,18 +1044,6 @@ a {
 
 .footer-social-link svg {
   display: block;
-}
-
-.footer-email {
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--gray-mid);
-  transition: color var(--transition);
-  letter-spacing: 0.04em;
-}
-
-.footer-email:hover {
-  color: var(--black);
 }
 
 .footer-signature-wrap {
@@ -1167,10 +1065,10 @@ a {
 }
 
 .footer-copy {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.14em;
-  color: var(--gray-light);
+  color: var(--gray-mid);
   text-transform: uppercase;
 }
 
@@ -1191,6 +1089,12 @@ a {
   -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid var(--sand);
   z-index: 90;
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1), visibility 300ms;
+}
+
+.mobile-cta-bar.is-hidden {
+  transform: translateY(100%);
+  visibility: hidden;
 }
 
 .mobile-cta-bar .btn-primary {
@@ -1271,14 +1175,9 @@ a {
     gap: 20px;
   }
 
-  .lang-toggle {
-    border-color: rgba(13, 13, 13, 0.25);
-    color: var(--black);
-  }
-
-  .site-header.on-dark .lang-toggle {
-    border-color: rgba(13, 13, 13, 0.25);
-    color: var(--black);
+  /* La foto queda arriba: el nombre también pasa a blanco sobre ella */
+  .site-header.on-dark .site-name {
+    color: var(--white);
   }
 
   .quote-mujica {
@@ -1311,14 +1210,8 @@ a {
   }
 
   .site-name {
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 0.12em;
-    color: var(--white);
-  }
-
-  .site-header .lang-toggle {
-    color: var(--white);
-    border-color: rgba(255,255,255,0.5);
   }
 
   /* ── Hero ── */
@@ -1335,7 +1228,7 @@ a {
   }
 
   .hero-text-side {
-    padding: 36px 20px 80px;
+    padding: 36px 20px 48px;
     order: 1;
     justify-content: flex-start;
   }
@@ -1345,8 +1238,9 @@ a {
   }
 
   .hero-subtitle {
-    font-size: 9px;
+    font-size: 11px;
     letter-spacing: 0.12em;
+    margin-bottom: 0;
   }
 
   .hero-line {
@@ -1377,7 +1271,7 @@ a {
   }
 
   .quote-mujica cite {
-    font-size: 9px;
+    font-size: 11px;
   }
 
   /* ── About ── */
@@ -1460,14 +1354,6 @@ a {
     font-size: clamp(18px, 5vw, 24px);
   }
 
-  .talk-card-semblanza {
-    font-size: 13px;
-    text-align: justify;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-  }
-
-  .talk-card p,
   .talk1-desc p {
     font-size: 14px;
     text-align: justify;
@@ -1475,14 +1361,9 @@ a {
     -webkit-hyphens: auto;
   }
 
-  .ted-credential {
-    font-size: 9px;
-    padding: 7px 12px;
-  }
-
   /* ── TED ── */
   .ted-section {
-    padding: 56px 20px;
+    padding: 56px 0;
   }
 
   .ted-layout {
@@ -1533,6 +1414,7 @@ a {
   /* ── Contact ── */
   .contact {
     overflow: hidden;
+    padding: 56px 0;
   }
 
   .contact-layout {
@@ -1541,7 +1423,7 @@ a {
   }
 
   .contact-intro .section-title {
-    font-size: clamp(32px, 9vw, 48px);
+    font-size: clamp(30px, 8vw, 40px);
   }
 
   .contact-intro p {
@@ -1552,7 +1434,7 @@ a {
 
   .form-row {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 24px;
   }
 
   .contact-form {

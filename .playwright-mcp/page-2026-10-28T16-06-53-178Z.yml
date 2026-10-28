@@ -1,0 +1,133 @@
+- generic [ref=e1]:
+  - banner:
+    - link "Valeria de la Torre" [ref=e2] [cursor=pointer]:
+      - /url: "#"
+    - button "Cambiar a español" [active] [ref=e153] [cursor=pointer]: ES
+  - region "Hero" [ref=e4]:
+    - generic [ref=e5]:
+      - heading [level=1] [ref=e154]:
+        - text: Redefining
+        - emphasis [ref=e155]: limits.
+      - separator [aria-hidden] [ref=e8]
+      - paragraph [ref=e9]: Speaker · Content creator
+      - link "Let's work together" [ref=e156] [cursor=pointer]:
+        - /url: "#contacto"
+  - blockquote [ref=e14]:
+    - paragraph [ref=e15]: "\"Dejar de luchar es dejar de soñar.\""
+    - text: Pepe Mujica
+  - region [ref=e157]:
+    - generic [ref=e18]:
+      - img "Valeria de la Torre" [ref=e20]
+      - generic [ref=e21]:
+        - heading "Who I am" [level=2] [ref=e158]
+        - paragraph [ref=e23]: I'm Valeria de la Torre — speaker, content creator, and deeply passionate about stories of human transformation. For years, I found in the mountains, travel, and movement a way to explore my limits and discover what I was capable of. In 2024, an accident changed my life forever and forced me to rebuild it from scratch.
+        - paragraph [ref=e24]: "That process led me to rethink some of the most important questions we can ask ourselves: who we are when life changes our plans, how we face uncertainty, and what allows us to keep going when the path gets hard. Since then, I have dedicated my work to sharing those reflections through talks, content, and conversations that seek to inspire, support, and offer new perspectives on adversity, adaptation, and growth."
+        - paragraph [ref=e25]: Today I continue building a life full of challenges, learning, and new dreams. I deeply believe in the human capacity to rebuild, in the power of community, and in the idea that our most difficult experiences often end up revealing strengths we never knew we had.
+  - region [ref=e159]:
+    - generic [ref=e28]:
+      - generic [ref=e29]: Talks
+      - heading "My talks" [level=2] [ref=e160]
+    - generic [ref=e31]:
+      - 'article "Conferencia: Resiliencia en Fragmentos" [ref=e32]':
+        - img "Valeria de la Torre dando conferencia" [ref=e34]
+        - generic [ref=e35]:
+          - paragraph [ref=e36]: Talk 01
+          - heading "The mountain I didn't choose" [level=3] [ref=e161]
+          - paragraph [ref=e38]: A story about loss, adaptation, and the decision to keep going.
+          - paragraph [ref=e162]: A personal talk that invites audiences to reflect on the adversities we don't get to choose — and the remarkable human ability to keep moving forward when life changes for good.
+          - generic [ref=e41]: All audiences
+          - link "Book this talk →" [ref=e163] [cursor=pointer]:
+            - /url: "#contacto"
+      - article "Conferencia para empresas — próximamente" [ref=e43]:
+        - generic [ref=e44]: Coming soon
+        - generic [ref=e47]:
+          - paragraph [ref=e48]: Talk 02
+          - heading "From survival to reconstruction" [level=3] [ref=e164]
+          - paragraph [ref=e50]: A practical method to rebuild yourself when life changes your plans.
+          - paragraph [ref=e165]: "A talk built around five phases for turning adversity into growth: regaining a sense of control, rebuilding confidence, and finding a new vision for the future."
+          - generic [ref=e53]: All audiences
+          - link "Book this talk →" [ref=e166] [cursor=pointer]:
+            - /url: "#contacto"
+  - region [ref=e167]:
+    - generic [ref=e57]:
+      - generic [ref=e58]:
+        - generic [ref=e59]: TEDx · Universidad Panamericana Guadalajara
+        - heading "There's no prosthesis for an amputated spirit" [level=2] [ref=e168]
+        - generic [ref=e61]:
+          - paragraph [ref=e169]: When we face loss, crisis, or deep change, we tend to focus on what happened on the outside. But the hardest battles are fought somewhere else — in our beliefs, our fears, our hope, and our ability to imagine a different future.
+          - paragraph [ref=e170]: "Built around the powerful analogy in its title, this TEDx Talk explores what no prosthesis can replace: the will to keep going, the ability to adapt, and the choice not to let circumstances define how we live, dream, and find meaning. An invitation to discover the strength that surfaces when everything seems broken."
+        - link "Watch TED →" [ref=e171] [cursor=pointer]:
+          - /url: https://www.youtube.com/watch?v=KGalxsvs9Kg
+      - link [ref=e66] [cursor=pointer]:
+        - /url: https://www.youtube.com/watch?v=KGalxsvs9Kg
+        - img "Valeria de la Torre — TED Talk" [ref=e67]
+  - region [ref=e172]:
+    - generic [ref=e69]:
+      - generic [ref=e70]: Collaborations
+      - heading "Brands I've worked with" [level=2] [ref=e173]
+    - list "Marcas con las que ha colaborado Valeria de la Torre" [ref=e74]:
+      - listitem [ref=e75]:
+        - img "Össur" [ref=e76]
+      - listitem [ref=e77]:
+        - img "lululemon" [ref=e78]
+      - listitem [ref=e79]:
+        - img "Habits" [ref=e80]
+      - listitem [ref=e81]:
+        - img "American Express" [ref=e82]
+      - listitem [ref=e83]:
+        - img "Meta" [ref=e84]
+      - listitem [ref=e85]:
+        - img "West Elm" [ref=e86]
+      - listitem [ref=e87]:
+        - img "Levi's" [ref=e88]
+      - listitem [ref=e89]:
+        - img "Nespresso" [ref=e90]
+      - listitem [ref=e91]:
+        - img "Salomon" [ref=e92]
+  - region [ref=e174]:
+    - generic [ref=e113]:
+      - generic [ref=e114]:
+        - generic [ref=e115]: Contact
+        - heading "Let's work together" [level=2] [ref=e175]
+        - paragraph [ref=e117]: Tell me what you have in mind. I read every message and reply personally.
+      - form "Formulario de contacto" [ref=e119]:
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - generic [ref=e122]: Full name
+            - textbox "Full name" [ref=e176]
+          - generic [ref=e124]:
+            - generic [ref=e125]: Company or organization
+            - textbox "Company or organization" [ref=e177]
+        - generic [ref=e127]:
+          - generic [ref=e128]: Email address
+          - textbox "Email address" [ref=e178]:
+            - /placeholder: tu@empresa.com
+        - generic [ref=e130]:
+          - generic [ref=e131]: Type of collaboration
+          - generic [ref=e132]:
+            - combobox "Type of collaboration" [ref=e179]:
+              - option "Select an option" [disabled] [selected]
+              - option "Speaking engagement"
+              - option "Brand collaboration"
+              - option "Content / Creation"
+              - option "Other"
+            - text: ↓
+        - generic [ref=e134]:
+          - generic [ref=e135]: Estimated date of event or collaboration
+          - textbox "Estimated date of event or collaboration" [ref=e180]:
+            - /placeholder: E.g. September 2025, Q1 2026…
+        - generic [ref=e137]:
+          - generic [ref=e138]: What would you like to work on together?
+          - textbox "What would you like to work on together?" [ref=e181]:
+            - /placeholder: Tell me about your audience, what you hope to achieve, and any relevant details.
+        - button "Send" [ref=e182] [cursor=pointer]
+  - contentinfo [ref=e141]:
+    - generic [ref=e142]:
+      - navigation "Redes sociales" [ref=e143]:
+        - link "Instagram de Valeria de la Torre" [ref=e144] [cursor=pointer]:
+          - /url: https://www.instagram.com/valdelatorre/
+        - link "LinkedIn de Valeria de la Torre" [ref=e147] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/valdelatorrega/
+      - generic [ref=e150]:
+        - img "Firma de Valeria de la Torre" [ref=e151]
+        - paragraph [ref=e152]: Valeria de la Torre, 2026.

@@ -52,6 +52,15 @@ function applyTranslations(lang) {
     }
   });
 
+  // Visible validation / send errors follow the language
+  document.querySelectorAll('[data-error-key]').forEach(el => {
+    if (el.dataset.errorKey && t[el.dataset.errorKey]) el.textContent = t[el.dataset.errorKey];
+  });
+  const formError = document.getElementById('form-error');
+  if (formError && !formError.hidden) renderSendError(formError, t);
+  const submitBtn = document.getElementById('submit-btn');
+  if (submitBtn && submitBtn.getAttribute('aria-busy') === 'true') submitBtn.textContent = t.submitSending;
+
   // Lang toggle button text + aria-label
   const toggleBtn = document.getElementById('lang-toggle');
   if (toggleBtn) {
@@ -63,19 +72,14 @@ function applyTranslations(lang) {
 }
 
 function switchLang() {
-  // Fade out all translatable elements
-  document.querySelectorAll('[data-i18n], [data-i18n-placeholder]').forEach(el => {
-    el.style.transition = 'opacity 120ms ease';
-    el.style.opacity = '0';
-  });
+  // Fade the whole page once instead of every node, so it doesn't flicker
+  const body = document.body;
+  body.classList.add('is-switching-lang');
 
   setTimeout(() => {
     currentLang = currentLang === 'es' ? 'en' : 'es';
     applyTranslations(currentLang);
-    // Fade back in
-    document.querySelectorAll('[data-i18n], [data-i18n-placeholder]').forEach(el => {
-      el.style.opacity = '1';
-    });
+    body.classList.remove('is-switching-lang');
   }, 140);
 }
 
@@ -93,15 +97,12 @@ document.addEventListener('DOMContentLoaded', () => {
 function updateHeaderStyle() {
   const header = document.querySelector('.site-header');
   if (!header) return;
-  const hero = document.getElementById('hero');
-  if (!hero) return;
-  const heroBottom = hero.getBoundingClientRect().bottom;
-  const isDesktop = window.innerWidth > 960;
-  if (isDesktop && heroBottom > 0) {
-    header.classList.add('on-dark');
-  } else {
-    header.classList.remove('on-dark');
-  }
+  const photo = document.querySelector('.hero-photo-side');
+  if (!photo) return;
+  // on-dark only while the header's middle line still sits over the hero photo
+  const headerMid = header.getBoundingClientRect().height / 2;
+  const photoRect = photo.getBoundingClientRect();
+  header.classList.toggle('on-dark', photoRect.top < headerMid && photoRect.bottom > headerMid);
 
   // Fade out site name — desaparece en los primeros 80px de scroll
   const siteName = document.querySelector('.site-name');
@@ -146,51 +147,145 @@ if (!prefersReducedMotion) {
 
 // ── Contact Form ─────────────────────────────────────────────────
 
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const SEND_TIMEOUT_MS = 15000;
+
+// Send-failure message with the direct email as a working fallback
+function renderSendError(el, t) {
+  el.textContent = `${t.errSend} `;
+  const link = document.createElement('a');
+  link.href = `mailto:${t.footerEmail}`;
+  link.textContent = t.footerEmail;
+  el.append(link, '.');
+}
+
+// Returns the translation key of the field's problem, or null when it's fine
+function fieldErrorKey(field) {
+  const value = field.value.trim();
+  if (field.type === 'email') {
+    if (!value) return 'errEmailEmpty';
+    return EMAIL_PATTERN.test(value) ? null : 'errEmailInvalid';
+  }
+  if (field.required && !value) return field.dataset.error;
+  return null;
+}
+
+function showFieldError(field, key) {
+  const errorEl = document.getElementById(field.getAttribute('aria-describedby'));
+  if (!errorEl) return;
+  if (key) {
+    field.setAttribute('aria-invalid', 'true');
+    errorEl.dataset.errorKey = key;
+    errorEl.textContent = translations[currentLang][key];
+    errorEl.hidden = false;
+  } else {
+    field.removeAttribute('aria-invalid');
+    delete errorEl.dataset.errorKey;
+    errorEl.textContent = '';
+    errorEl.hidden = true;
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form');
   const successMsg = document.getElementById('form-success');
   const submitBtn = document.getElementById('submit-btn');
+  const formError = document.getElementById('form-error');
 
   if (!form) return;
 
+  const checkedFields = [...form.querySelectorAll('[data-error]')];
+  let attempted = false;
+
+  // After the first submit attempt, errors clear as soon as the field is fixed
+  checkedFields.forEach(field => {
+    const recheck = () => { if (attempted) showFieldError(field, fieldErrorKey(field)); };
+    field.addEventListener('input', recheck);
+    field.addEventListener('change', recheck);
+    field.addEventListener('blur', recheck);
+  });
+
+  function setSending(isSending) {
+    const t = translations[currentLang];
+    submitBtn.disabled = isSending;
+    submitBtn.setAttribute('aria-busy', String(isSending));
+    submitBtn.textContent = isSending ? t.submitSending : t.submitBtn;
+  }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    attempted = true;
+    formError.hidden = true;
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = '…';
+    let firstInvalid = null;
+    checkedFields.forEach(field => {
+      const key = fieldErrorKey(field);
+      showFieldError(field, key);
+      if (key && !firstInvalid) firstInvalid = field;
+    });
+    if (firstInvalid) {
+      firstInvalid.focus();
+      return;
+    }
 
-    const data = new FormData(form);
+    setSending(true);
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), SEND_TIMEOUT_MS);
 
     try {
-      // CONFIGURACIÓN FORMSPREE:
-      // 1. Crear cuenta en https://formspree.io
-      // 2. Crear un nuevo formulario vinculado a valedelatorreg@gmail.com
-      // 3. Reemplazar el action del form en index.html con la URL que Formspree te da
-      //    Ejemplo: https://formspree.io/f/XXXXXXXX
+      // URL-encoded body with no custom headers keeps this a simple CORS request,
+      // which Apps Script accepts without a preflight
       const response = await fetch(form.action, {
         method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
+        body: new URLSearchParams(new FormData(form)),
+        signal: controller.signal
       });
+      if (!response.ok) throw new Error(`Apps Script ${response.status}`);
+      const result = await response.json();
+      if (!result.ok) throw new Error(`Apps Script: ${result.error}`);
 
-      if (response.ok) {
-        form.reset();
-        form.style.display = 'none';
-        successMsg.classList.add('visible');
-      } else {
-        throw new Error('Form error');
-      }
+      form.reset();
+      form.hidden = true;
+      document.body.classList.add('form-sent');
+      successMsg.classList.add('visible');
+      successMsg.focus();
     } catch (err) {
-      // Fallback: show error inline
-      submitBtn.disabled = false;
-      const t = translations[currentLang];
-      submitBtn.textContent = t.submitBtn;
-      alert(currentLang === 'es'
-        ? 'Hubo un problema al enviar. Por favor intenta de nuevo o escribe directamente a valedelatorreg@gmail.com'
-        : 'There was a problem sending. Please try again or write directly to valedelatorreg@gmail.com'
-      );
+      // The typed message stays in the form; only the error is shown
+      renderSendError(formError, translations[currentLang]);
+      formError.hidden = false;
+      setSending(false);
+    } finally {
+      clearTimeout(timeout);
     }
   });
+
+  // Talk CTAs preselect the collaboration type and name the talk
+  document.querySelectorAll('[data-prefill]').forEach(cta => {
+    cta.addEventListener('click', () => {
+      const t = translations[currentLang];
+      const type = document.getElementById('field-type');
+      const desc = document.getElementById('field-desc');
+      if (type && !type.value) type.value = 'Conferencia';
+      const note = t[cta.dataset.prefill];
+      if (desc && note && !desc.value.includes(note.trim())) {
+        desc.value = desc.value.trim() ? `${note}\n\n${desc.value}` : note;
+      }
+      if (attempted) [type, desc].forEach(f => f && showFieldError(f, fieldErrorKey(f)));
+    });
+  });
+});
+
+
+// ── Mobile CTA bar: out of the way once the form is on screen ───
+
+document.addEventListener('DOMContentLoaded', () => {
+  const contact = document.getElementById('contacto');
+  const bar = document.querySelector('.mobile-cta-bar');
+  if (!contact || !bar || !('IntersectionObserver' in window)) return;
+
+  new IntersectionObserver(([entry]) => {
+    bar.classList.toggle('is-hidden', entry.isIntersecting);
+  }).observe(contact);
 });
 
 
@@ -205,10 +300,13 @@ document.addEventListener('DOMContentLoaded', () => {
   track.style.animation = 'none';
 
   const SPEED = 40; // px per second
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let offset = 0;
   let halfWidth = 0;
   let rafId = null;
   let isDragging = false;
+  let isHovered = false;
+  let hasFocus = false;
   let dragStartX = 0;
   let dragStartOffset = 0;
   let last = performance.now();
@@ -217,8 +315,13 @@ document.addEventListener('DOMContentLoaded', () => {
     return track.scrollWidth / 2;
   }
 
+  // Auto-scroll stops on hover, keyboard focus, and reduced motion; drag still works
+  function isPaused() {
+    return isDragging || isHovered || hasFocus || reducedMotion.matches;
+  }
+
   function tick(now) {
-    if (!isDragging) {
+    if (!isPaused()) {
       const dt = (now - last) / 1000;
       halfWidth = getHalfWidth();
       offset = (offset + SPEED * dt) % halfWidth;
@@ -229,6 +332,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   rafId = requestAnimationFrame(tick);
+
+  wrap.addEventListener('mouseenter', () => { isHovered = true; });
+  wrap.addEventListener('mouseleave', () => { isHovered = false; });
+  wrap.addEventListener('focusin', () => { hasFocus = true; });
+  wrap.addEventListener('focusout', () => { hasFocus = false; });
 
   function onDragStart(x) {
     isDragging = true;
@@ -271,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(anchor.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
       }
     });
   });

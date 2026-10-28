@@ -1,0 +1,384 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T16:25:00Z",
+  "title": "Design System: Valeria de la Torre",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Terracotta Ember",
+        "canonical": "#C8522A",
+        "tonalRamp": [
+          "#3A160A",
+          "#5E2310",
+          "#843217",
+          "#A33E1A",
+          "#C8522A",
+          "#DC7C5A",
+          "#EBAB93",
+          "#F7DCD1"
+        ]
+      },
+      "accent-dark": {
+        "role": "primary",
+        "displayName": "Deep Ember",
+        "canonical": "#A33E1A",
+        "tonalRamp": [
+          "#2E1107",
+          "#4A1B0B",
+          "#6A2711",
+          "#A33E1A",
+          "#BF5A35",
+          "#D58566",
+          "#E8B39F",
+          "#F6E0D6"
+        ]
+      },
+      "black": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#0D0D0D",
+        "tonalRamp": [
+          "#0D0D0D",
+          "#1F1E1C",
+          "#33312E",
+          "#4A4743",
+          "#66625D",
+          "#8A847D",
+          "#B5AFA8",
+          "#E4E0DB"
+        ]
+      },
+      "gray-dark": {
+        "role": "neutral",
+        "displayName": "Warm Graphite",
+        "canonical": "#3A3835",
+        "tonalRamp": [
+          "#1A1918",
+          "#262523",
+          "#3A3835",
+          "#504D49",
+          "#68645F",
+          "#837E78",
+          "#A39E97",
+          "#C8C3BC"
+        ]
+      },
+      "gray-mid": {
+        "role": "neutral",
+        "displayName": "Stone",
+        "canonical": "#6B655E",
+        "tonalRamp": [
+          "#262320",
+          "#38342F",
+          "#4C4741",
+          "#5D5852",
+          "#6B655E",
+          "#8A847D",
+          "#B2ACA5",
+          "#DCD8D3"
+        ]
+      },
+      "gray-light": {
+        "role": "neutral",
+        "displayName": "Pale Stone",
+        "canonical": "#C4BDB5",
+        "tonalRamp": [
+          "#4A4540",
+          "#655F58",
+          "#827B73",
+          "#A19A91",
+          "#C4BDB5",
+          "#D3CDC6",
+          "#E2DED9",
+          "#F1EEEB"
+        ]
+      },
+      "sand-dark": {
+        "role": "neutral",
+        "displayName": "Dune",
+        "canonical": "#DDD6CB",
+        "tonalRamp": [
+          "#4F4A42",
+          "#6D665C",
+          "#8C8478",
+          "#ADA597",
+          "#C9C1B5",
+          "#DDD6CB",
+          "#EAE5DD",
+          "#F5F2EE"
+        ]
+      },
+      "sand": {
+        "role": "neutral",
+        "displayName": "Sand",
+        "canonical": "#EDE8E0",
+        "tonalRamp": [
+          "#55504A",
+          "#756F66",
+          "#958E84",
+          "#B5AEA3",
+          "#D3CDC3",
+          "#EDE8E0",
+          "#F3EFEA",
+          "#F9F7F4"
+        ]
+      },
+      "off-white": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#F7F5F2",
+        "tonalRamp": [
+          "#57534E",
+          "#78736D",
+          "#99948D",
+          "#BAB5AE",
+          "#D8D4CE",
+          "#EAE7E3",
+          "#F7F5F2",
+          "#FCFBFA"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Gallery White",
+        "canonical": "#FFFFFF",
+        "tonalRamp": [
+          "#5C5A58",
+          "#7D7B78",
+          "#9E9C99",
+          "#BEBCBA",
+          "#DAD9D7",
+          "#EEEDEC",
+          "#F8F8F7",
+          "#FFFFFF"
+        ]
+      },
+      "gray-line": {
+        "role": "neutral",
+        "displayName": "Stone Line",
+        "canonical": "#8A847D",
+        "tonalRamp": [
+          "#2F2C29",
+          "#47433F",
+          "#605B56",
+          "#77716B",
+          "#8A847D",
+          "#A29D96",
+          "#BEB9B3",
+          "#DCD8D3"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero line only: roman first line, italic second line."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Italic section titles; TEDx title steps down to clamp(24px, 3vw, 40px)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Talk names on cards, italic."
+      },
+      "quote": {
+        "displayName": "Quote",
+        "purpose": "Mujica pull-quote and form success message, italic."
+      },
+      "body-lead": {
+        "displayName": "Body Lead",
+        "purpose": "About biography in Warm Graphite."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Talk/TED descriptions and contact intro; 14px and hyphenated-justified on phones."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase whisper labels: eyebrows, form labels, buttons, toggle, audience lines."
+      }
+    },
+    "shadows": [
+      {
+        "name": "media-icon",
+        "value": "drop-shadow(0 2px 8px rgba(0,0,0,0.4))",
+        "purpose": "Legibility of the white play icon over the TEDx thumbnail only."
+      },
+      {
+        "name": "media-text",
+        "value": "0 1px 12px rgba(0,0,0,0.4)",
+        "purpose": "Legibility of the white 'Coming soon' text over photography only."
+      },
+      {
+        "name": "frosted-bar",
+        "value": "backdrop-filter: blur(12px); background: rgba(247,245,242,0.96)",
+        "purpose": "Mobile fixed CTA bar; the only layered surface."
+      }
+    ],
+    "motion": [
+      {
+        "name": "transition-base",
+        "value": "200ms ease",
+        "purpose": "Color, opacity and border shifts on buttons, links, toggle, inputs."
+      },
+      {
+        "name": "transition-surface",
+        "value": "300ms ease",
+        "purpose": "Talk-card fill to Sand; TED thumbnail opacity."
+      },
+      {
+        "name": "transition-image-zoom",
+        "value": "transform 400ms ease, scale 1.03",
+        "purpose": "Photo zoom inside talk cards on hover."
+      },
+      {
+        "name": "reveal",
+        "value": "opacity 0.7s ease, translateY(28px → 0), threshold 0.12",
+        "purpose": "Scroll fade-in; disabled under prefers-reduced-motion."
+      },
+      {
+        "name": "brand-glide",
+        "value": "40px/s linear (JS rAF)",
+        "purpose": "Continuous brand carousel; pauses on hover, touch-scrubbable."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "tablet",
+        "value": "960px"
+      },
+      {
+        "name": "mobile",
+        "value": "640px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one solid, assertive element: Ink fill that turns Ember on hover.",
+      "html": "<a href=\"#\" class=\"ds-btn-primary\">Trabajemos juntos</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; background: var(--black, #0D0D0D); color: var(--white, #FFFFFF); font-family: var(--font-body, 'Jost', 'Helvetica Neue', sans-serif); font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; padding: 15px 32px; border-radius: 2px; border: none; text-decoration: none; cursor: pointer; transition: background-color 200ms ease; } .ds-btn-primary:hover { background: var(--accent-dark, #A33E1A); } .ds-btn-primary:focus-visible { outline: 1px solid var(--accent, #C8522A); outline-offset: 3px; }"
+    },
+    {
+      "name": "Submit Button",
+      "kind": "button",
+      "refersTo": "button-submit",
+      "description": "Full-width form submit; same voice as Primary, larger padding.",
+      "html": "<button class=\"ds-btn-submit\">Enviar</button>",
+      "css": ".ds-btn-submit { display: inline-flex; align-items: center; justify-content: center; width: 100%; background: var(--black, #0D0D0D); color: var(--white, #FFFFFF); font-family: var(--font-body, 'Jost', 'Helvetica Neue', sans-serif); font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; padding: 18px 48px; border-radius: 2px; border: none; cursor: pointer; transition: background-color 200ms ease; } .ds-btn-submit:hover { background: var(--accent-dark, #A33E1A); } .ds-btn-submit:focus-visible { outline: 1px solid var(--accent, #C8522A); outline-offset: 3px; } .ds-btn-submit:disabled { opacity: 0.4; cursor: not-allowed; }"
+    },
+    {
+      "name": "Text Link CTA",
+      "kind": "button",
+      "refersTo": "button-text-link",
+      "description": "Bare uppercase label with an arrow that nudges right and turns Ember on hover.",
+      "html": "<a href=\"#\" class=\"ds-btn-link\">Quiero esta conferencia</a>",
+      "css": ".ds-btn-link { display: inline-flex; align-items: center; gap: 10px; color: var(--black, #0D0D0D); font-family: var(--font-body, 'Jost', 'Helvetica Neue', sans-serif); font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: color 200ms ease; } .ds-btn-link::after { content: '→'; font-size: 14px; letter-spacing: 0; transition: transform 200ms ease; } .ds-btn-link:hover { color: var(--accent-dark, #A33E1A); } .ds-btn-link:hover::after { transform: translateX(5px); } .ds-btn-link:focus-visible { outline: 1px solid var(--accent, #C8522A); outline-offset: 4px; }"
+    },
+    {
+      "name": "Language Toggle",
+      "kind": "nav",
+      "refersTo": "lang-toggle",
+      "description": "Outlined hairline pill in the fixed header; fills Ink on hover.",
+      "html": "<button class=\"ds-lang-toggle\" aria-label=\"Switch to English\">EN</button>",
+      "css": ".ds-lang-toggle { background: transparent; border: 1px solid rgba(13,13,13,0.25); color: var(--black, #0D0D0D); font-family: var(--font-body, 'Jost', 'Helvetica Neue', sans-serif); font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; padding: 9px 18px; border-radius: 2px; cursor: pointer; transition: background 200ms ease, border-color 200ms ease, color 200ms ease; } .ds-lang-toggle:hover { background: var(--black, #0D0D0D); border-color: var(--black, #0D0D0D); color: var(--white, #FFFFFF); } .ds-lang-toggle:focus-visible { outline: 1px solid var(--accent, #C8522A); outline-offset: 3px; }"
+    },
+    {
+      "name": "Underline Field",
+      "kind": "input",
+      "refersTo": "input-underline",
+      "description": "Boxless field: whisper label above, Dune underline that darkens to Ink on focus.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Correo electrónico</span><input class=\"ds-field-input\" type=\"email\" placeholder=\"tu@empresa.com\" /></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 10px; } .ds-field-label { font-family: var(--font-body, 'Jost', 'Helvetica Neue', sans-serif); font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray-mid, #6B655E); } .ds-field-input { background: transparent; border: none; border-bottom: 1px solid var(--gray-line, #8A847D); color: var(--black, #0D0D0D); font-family: var(--font-body, 'Jost', 'Helvetica Neue', sans-serif); font-size: 15px; font-weight: 300; padding: 12px 0; border-radius: 0; outline: none; width: 100%; transition: border-color 200ms ease; } .ds-field-input::placeholder { color: var(--gray-mid, #6B655E); } .ds-field-input:focus { border-bottom-color: var(--black, #0D0D0D); }"
+    },
+    {
+      "name": "Talk Card",
+      "kind": "card",
+      "refersTo": "talk-card",
+      "description": "Square White card, full-bleed photo, editorial stack; fill shifts to Sand on hover.",
+      "html": "<article class=\"ds-talk-card\"><div class=\"ds-talk-photo\"></div><div class=\"ds-talk-body\"><p class=\"ds-talk-label\">Conferencia 01</p><h3 class=\"ds-talk-title\">La montaña que no elegí</h3><p class=\"ds-talk-desc\">Una historia sobre pérdida, adaptación y la decisión de seguir adelante.</p><div class=\"ds-talk-audience\">Todo tipo de público</div></div></article>",
+      "css": ".ds-talk-card { background: var(--white, #FFFFFF); display: flex; flex-direction: column; overflow: hidden; max-width: 420px; transition: background-color 300ms ease; } .ds-talk-card:hover { background: var(--sand, #EDE8E0); } .ds-talk-photo { aspect-ratio: 16 / 9; background: var(--sand-dark, #DDD6CB); } .ds-talk-body { padding: 36px 48px 48px; } .ds-talk-label { font-family: var(--font-body, 'Jost', sans-serif); font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-mid, #6B655E); margin: 0 0 20px; } .ds-talk-title { font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif); font-size: 34px; font-weight: 300; font-style: italic; line-height: 1.2; color: var(--black, #0D0D0D); margin: 0 0 12px; } .ds-talk-desc { font-family: var(--font-body, 'Jost', sans-serif); font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--gray-mid, #6B655E); margin: 0 0 20px; } .ds-talk-audience { font-family: var(--font-body, 'Jost', sans-serif); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-mid, #6B655E); border-top: 1px solid var(--sand, #EDE8E0); padding-top: 20px; }"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "refersTo": "headline",
+      "description": "Whisper eyebrow over a light italic Cormorant headline.",
+      "html": "<div class=\"ds-heading\"><span class=\"ds-eyebrow\">Contacto</span><h2 class=\"ds-headline\">Trabajemos juntos</h2></div>",
+      "css": ".ds-eyebrow { display: block; font-family: var(--font-body, 'Jost', sans-serif); font-size: 11px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-mid, #6B655E); margin-bottom: 24px; } .ds-headline { font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif); font-size: clamp(42px, 5.5vw, 72px); font-weight: 300; font-style: italic; line-height: 1.06; color: var(--black, #0D0D0D); margin: 0; }"
+    },
+    {
+      "name": "Hero Ember Line",
+      "kind": "custom",
+      "refersTo": "accent",
+      "description": "Signature 48px Terracotta Ember hairline between hero title and subtitle.",
+      "html": "<div class=\"ds-hero-mark\"><h1 class=\"ds-hero-title\">Redefiniendo<br><em>los límites.</em></h1><hr class=\"ds-ember-line\" /><p class=\"ds-hero-sub\">Conferencista · Creadora de contenido</p></div>",
+      "css": ".ds-hero-mark { background: var(--off-white, #F7F5F2); padding: 32px; } .ds-hero-title { font-family: var(--font-display, 'Cormorant Garamond', Georgia, serif); font-size: 64px; font-weight: 300; line-height: 1.02; color: var(--black, #0D0D0D); margin: 0; } .ds-hero-title em { font-style: italic; } .ds-ember-line { width: 48px; height: 1px; background: var(--accent, #C8522A); border: none; margin: 36px 0; } .ds-hero-sub { font-family: var(--font-body, 'Jost', sans-serif); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gray-mid, #6B655E); margin: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Warm Editorial",
+    "overview": "Professional enough that a conference organizer trusts it, and warm enough that it feels like Val. The site is laid out like a fashion or culture magazine: large light italic serif headlines, generous white space, small uppercase labels with wide letter-spacing, and photography given full-bleed room. All of that sits on warm paper instead of cold white, speaks in the first person, and ends with her handwritten signature. The editorial structure provides the trust and the warmth comes from the paper, the voice and the signature. Neither should take over from the other.\n\nDensity is low and pacing is slow. Each section is a single idea with plenty of air (120px vertical padding on desktop). Sections are separated by stepping the background tone (paper, white, sand) rather than by rules or cards. Color is almost absent: the palette is warm neutrals and near-black, plus one terracotta ember used sparingly. Motion is quiet. Content fades up gently on scroll, the brand logos glide slowly, and hovers shift color without lifting anything.",
+    "keyCharacteristics": [
+      "Light (300) Cormorant Garamond for every heading, usually italic.",
+      "Jost Light for body text, with tiny uppercase Jost Medium labels at about 0.2em tracking.",
+      "Warm paper neutrals; the near-black `#0D0D0D` stands in for pure black.",
+      "One accent, Terracotta Ember, used as a mark and a hover response and never as a fill area.",
+      "Corners are square or nearly square (0–2px). There are no shadows on surfaces.",
+      "Split and two-column editorial layouts that collapse to a single column on phones, with a fixed CTA bar at the bottom.",
+      "Her signature closes the page."
+    ],
+    "rules": [
+      {
+        "name": "The Single Ember Rule",
+        "body": "Terracotta Ember is the only hue on the page apart from photography and, on hover only, the brand logos. It appears as a hairline, a dot or a hover state. If it ever covers a surface larger than a button, it has gone too far.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tonal Step Rule",
+        "body": "Sections are separated by changing the background (Paper → White → Paper → Dune → White → Paper), not by cards, shadows or heavy rules.",
+        "section": "colors"
+      },
+      {
+        "name": "The Light Hand Rule",
+        "body": "Serif headings are always weight 300 and section titles are always italic. Bold serif is not part of this system. Emphasis comes from size and italic, not weight.",
+        "section": "typography"
+      },
+      {
+        "name": "The Whisper Label Rule",
+        "body": "Every piece of UI chrome (labels, buttons, toggles, eyebrows) is tiny uppercase Jost Medium with wide tracking. Sentence-case UI text does not appear.",
+        "section": "typography"
+      },
+      {
+        "name": "The Paper Stays Flat Rule",
+        "body": "Cards, buttons and inputs never get a box-shadow. Hover is shown by a color shift (Ink → Ember, White → Sand), a slight image zoom (1.03) or an arrow nudge, never by lifting.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do set every serif heading in Cormorant Garamond at weight 300, and section titles in italic.",
+      "Do write all UI chrome as 11px uppercase Jost Medium with 0.12–0.24em tracking. Never go below 11px.",
+      "Do use Terracotta Ember only as a hairline, a dot or the focus ring, and Deep Ember for hover fills, link hovers and errors.",
+      "Do separate sections by stepping the background through Paper, White, Sand and Dune.",
+      "Do keep corners at 0px for surfaces and photos and 2px for buttons.",
+      "Do show hover through color, a 1.03 image zoom or a 5px arrow nudge, on 200ms ease timing (300–400ms for card fills and photos).",
+      "Do fade content up 28px over 0.7s on scroll, and turn this off under `prefers-reduced-motion`.",
+      "Do keep side margins at exactly 20px on phones across every section.",
+      "Do close the page with her signature (`firma-val.png`) in grayscale at low opacity."
+    ],
+    "donts": [
+      "Don't add box-shadows to cards, buttons or inputs. The paper stays flat.",
+      "Don't introduce a second accent color or fill large areas with Ember.",
+      "Don't use bold or semibold serif headings.",
+      "Don't use pure `#000` or cold pure-white page backgrounds. Paper (`#F7F5F2`) is the base and White is the alternate.",
+      "Don't draw inputs as boxes. Fields are underlines.",
+      "Don't round corners beyond 2px, except the play icon.",
+      "Don't set text in Pale Stone or with opacity-faded black. Text uses Stone or darker."
+    ]
+  }
+}

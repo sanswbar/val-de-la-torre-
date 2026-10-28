@@ -1,0 +1,7 @@
+[  164112ms] [LOG] %cundersized-ui-text%c 10px functional text "EN" (below 11px floor) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js:4221
+[  164113ms] [LOG] %citalic-serif-display%c italic serif h1 (cormorant garamond) at 86px "Redefiniendolos límites." color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js:4221
+[  164113ms] [LOG] %clow-contrast%c 3.4:1 (need 4.5:1) — text #8a847d on #f7f5f2 color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js:4221
+[  164113ms] [LOG] %cundersized-ui-text%c 10px functional text "Trabajemos juntos" (below 11px floor) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js:4221
+[  164113ms] [LOG] %clow-contrast%c 2.7:1 (need 4.5:1) — text #9e9e9e on #ffffff color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js:4221
+[  164113ms] [LOG] %cundersized-ui-text%c 10px functional text "Pepe Mujica" (below 11px floor) color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js:4221
+[  164113ms] [LOG] %clow-contrast%c 1.9:1 (need 4.5:1) — text #c4bdb5 on #ffffff color: oklch(84% 0.19 80.46); font-weight: bold color: inherit JSHandle@node @ http://localhost:8400/detect.js:4221
