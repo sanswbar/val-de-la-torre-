@@ -6,7 +6,8 @@
  * Este script debe estar vinculado a la Google Sheet (Extensiones → Apps Script).
  */
 
-const NOTIFY_EMAIL = 'valedelatorreg@gmail.com';
+// Both of Val's accounts get every notification
+const NOTIFY_EMAIL = 'valedelatorreg@gmail.com,valdelatorreg@gmail.com';
 const SHEET_NAME = 'Contactos';
 const HEADERS = ['Fecha', 'Nombre', 'Correo', 'Empresa', 'Tipo de colaboración', 'Fecha estimada', 'Mensaje'];
 
@@ -66,14 +67,31 @@ function doGet() {
 
 function getSheet() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
-  let sheet = ss.getSheetByName(SHEET_NAME);
-  if (!sheet) {
-    sheet = ss.insertSheet(SHEET_NAME);
-    sheet.appendRow(HEADERS);
-    sheet.setFrozenRows(1);
-    sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
-  }
+  const sheet = ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
+  ensureHeaders(sheet);
   return sheet;
+}
+
+// Keeps the column titles in row 1, even if the tab already had rows without them
+function ensureHeaders(sheet) {
+  const current = sheet.getLastRow() > 0
+    ? sheet.getRange(1, 1, 1, HEADERS.length).getDisplayValues()[0]
+    : [];
+  if (current.join('|') === HEADERS.join('|')) return;
+
+  if (sheet.getLastRow() > 0) sheet.insertRowBefore(1);
+  sheet.getRange(1, 1, 1, HEADERS.length)
+    .setValues([HEADERS])
+    .setFontWeight('bold');
+  sheet.setFrozenRows(1);
+}
+
+/**
+ * Run once from the editor (select it → Run) to add the titles to row 1 now,
+ * without waiting for the next form submission.
+ */
+function setupSheet() {
+  getSheet();
 }
 
 function sendNotification(data) {
@@ -118,7 +136,7 @@ function json(obj) {
 function testSubmission() {
   const res = doPost({ parameter: {
     name: 'Prueba',
-    email: NOTIFY_EMAIL,
+    email: 'valedelatorreg@gmail.com',
     company: 'Prueba',
     type: 'Otro',
     date: '',
