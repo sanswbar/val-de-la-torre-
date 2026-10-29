@@ -162,6 +162,43 @@
     .login-error { font-size: 14px; color: var(--overdue); min-height: 1.5em; }
     .top-actions { display: flex; gap: 8px; }
 
+    /* View switch */
+    .views { display: inline-flex; border: 1px solid var(--sand-dark); border-radius: 2px; }
+    .view-btn { background: none; border: 0; padding: 7px 14px; font-size: 13px; color: var(--gray-dark); }
+    .view-btn + .view-btn { border-left: 1px solid var(--sand-dark); }
+    .view-btn[aria-pressed="true"] { background: var(--black); color: var(--white); }
+
+    /* Pipeline */
+    .board { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; align-items: start; }
+    .column {
+      background: var(--sand); border-radius: 2px; padding: 12px; min-height: 160px;
+      display: flex; flex-direction: column; gap: 8px;
+      transition: background-color 150ms ease, box-shadow 150ms ease;
+    }
+    .column.is-over { background: var(--sand-dark); box-shadow: inset 0 0 0 2px var(--accent); }
+    .column-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; padding: 2px 4px 6px; }
+    .column-title { font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; }
+    .column-count { font-family: var(--serif); font-size: 22px; line-height: 1; font-variant-numeric: lining-nums; color: var(--gray-mid); }
+    .column[data-s="Nuevo"] .column-title { color: var(--accent-dark); }
+    .column[data-s="En conversación"] .column-title { color: #2F4E6B; }
+    .column[data-s="Cerrado"] .column-title { color: #35603F; }
+    .column[data-s="Descartado"] .column-title { color: var(--gray-mid); }
+    .column-empty { font-size: 13px; color: var(--gray-mid); padding: 8px 4px; }
+
+    .card {
+      width: 100%; background: var(--white); border: 1px solid transparent; border-radius: 2px;
+      padding: 12px 14px; text-align: left; display: flex; flex-direction: column; gap: 3px;
+      box-shadow: 0 1px 0 var(--sand-dark); cursor: grab;
+    }
+    .card:hover { border-color: var(--gray-light); }
+    .card:active { cursor: grabbing; }
+    .card.is-dragging { opacity: .4; }
+    .card .item-type { font-size: 10px; }
+    .card-company { font-family: var(--serif); font-size: 19px; line-height: 1.2; }
+    .card-meta { font-size: 12px; color: var(--gray-mid); }
+    .card .follow { margin-top: 4px; }
+    .column[data-s="Descartado"] .card { opacity: .7; }
+
     @media (max-width: 720px) {
       .wrap { padding: 28px 16px 64px; }
       h1 { font-size: 36px; }
@@ -172,6 +209,12 @@
       .drawer { padding: 24px 16px 40px; }
       .info { grid-template-columns: 1fr; gap: 2px; }
       .info dd { margin-bottom: 8px; }
+      /* Columns scroll sideways inside the board, never the whole page */
+      .board {
+        grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 82%;
+        overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 16px; margin: 0 -16px; padding: 0 16px 8px;
+      }
+      .column { scroll-snap-align: start; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -208,7 +251,11 @@
     </section>
 
     <div class="toolbar">
-      <div class="chips" role="group" aria-label="Filtrar por estado">
+      <div class="views" role="group" aria-label="Vista">
+        <button class="view-btn" type="button" data-view="list" aria-pressed="true">Lista</button>
+        <button class="view-btn" type="button" data-view="board" aria-pressed="false">Pipeline</button>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filtrar por estado">
         <button class="chip" type="button" data-filter="todos" aria-pressed="true">Todos</button>
         <button class="chip" type="button" data-filter="Nuevo" aria-pressed="false">Nuevo</button>
         <button class="chip" type="button" data-filter="En conversación" aria-pressed="false">En conversación</button>
@@ -219,6 +266,7 @@
     </div>
 
     <ul class="list" id="list" aria-live="polite"></ul>
+    <div class="board" id="board" hidden></div>
     <p class="empty" id="empty">Cargando contactos…</p>
   </main>
 
@@ -280,6 +328,9 @@
     const OPEN = ['Nuevo', 'En conversación'];
     let contacts = [];
     let filter = 'todos';
+    const VIEW_KEY = 'crm-view';
+    let view = (() => { try { return localStorage.getItem(VIEW_KEY) === 'board' ? 'board' : 'list'; } catch { return 'list'; } })();
+    let dragged = null;
     let current = null;
     let lastFocus = null;
 
@@ -462,6 +513,17 @@
         return !q || [c.nombre, c.empresa, c.correo].some(v => v.toLowerCase().includes(q));
       });
 
+      const isBoard = view === 'board';
+      document.querySelectorAll('[data-view]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.view === view)));
+      $('chips').hidden = isBoard; // in the pipeline the columns are the status filter
+      $('list').hidden = isBoard;
+      $('board').hidden = !isBoard;
+      if (isBoard) {
+        renderBoard(shown);
+        $('empty').textContent = contacts.length ? '' : 'Todavía no hay contactos.';
+        return;
+      }
+
       const list = $('list');
       list.replaceChildren();
       shown.forEach(c => {
@@ -483,6 +545,75 @@
       });
 
       $('empty').textContent = shown.length ? '' : (contacts.length ? 'Nada con este filtro.' : 'Todavía no hay contactos.');
+    }
+
+    // One column per status; dropping a card on another column changes its Estado
+    function renderBoard(shown) {
+      const board = $('board');
+      board.replaceChildren();
+      STATUSES.forEach(s => {
+        const cards = shown.filter(c => c.estado === s);
+        const col = el('section', 'column');
+        col.dataset.s = s;
+        col.setAttribute('aria-label', s);
+        const head = el('div', 'column-head');
+        head.append(el('span', 'column-title', s), el('span', 'column-count', cards.length));
+        col.append(head);
+
+        cards.forEach(c => {
+          const card = el('button', 'card');
+          card.type = 'button';
+          card.draggable = true;
+          card.append(el('span', 'item-type', c.tipo), el('span', 'card-company', c.empresa), el('span', 'card-meta', `${c.nombre} · ${fmtDate(c.fecha)}`));
+          if (c.seguimiento) {
+            card.append(el('span', `follow${isOverdue(c) ? ' is-overdue' : ''}`, `${isOverdue(c) ? 'Vencido' : 'Seguimiento'} ${fmtDay(c.seguimiento)}`));
+          }
+          card.addEventListener('click', () => openDetail(c));
+          card.addEventListener('dragstart', e => {
+            dragged = c;
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', String(c.row));
+            requestAnimationFrame(() => card.classList.add('is-dragging'));
+          });
+          card.addEventListener('dragend', () => {
+            dragged = null;
+            card.classList.remove('is-dragging');
+          });
+          col.append(card);
+        });
+        if (!cards.length) col.append(el('p', 'column-empty', 'Sin contactos'));
+
+        col.addEventListener('dragover', e => {
+          if (!dragged) return;
+          e.preventDefault();
+          col.classList.add('is-over');
+        });
+        col.addEventListener('dragleave', e => {
+          if (!col.contains(e.relatedTarget)) col.classList.remove('is-over');
+        });
+        col.addEventListener('drop', e => {
+          e.preventDefault();
+          col.classList.remove('is-over');
+          if (dragged) moveTo(dragged, s);
+        });
+        board.append(col);
+      });
+    }
+
+    // Moves the card right away, then saves; puts it back if the save fails
+    async function moveTo(c, estado) {
+      if (c.estado === estado) return;
+      const before = c.estado;
+      c.estado = estado;
+      render();
+      try {
+        await guarded(() => saveContact(c, { estado, seguimiento: c.seguimiento, notas: c.notas }));
+        showNotice('');
+      } catch (err) {
+        c.estado = before;
+        render();
+        if (!(err instanceof AuthError)) showNotice(`No se pudo mover a "${estado}": ${err.message}`);
+      }
     }
 
     function openDetail(c) {
@@ -555,6 +686,13 @@
     document.querySelectorAll('[data-filter]').forEach(b => b.addEventListener('click', () => {
       // Clicking the active counter again goes back to "Todos"
       filter = filter === b.dataset.filter && b.classList.contains('stat') ? 'todos' : b.dataset.filter;
+      render();
+    }));
+    document.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', () => {
+      view = b.dataset.view;
+      try { localStorage.setItem(VIEW_KEY, view); } catch {}
+      // Status chips don't exist in the pipeline, so drop a status filter when switching to it
+      if (view === 'board' && STATUSES.includes(filter)) filter = 'todos';
       render();
     }));
     $('search').addEventListener('input', render);
