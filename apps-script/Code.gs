@@ -95,7 +95,8 @@ function setupSheet() {
 }
 
 function sendNotification(data) {
-  const subject = `Nuevo contacto — ${data.name} (${data.type})`.replace(/[\r\n]+/g, ' ');
+  // Type first, then company, so the inbox list shows what kind of request it is
+  const subject = `${data.type} — ${data.company}`.replace(/[\r\n]+/g, ' ');
   const body = [
     `Nombre: ${data.name}`,
     `Correo: ${data.email}`,
