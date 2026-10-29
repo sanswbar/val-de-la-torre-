@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Contactos · Val de la Torre</title>
+  <title>CRM Val</title>
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,7 +65,7 @@
     .stat[aria-pressed="true"] { box-shadow: inset 0 -2px 0 var(--accent); }
     .stat-num { font-family: var(--serif); font-size: 38px; line-height: 1; font-variant-numeric: lining-nums; }
     .stat-label { font-size: 12px; color: var(--gray-mid); }
-    .stat.is-alert .stat-num { color: var(--overdue); }
+    .stat.is-alert.has-items .stat-num { color: var(--overdue); }
 
     /* Filters */
     .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 16px; }
@@ -99,8 +99,8 @@
     .pill { display: inline-block; font-size: 12px; font-weight: 400; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
     .pill[data-s="Nuevo"] { background: #F6E3DA; color: var(--accent-dark); }
     .pill[data-s="En conversación"] { background: #E3EAF1; color: #2F4E6B; }
-    .pill[data-s="Cerrado"] { background: #E2EDE4; color: #35603F; }
-    .pill[data-s="Descartado"] { background: var(--sand); color: var(--gray-mid); }
+    .pill[data-s="Ganado"] { background: #E2EDE4; color: #35603F; }
+    .pill[data-s="Perdido"] { background: var(--sand); color: var(--gray-mid); }
 
     .empty { padding: 48px 8px; color: var(--gray-mid); }
     .notice { padding: 12px 16px; margin-bottom: 16px; background: #FCE8E6; color: var(--overdue); font-size: 14px; }
@@ -152,6 +152,7 @@
     .save:hover { background: var(--accent-dark); }
     .save:disabled { opacity: .5; cursor: default; }
     .save-msg { font-size: 13px; color: var(--gray-mid); }
+    .field-hint { font-size: 12px; color: var(--gray-mid); margin-top: 14px; }
     .save-msg.is-error { color: var(--overdue); }
 
     /* Login */
@@ -162,11 +163,31 @@
     .login-error { font-size: 14px; color: var(--overdue); min-height: 1.5em; }
     .top-actions { display: flex; gap: 8px; }
 
-    /* View switch */
-    .views { display: inline-flex; border: 1px solid var(--sand-dark); border-radius: 2px; }
-    .view-btn { background: none; border: 0; padding: 7px 14px; font-size: 13px; color: var(--gray-dark); }
-    .view-btn + .view-btn { border-left: 1px solid var(--sand-dark); }
-    .view-btn[aria-pressed="true"] { background: var(--black); color: var(--white); }
+    /* Results report */
+    .report {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 12px 32px;
+      padding: 16px 20px; margin: -12px 0 28px; background: var(--white); border: 1px solid var(--sand-dark); border-top: 0;
+    }
+    .report-title { font-size: 11px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--gray-mid); }
+    .report-nums { display: flex; gap: 28px; margin-right: auto; }
+    .report-num { display: flex; align-items: baseline; gap: 8px; font-size: 13px; color: var(--gray-mid); }
+    .report-num strong { font-family: var(--serif); font-weight: 400; font-size: 26px; line-height: 1; color: var(--black); font-variant-numeric: lining-nums; }
+    .report-num.is-won strong { color: #35603F; }
+    .periods { display: flex; gap: 4px; }
+    .periods button { background: none; border: 1px solid transparent; border-radius: 999px; padding: 4px 12px; font-size: 12px; color: var(--gray-mid); }
+    .periods button[aria-pressed="true"] { border-color: var(--sand-dark); color: var(--black); background: var(--paper); }
+
+    /* View tabs */
+    .nav { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--sand-dark); margin-bottom: 16px; }
+    .views { display: flex; gap: 28px; }
+    .view-btn {
+      background: none; border: 0; padding: 10px 0 12px; margin-bottom: -1px;
+      font-size: 13px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--gray-mid);
+      border-bottom: 2px solid transparent;
+    }
+    .view-btn:hover { color: var(--black); }
+    .view-btn[aria-pressed="true"] { color: var(--black); border-bottom-color: var(--accent); }
+    .nav .search { margin: 0 0 8px; }
 
     /* Pipeline */
     .board { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; align-items: start; }
@@ -181,8 +202,13 @@
     .column-count { font-family: var(--serif); font-size: 22px; line-height: 1; font-variant-numeric: lining-nums; color: var(--gray-mid); }
     .column[data-s="Nuevo"] .column-title { color: var(--accent-dark); }
     .column[data-s="En conversación"] .column-title { color: #2F4E6B; }
-    .column[data-s="Cerrado"] .column-title { color: #35603F; }
-    .column[data-s="Descartado"] .column-title { color: var(--gray-mid); }
+    .column[data-s="Ganado"] .column-title { color: #35603F; }
+    /* "Perdido" is a drop target only: lost leads are archived, never listed */
+    .column.is-lost { background: none; border: 1px dashed var(--gray-light); justify-content: center; align-items: center; text-align: center; color: var(--gray-mid); }
+    .column.is-lost .column-head { flex-direction: column; align-items: center; }
+    .column.is-lost .column-title { color: var(--gray-mid); }
+    .column.is-lost p { font-size: 13px; max-width: 18ch; }
+    .column.is-lost.is-over { border-color: var(--overdue); background: #FCE8E6; box-shadow: none; }
     .column-empty { font-size: 13px; color: var(--gray-mid); padding: 8px 4px; }
 
     .card {
@@ -197,13 +223,96 @@
     .card-company { font-family: var(--serif); font-size: 19px; line-height: 1.2; }
     .card-meta { font-size: 12px; color: var(--gray-mid); }
     .card .follow { margin-top: 4px; }
-    .column[data-s="Descartado"] .card { opacity: .7; }
+    .card .won { font-size: 12px; color: #35603F; font-weight: 500; margin-top: 4px; }
+
+    /* Delete buttons */
+    .icon-btn {
+      background: none; border: 0; border-radius: 2px; color: var(--gray-mid);
+      width: 32px; height: 32px; display: inline-grid; place-items: center; flex: none;
+    }
+    .icon-btn:hover, .icon-btn:focus-visible { color: var(--overdue); background: #FCE8E6; }
+    .icon-btn svg { width: 16px; height: 16px; }
+    .list li { display: flex; align-items: center; gap: 4px; border-bottom: 1px solid var(--sand-dark); }
+    .list .item { flex: 1; border-bottom: 0; }
+    .card-wrap { position: relative; }
+    .card-wrap .icon-btn { position: absolute; top: 6px; right: 6px; width: 28px; height: 28px; }
+    .card { padding-right: 36px; }
+    @media (hover: hover) {
+      .list li .icon-btn, .card-wrap .icon-btn { opacity: 0; }
+      .list li:hover .icon-btn, .card-wrap:hover .icon-btn, .icon-btn:focus-visible { opacity: 1; }
+    }
+    .delete-btn {
+      background: none; border: 1px solid var(--gray-light); border-radius: 2px; color: var(--overdue);
+      padding: 10px 18px; font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+      margin-top: 32px;
+    }
+    .delete-btn:hover { border-color: var(--overdue); background: #FCE8E6; }
+
+    /* Quick follow-up dates */
+    .quick-dates { display: flex; flex-wrap: wrap; gap: 6px; }
+    .quick-dates button { background: none; border: 1px solid var(--sand-dark); border-radius: 999px; padding: 5px 12px; font-size: 12px; color: var(--gray-dark); }
+    .quick-dates button:hover { border-color: var(--black); }
+    .quick-dates .is-clear { color: var(--gray-mid); border-style: dashed; }
+
+    /* Toast */
+    .toast {
+      position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 16px); opacity: 0;
+      background: var(--black); color: var(--white); padding: 12px 20px; border-radius: 2px; font-size: 14px;
+      pointer-events: none; transition: opacity 200ms ease, transform 200ms ease; z-index: 20; max-width: calc(100% - 32px);
+    }
+    .toast.is-shown { opacity: 1; transform: translate(-50%, 0); }
+    .toast.is-error { background: var(--overdue); }
+
+    /* Confirm dialog */
+    .confirm { margin: auto; border: 0; border-radius: 2px; padding: 28px; width: min(420px, calc(100% - 32px)); color: var(--black); }
+    .confirm::backdrop { background: rgba(13,13,13,.35); }
+    .confirm h2 { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.15; margin-bottom: 10px; }
+    .confirm p { color: var(--gray-dark); margin-bottom: 24px; }
+    .confirm .field { margin: -8px 0 24px; }
+    .confirm input[type="date"] { background: var(--white); border: 1px solid var(--sand-dark); border-radius: 2px; padding: 10px 12px; }
+    .confirm .is-primary { background: #35603F; }
+    .confirm .is-primary:hover { background: #284A31; }
+    .confirm-actions { display: flex; justify-content: flex-end; gap: 8px; }
+    .danger { background: var(--overdue); color: var(--white); border: 0; border-radius: 2px; padding: 10px 18px; font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; }
+    .danger:hover { background: #8C1D18; }
+
+    /* Calendar */
+    .cal-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .cal-title { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1; margin-right: auto; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 1px; background: var(--sand-dark); border: 1px solid var(--sand-dark); }
+    .cal-dow { background: var(--paper); font-size: 11px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--gray-mid); padding: 8px; }
+    .cal-day { background: var(--white); min-height: 104px; padding: 6px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .cal-day.is-other { background: var(--paper); color: var(--gray-light); }
+    .cal-num { font-size: 12px; color: var(--gray-mid); font-variant-numeric: lining-nums; }
+    .cal-day.is-today .cal-num { color: var(--white); background: var(--accent); border-radius: 999px; width: 22px; height: 22px; display: grid; place-items: center; }
+    .cal-ev {
+      border: 0; border-radius: 2px; padding: 3px 6px; font-size: 12px; text-align: left;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; background: #E3EAF1; color: #2F4E6B;
+    }
+    .cal-ev[data-s="Nuevo"] { background: #F6E3DA; color: var(--accent-dark); }
+    .cal-ev.is-event { background: #E2EDE4; color: #35603F; font-weight: 500; }
+    .cal-ev.is-overdue { background: #FCE8E6; color: var(--overdue); font-weight: 500; }
+    .cal-dots { display: none; }
+    .agenda { margin-top: 28px; }
+    .agenda h2 { font-size: 11px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--gray-mid); margin-bottom: 8px; }
+    .agenda ul { list-style: none; padding: 0; border-top: 1px solid var(--sand-dark); }
+    .agenda button {
+      width: 100%; background: none; border: 0; border-bottom: 1px solid var(--sand-dark); text-align: left;
+      display: grid; grid-template-columns: 90px 1fr auto; gap: 12px; align-items: center; padding: 12px 4px;
+    }
+    .agenda button:hover { background: var(--white); }
+    .agenda .when { font-size: 13px; color: var(--gray-mid); }
+    .agenda .when.is-overdue { color: var(--overdue); font-weight: 500; }
+    .agenda .who { font-family: var(--serif); font-size: 19px; line-height: 1.2; }
 
     @media (max-width: 720px) {
       .wrap { padding: 28px 16px 64px; }
       h1 { font-size: 36px; }
       .stats { grid-template-columns: repeat(2, 1fr); }
       .search { margin-left: 0; flex: 1 1 100%; min-width: 0; }
+      .nav { flex-direction: column-reverse; align-items: stretch; gap: 4px; }
+      .nav .search { margin: 0 0 4px; }
+      .views { gap: 20px; }
       .item { grid-template-columns: 1fr; padding: 16px 4px; }
       .item-side { grid-row: auto; grid-column: auto; flex-direction: row; align-items: center; justify-content: flex-start; gap: 12px; margin-top: 6px; }
       .drawer { padding: 24px 16px 40px; }
@@ -215,17 +324,28 @@
         overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 16px; margin: 0 -16px; padding: 0 16px 8px;
       }
       .column { scroll-snap-align: start; }
+      .cal-day { min-height: 52px; padding: 4px; }
+      .cal-dow { padding: 6px 2px; text-align: center; letter-spacing: 0; }
+      .cal-ev { display: none; }
+      .cal-dots { display: flex; flex-wrap: wrap; gap: 3px; }
+      .cal-dots span { width: 6px; height: 6px; border-radius: 999px; background: #2F4E6B; }
+      .cal-dots span.is-overdue { background: var(--overdue); }
+      .cal-dots span.is-event { background: #35603F; }
+      .agenda button { grid-template-columns: 64px 1fr; }
+      .agenda .pill { display: none; }
+      .report { gap: 12px; }
+      .report-nums { gap: 18px; width: 100%; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .drawer, .scrim { transition: none; }
+      .drawer, .scrim, .toast { transition: none; }
     }
   </style>
 </head>
 <body>
   <section class="login" id="login" hidden>
     <div class="login-box">
-      <h1>Contactos</h1>
+      <h1>CRM Val</h1>
       <p class="login-hint">Entra con la cuenta de Google que tiene acceso a la hoja de contactos.</p>
       <button class="save" id="login-btn" type="button">Entrar con Google</button>
       <p class="login-error" id="login-error" role="alert"></p>
@@ -234,7 +354,7 @@
 
   <main class="wrap" id="app" hidden>
     <header class="top">
-      <h1>Contactos</h1>
+      <h1>CRM Val</h1>
       <div class="top-actions">
         <button class="ghost-btn" id="refresh" type="button">Actualizar</button>
         <button class="ghost-btn" id="logout" type="button">Salir</button>
@@ -246,27 +366,45 @@
     <section class="stats" aria-label="Resumen">
       <button class="stat" type="button" data-filter="Nuevo"><span class="stat-num" id="n-new">–</span><span class="stat-label">Nuevos sin contestar</span></button>
       <button class="stat" type="button" data-filter="En conversación"><span class="stat-num" id="n-talk">–</span><span class="stat-label">En conversación</span></button>
-      <button class="stat" type="button" data-filter="Cerrado"><span class="stat-num" id="n-won">–</span><span class="stat-label">Cerrados</span></button>
+      <button class="stat" type="button" data-filter="Ganado"><span class="stat-num" id="n-won">–</span><span class="stat-label">Ganadas por realizar</span></button>
       <button class="stat is-alert" type="button" data-filter="vencidos"><span class="stat-num" id="n-due">–</span><span class="stat-label">Seguimientos vencidos</span></button>
     </section>
 
-    <div class="toolbar">
-      <div class="views" role="group" aria-label="Vista">
+    <section class="report" aria-label="Resultados">
+      <span class="report-title">Resultados</span>
+      <div class="report-nums">
+        <span class="report-num is-won"><strong id="r-won">–</strong> ganadas</span>
+        <span class="report-num"><strong id="r-lost">–</strong> perdidas</span>
+        <span class="report-num"><strong id="r-rate">–</strong> de cierre</span>
+      </div>
+      <div class="periods" role="group" aria-label="Periodo">
+        <button type="button" data-period="month" aria-pressed="true">Este mes</button>
+        <button type="button" data-period="year" aria-pressed="false">Este año</button>
+        <button type="button" data-period="all" aria-pressed="false">Todo</button>
+      </div>
+    </section>
+
+    <nav class="nav" aria-label="Vista">
+      <div class="views">
         <button class="view-btn" type="button" data-view="list" aria-pressed="true">Lista</button>
         <button class="view-btn" type="button" data-view="board" aria-pressed="false">Pipeline</button>
+        <button class="view-btn" type="button" data-view="cal" aria-pressed="false">Calendario</button>
       </div>
+      <input class="search" id="search" type="search" placeholder="Buscar nombre, empresa o correo" aria-label="Buscar">
+    </nav>
+
+    <div class="toolbar" id="toolbar">
       <div class="chips" id="chips" role="group" aria-label="Filtrar por estado">
         <button class="chip" type="button" data-filter="todos" aria-pressed="true">Todos</button>
         <button class="chip" type="button" data-filter="Nuevo" aria-pressed="false">Nuevo</button>
         <button class="chip" type="button" data-filter="En conversación" aria-pressed="false">En conversación</button>
-        <button class="chip" type="button" data-filter="Cerrado" aria-pressed="false">Cerrado</button>
-        <button class="chip" type="button" data-filter="Descartado" aria-pressed="false">Descartado</button>
+        <button class="chip" type="button" data-filter="Ganado" aria-pressed="false">Ganado</button>
       </div>
-      <input class="search" id="search" type="search" placeholder="Buscar nombre, empresa o correo" aria-label="Buscar">
     </div>
 
     <ul class="list" id="list" aria-live="polite"></ul>
     <div class="board" id="board" hidden></div>
+    <section id="cal" hidden></section>
     <p class="empty" id="empty">Cargando contactos…</p>
   </main>
 
@@ -296,8 +434,20 @@
           <legend>Estado</legend>
           <div class="status-opts" id="d-status"></div>
         </fieldset>
-        <div class="field">
+        <div class="field" id="d-event-field" hidden>
+          <label for="d-event">Fecha del evento</label>
+          <input type="date" id="d-event">
+          <p class="field-hint">Con fecha, se agrega a tu Google Calendar (con aviso una semana y un día antes). Sin fecha, no se agrega nada.</p>
+        </div>
+        <div class="field" id="d-follow-field">
           <label for="d-follow">Fecha de seguimiento</label>
+          <div class="quick-dates" role="group" aria-label="Fechas rápidas">
+            <button type="button" data-days="1">Mañana</button>
+            <button type="button" data-days="3">En 3 días</button>
+            <button type="button" data-days="7">En 1 semana</button>
+            <button type="button" data-days="14">En 2 semanas</button>
+            <button type="button" data-days="" class="is-clear">Quitar fecha</button>
+          </div>
           <input type="date" id="d-follow">
         </div>
         <div class="field">
@@ -308,9 +458,26 @@
           <button class="save" id="d-save" type="submit">Guardar</button>
           <span class="save-msg" id="d-msg" role="status"></span>
         </div>
+        <p class="field-hint" id="d-cal-hint">Con fecha de seguimiento, se crea un recordatorio en tu Google Calendar a las 9:00 de ese día. Sin fecha, no se crea nada. "Perdido" archiva el contacto.</p>
       </form>
+      <button class="delete-btn" id="d-delete" type="button">Eliminar contacto</button>
     </aside>
   </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <dialog class="confirm" id="confirm" aria-labelledby="confirm-title">
+    <h2 id="confirm-title"></h2>
+    <p id="confirm-text"></p>
+    <div class="field" id="confirm-date-field" hidden>
+      <label for="confirm-date">Fecha del evento</label>
+      <input type="date" id="confirm-date">
+    </div>
+    <div class="confirm-actions">
+      <button class="ghost-btn" type="button" id="confirm-no">Cancelar</button>
+      <button class="danger" type="button" id="confirm-yes"></button>
+    </div>
+  </dialog>
 
   <script src="https://accounts.google.com/gsi/client" async></script>
   <script>
@@ -320,17 +487,32 @@
     // only Google accounts the sheet is shared with can read it.
     const SHEET_ID = '1autMw4XWsVrqOMyo4Ll_5zMR0k2GbT8sbrbHYV1zRoE';
     const TAB = 'Contactos';
-    const SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
-    const TOKEN_KEY = 'crm-google-token';
-    const CRM_HEADERS = ['Estado', 'Seguimiento', 'Notas'];
+    // Lost and deleted contacts move here, so nothing is ever really lost
+    const ARCHIVE = 'Archivados';
+    const CRM_URL = 'https://valdelatorre.com/crm/';
+    const SCOPE = 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/calendar.events';
+    // Bumped when SCOPE changes, so tokens without Calendar access aren't reused
+    const TOKEN_KEY = 'crm-google-token-v2';
+    // Columns A–G come from the form; H–L belong to the CRM
+    const CRM_HEADERS = ['Estado', 'Seguimiento', 'Notas', 'Fecha del evento', 'Ganado el'];
+    const FORM_HEADERS = ['Fecha', 'Nombre', 'Correo', 'Empresa', 'Tipo de colaboración', 'Fecha estimada', 'Mensaje'];
+    const ARCHIVE_HEADERS = [...FORM_HEADERS, ...CRM_HEADERS, 'Archivado', 'Motivo'];
 
-    const STATUSES = ['Nuevo', 'En conversación', 'Cerrado', 'Descartado'];
+    const STATUSES = ['Nuevo', 'En conversación', 'Ganado', 'Perdido'];
     const OPEN = ['Nuevo', 'En conversación'];
+    const BOARD = ['Nuevo', 'En conversación', 'Ganado'];
+    // Statuses from the first version of the CRM
+    const LEGACY = { 'Cerrado': 'Ganado', 'Descartado': 'Perdido' };
     let contacts = [];
+    let archived = [];
     let filter = 'todos';
+    let period = 'month';
     const VIEW_KEY = 'crm-view';
-    let view = (() => { try { return localStorage.getItem(VIEW_KEY) === 'board' ? 'board' : 'list'; } catch { return 'list'; } })();
+    const VIEWS = ['list', 'board', 'cal'];
+    let view = (() => { try { const v = localStorage.getItem(VIEW_KEY); return VIEWS.includes(v) ? v : 'list'; } catch { return 'list'; } })();
+    let calMonth = (() => { const d = new Date(); return new Date(d.getFullYear(), d.getMonth(), 1); })();
     let dragged = null;
+    let loadedAt = 0;
     let current = null;
     let lastFocus = null;
 
@@ -345,6 +527,57 @@
     const serialToISODay = n => serialToDate(n).toISOString().slice(0, 10);
     const fmtDate = iso => new Date(iso).toLocaleDateString('es-MX', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
     const fmtDay = ymd => { const [y, m, d] = ymd.split('-').map(Number); return new Date(y, m - 1, d).toLocaleDateString('es-MX', { day: 'numeric', month: 'short' }); };
+    const addDays = n => { const d = new Date(); d.setDate(d.getDate() + n); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+    const capitalize = t => t.charAt(0).toUpperCase() + t.slice(1);
+
+    // "hoy", "ayer", "hace 3 días", then the plain date after two weeks
+    function ago(iso) {
+      const d = new Date(iso);
+      const local = new Date(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate());
+      const today = new Date(); today.setHours(0, 0, 0, 0);
+      const days = Math.round((today - local) / 86400000);
+      if (days <= 0) return 'hoy';
+      if (days === 1) return 'ayer';
+      if (days < 14) return `hace ${days} días`;
+      return fmtDate(iso);
+    }
+
+    // Follow-up label: "Hoy", "Mañana", "Vencido 25 oct", "4 nov"
+    function followLabel(c) {
+      if (isOverdue(c)) return `Vencido ${fmtDay(c.seguimiento)}`;
+      if (c.seguimiento === todayISO()) return 'Seguimiento hoy';
+      if (c.seguimiento === addDays(1)) return 'Seguimiento mañana';
+      return `Seguimiento ${fmtDay(c.seguimiento)}`;
+    }
+
+    let toastTimer;
+    function toast(msg, isError = false) {
+      const t = $('toast');
+      t.textContent = msg;
+      t.classList.toggle('is-error', isError);
+      t.classList.add('is-shown');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => t.classList.remove('is-shown'), isError ? 5000 : 2800);
+    }
+
+    // Modal question. Resolves { ok, date } — date only when withDate is set.
+    function ask({ title, text, yes, tone = 'danger', withDate = false, date = '' }) {
+      const dlg = $('confirm');
+      $('confirm-title').textContent = title;
+      $('confirm-text').textContent = text;
+      $('confirm-yes').textContent = yes;
+      $('confirm-yes').className = tone === 'danger' ? 'danger' : 'danger is-primary';
+      $('confirm-date-field').hidden = !withDate;
+      $('confirm-date').value = date;
+      return new Promise(resolve => {
+        const done = ok => { dlg.close(); resolve({ ok, date: $('confirm-date').value }); };
+        $('confirm-yes').onclick = () => done(true);
+        $('confirm-no').onclick = () => done(false);
+        dlg.oncancel = () => resolve({ ok: false });
+        dlg.showModal();
+        (withDate ? $('confirm-date') : $('confirm-no')).focus();
+      });
+    }
 
     function el(tag, cls, text) {
       const n = document.createElement(tag);
@@ -370,16 +603,94 @@
 
     class AuthError extends Error {}
 
-    async function sheets(path, options = {}) {
-      const res = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${path}`, {
+    async function google_(url, options = {}) {
+      const res = await fetch(url, {
         ...options,
         headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }
       });
       if (res.status === 401) throw new AuthError('Tu sesión expiró. Vuelve a entrar.');
+      return res;
+    }
+
+    // path is relative to the spreadsheet: "/values/…", ":batchUpdate" or "?fields=…"
+    async function spreadsheet(path, options) {
+      const res = await google_(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}${path}`, options);
       if (res.status === 403) throw new AuthError('Esta cuenta de Google no tiene acceso a la hoja de contactos.');
       if (res.status === 404) throw new Error('No se encontró la hoja. Revisa SHEET_ID.');
       if (!res.ok) throw new Error(`Google respondió ${res.status}.`);
       return res.json();
+    }
+    const sheets = (path, options) => spreadsheet(`/values/${path}`, options);
+
+    /* ── Google Calendar ──────────────────────────────────────────────
+       Each contact gets at most one event, with an id derived from its
+       timestamp, so it can be updated or removed without storing anything. */
+    const stampKey = c => Math.round(c.stamp * 86400).toString(32);
+    const followId = c => `valcrm${stampKey(c)}`;
+    const wonId = c => `valev${stampKey(c)}`;
+
+    async function calendar(method, path = '', body) {
+      return google_(`https://www.googleapis.com/calendar/v3/calendars/primary/events${path}`, {
+        method,
+        body: body ? JSON.stringify(body) : undefined
+      });
+    }
+
+    function calendarError(res) {
+      return new Error(res.status === 403
+        ? 'Google Calendar no está activado o falta permiso. Sal y vuelve a entrar.'
+        : `Google Calendar respondió ${res.status}.`);
+    }
+
+    async function removeEvent(id) {
+      const res = await calendar('DELETE', `/${id}`);
+      if (!res.ok && res.status !== 404 && res.status !== 410) throw calendarError(res);
+    }
+
+    async function upsertEvent(event) {
+      let res = await calendar('PUT', `/${event.id}`, event);
+      if (res.status === 404) res = await calendar('POST', '', event);
+      if (!res.ok) throw calendarError(res);
+    }
+
+    const describe = c => [`${c.nombre} · ${c.correo}`, c.notas && `Notas: ${c.notas}`, `Abrir CRM: ${CRM_URL}`].filter(Boolean).join('\n\n');
+
+    // Keeps both of a contact's Calendar events in line with its state:
+    //  · open + follow-up date → reminder at 9:00 that day
+    //  · Ganado + event date   → all-day event, with alerts a week and a day before (9:00)
+    // Without a date, nothing is created.
+    async function syncEvents(c) {
+      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      if (c.seguimiento && OPEN.includes(c.estado)) {
+        await upsertEvent({
+          id: followId(c),
+          status: 'confirmed',
+          summary: `Seguimiento: ${c.empresa} (${c.tipo})`,
+          description: describe(c),
+          start: { dateTime: `${c.seguimiento}T09:00:00`, timeZone },
+          end: { dateTime: `${c.seguimiento}T09:30:00`, timeZone },
+          reminders: { useDefault: false, overrides: [{ method: 'popup', minutes: 0 }] }
+        });
+      } else {
+        await removeEvent(followId(c));
+      }
+
+      if (c.fechaEvento && c.estado === 'Ganado') {
+        const [y, m, d] = c.fechaEvento.split('-').map(Number);
+        const next = new Date(y, m - 1, d + 1);
+        await upsertEvent({
+          id: wonId(c),
+          status: 'confirmed',
+          summary: `${c.tipo}: ${c.empresa}`,
+          description: describe(c),
+          start: { date: c.fechaEvento },
+          end: { date: `${next.getFullYear()}-${String(next.getMonth() + 1).padStart(2, '0')}-${String(next.getDate()).padStart(2, '0')}` },
+          transparency: 'opaque',
+          reminders: { useDefault: false, overrides: [{ method: 'popup', minutes: 6 * 1440 + 900 }, { method: 'popup', minutes: 900 }] }
+        });
+      } else {
+        await removeEvent(wonId(c));
+      }
     }
 
     // Any call that fails on auth sends Val back to the login screen
@@ -452,19 +763,40 @@
         // Sheets can turn a typed date like "15/03/2027" into a serial number
         fechaEstimada: typeof r[5] === 'number' ? fmtDate(serialToDate(r[5]).toISOString()) : String(cell(5)),
         mensaje: String(cell(6)),
-        estado: STATUSES.includes(r[7]) ? r[7] : 'Nuevo',
+        estado: STATUSES.includes(r[7]) ? r[7] : (LEGACY[r[7]] || 'Nuevo'),
         seguimiento: typeof r[8] === 'number' ? serialToISODay(r[8]) : '',
-        notas: String(cell(9))
+        notas: String(cell(9)),
+        fechaEvento: typeof r[10] === 'number' ? serialToISODay(r[10]) : '',
+        ganadoEl: typeof r[11] === 'number' ? serialToISODay(r[11]) : ''
       };
+    }
+
+    // The archive tab only feeds the "perdidas" counter; it may not exist yet
+    async function loadArchive() {
+      try {
+        const data = await sheets(`${ARCHIVE}!A2:N?valueRenderOption=UNFORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER`);
+        return (data.values || []).map(r => ({
+          motivo: r[13] || '',
+          archivado: typeof r[12] === 'number' ? serialToISODay(r[12]) : ''
+        }));
+      } catch (err) {
+        if (err instanceof AuthError) throw err;
+        return [];
+      }
     }
 
     async function load() {
       $('refresh').disabled = true;
       try {
-        const data = await guarded(() => sheets(`${TAB}!A1:J?valueRenderOption=UNFORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER`));
+        const [data, arch] = await guarded(() => Promise.all([
+          sheets(`${TAB}!A1:L?valueRenderOption=UNFORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER`),
+          loadArchive()
+        ]));
+        archived = arch;
         const [titles = [], ...rows] = data.values || [];
         headersOk = CRM_HEADERS.every((h, i) => titles[7 + i] === h);
         contacts = rows.map(toContact).filter(Boolean).reverse();
+        loadedAt = Date.now();
         showNotice('');
         render();
       } catch (err) {
@@ -477,32 +809,183 @@
       }
     }
 
-    // Writes Estado, Seguimiento and Notas (columns H–J) for one contact
-    async function saveContact(c, changes) {
-      // The row's timestamp must still match, so a row deleted or moved in the
-      // sheet since the page loaded is never overwritten by mistake
+    async function assertRowMatches(c) {
       const check = await sheets(`${TAB}!A${c.row}?valueRenderOption=UNFORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER`);
       if (((check.values || [])[0] || [])[0] !== c.stamp) {
         throw new Error('La hoja cambió. Toca "Actualizar" e inténtalo de nuevo.');
       }
+    }
+
+    // Moves the contact's row to the "Archivados" tab (created on first use), stamped with when and why
+    async function archiveContact(c, motivo) {
+      await assertRowMatches(c);
+      const meta = await spreadsheet('?fields=sheets.properties(sheetId,title)');
+      const idOf = title => (meta.sheets.find(x => x.properties.title === title) || {}).properties?.sheetId;
+      const srcId = idOf(TAB);
+      let archiveId = idOf(ARCHIVE);
+      if (archiveId == null) {
+        const added = await spreadsheet(':batchUpdate', { method: 'POST', body: JSON.stringify({ requests: [{ addSheet: { properties: { title: ARCHIVE } } }] }) });
+        archiveId = added.replies[0].addSheet.properties.sheetId;
+        await sheets(`${ARCHIVE}!A1:N1?valueInputOption=RAW`, { method: 'PUT', body: JSON.stringify({ values: [ARCHIVE_HEADERS] }) });
+      }
+      const used = await sheets(`${ARCHIVE}!A:A`);
+      const dest = Math.max((used.values || []).length, 1) + 1;
+
+      // Cut + delete in one request, so the row can't end up in both tabs or neither
+      await spreadsheet(':batchUpdate', {
+        method: 'POST',
+        body: JSON.stringify({ requests: [
+          { cutPaste: {
+            source: { sheetId: srcId, startRowIndex: c.row - 1, endRowIndex: c.row, startColumnIndex: 0, endColumnIndex: 12 },
+            destination: { sheetId: archiveId, rowIndex: dest - 1, columnIndex: 0 },
+            pasteType: 'PASTE_NORMAL'
+          } },
+          { deleteDimension: { range: { sheetId: srcId, dimension: 'ROWS', startIndex: c.row - 1, endIndex: c.row } } }
+        ] })
+      });
+      const now = new Date();
+      await sheets(`${ARCHIVE}!M${dest}:N${dest}?valueInputOption=USER_ENTERED`, {
+        method: 'PUT',
+        body: JSON.stringify({ values: [[`${todayISO()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`, motivo]] })
+      });
+    }
+
+    // Archives a contact, clears its Calendar events and reloads (row numbers shift)
+    async function archiveAndReload(c, motivo) {
+      try {
+        await guarded(() => archiveContact(c, motivo));
+      } catch (err) {
+        if (!(err instanceof AuthError)) toast(`No se pudo archivar: ${err.message}`, true);
+        return false;
+      }
+      if (current === c) closeDetail();
+      // A Calendar hiccup shouldn't undo the archive
+      Promise.all([removeEvent(followId(c)), removeEvent(wonId(c))]).catch(() => {});
+      toast(motivo === 'Perdido' ? `${c.empresa} se marcó como perdida y se archivó` : `${c.empresa} se eliminó (está en Archivados)`);
+      await load();
+      return true;
+    }
+
+    async function deleteContact(c) {
+      const { ok } = await ask({
+        title: `¿Eliminar ${c.empresa}?`,
+        text: 'Se quita del CRM y la fila se mueve a la pestaña "Archivados" de la hoja, por si la necesitas después.',
+        yes: 'Eliminar'
+      });
+      if (ok) await archiveAndReload(c, 'Eliminado');
+    }
+
+    const trashIcon = () => {
+      const t = document.createElement('template');
+      t.innerHTML = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2.5 4h11M6 4V2.5h4V4M4 4l.7 9.5h6.6L12 4M6.8 6.5v4.5M9.2 6.5v4.5"/></svg>';
+      return t.content.firstChild;
+    };
+    function deleteButton(c) {
+      const b = el('button', 'icon-btn');
+      b.type = 'button';
+      b.setAttribute('aria-label', `Eliminar ${c.empresa}`);
+      b.title = 'Eliminar';
+      b.append(trashIcon());
+      b.addEventListener('click', e => { e.stopPropagation(); deleteContact(c); });
+      return b;
+    }
+
+    // Writes the CRM columns (H–L) for one contact
+    async function saveContact(c, changes) {
+      // The row's timestamp must still match, so a row deleted or moved in the
+      // sheet since the page loaded is never overwritten by mistake
+      await assertRowMatches(c);
       if (!headersOk) {
-        await sheets(`${TAB}!H1:J1?valueInputOption=RAW`, { method: 'PUT', body: JSON.stringify({ values: [CRM_HEADERS] }) });
+        await sheets(`${TAB}!H1:L1?valueInputOption=RAW`, { method: 'PUT', body: JSON.stringify({ values: [CRM_HEADERS] }) });
         headersOk = true;
       }
       // USER_ENTERED turns the date into a real date; a leading ' keeps notes
       // like "=..." as plain text instead of formulas
       const notas = /^[=+\-@']/.test(changes.notas) ? `'${changes.notas}` : changes.notas;
-      await sheets(`${TAB}!H${c.row}:J${c.row}?valueInputOption=USER_ENTERED`, {
+      await sheets(`${TAB}!H${c.row}:L${c.row}?valueInputOption=USER_ENTERED`, {
         method: 'PUT',
-        body: JSON.stringify({ values: [[changes.estado, changes.seguimiento, notas]] })
+        body: JSON.stringify({ values: [[changes.estado, changes.seguimiento, notas, changes.fechaEvento, changes.ganadoEl]] })
       });
+    }
+
+    /* Every status change goes through here:
+       · Perdido → confirm, record it, archive the row
+       · Ganado  → ask for the event date when it's missing, stamp "Ganado el"
+       · then save and bring Calendar in line.
+       Resolves true when something was saved. */
+    async function applyChanges(c, changes, { askEventDate = false } = {}) {
+      const next = { seguimiento: c.seguimiento, notas: c.notas, fechaEvento: c.fechaEvento, ganadoEl: c.ganadoEl, ...changes };
+
+      if (next.estado === 'Perdido') {
+        const { ok } = await ask({
+          title: `¿Marcar ${c.empresa} como perdida?`,
+          text: 'Cuenta en el reporte de perdidas, sale del CRM y la fila se archiva en la pestaña "Archivados" de la hoja.',
+          yes: 'Marcar perdida'
+        });
+        if (!ok) return false;
+        try {
+          await guarded(() => saveContact(c, { ...next, ganadoEl: '' }));
+        } catch (err) {
+          if (!(err instanceof AuthError)) toast(err.message, true);
+          return false;
+        }
+        return archiveAndReload(c, 'Perdido');
+      }
+
+      if (next.estado === 'Ganado') {
+        if (askEventDate && !next.fechaEvento) {
+          const { ok, date } = await ask({
+            title: `¡${c.empresa} ganada!`,
+            text: '¿Cuándo es el evento? Se agrega a tu Google Calendar. Si aún no hay fecha, déjala vacía y la pones después desde la ficha.',
+            yes: 'Guardar',
+            tone: 'primary',
+            withDate: true
+          });
+          if (!ok) return false;
+          next.fechaEvento = date;
+        }
+        if (c.estado !== 'Ganado') next.ganadoEl = todayISO();
+      } else {
+        next.ganadoEl = '';
+      }
+
+      try {
+        await guarded(() => saveContact(c, next));
+      } catch (err) {
+        if (!(err instanceof AuthError)) toast(err.message, true);
+        return false;
+      }
+      Object.assign(c, next);
+      render();
+      try {
+        await guarded(() => syncEvents(c));
+        toast(c.estado === 'Ganado' && c.fechaEvento
+          ? `Guardado · evento el ${fmtDay(c.fechaEvento)} en tu Calendar`
+          : c.seguimiento && OPEN.includes(c.estado)
+            ? `Guardado · recordatorio el ${fmtDay(c.seguimiento)} a las 9:00`
+            : 'Guardado');
+      } catch (err) {
+        if (!(err instanceof AuthError)) toast(`Guardado, pero no se pudo actualizar tu Calendar: ${err.message}`, true);
+      }
+      return true;
     }
 
     function render() {
       $('n-new').textContent = contacts.filter(c => c.estado === 'Nuevo').length;
       $('n-talk').textContent = contacts.filter(c => c.estado === 'En conversación').length;
-      $('n-won').textContent = contacts.filter(c => c.estado === 'Cerrado').length;
-      $('n-due').textContent = contacts.filter(isOverdue).length;
+      $('n-won').textContent = contacts.filter(c => c.estado === 'Ganado' && (!c.fechaEvento || c.fechaEvento >= todayISO())).length;
+
+      // Results for the chosen period: won by "Ganado el", lost by archive date
+      const inPeriod = d => d && (period === 'all' || d.slice(0, period === 'month' ? 7 : 4) === todayISO().slice(0, period === 'month' ? 7 : 4));
+      const won = contacts.filter(c => c.estado === 'Ganado' && (period === 'all' || inPeriod(c.ganadoEl))).length;
+      const lost = archived.filter(a => a.motivo === 'Perdido' && (period === 'all' || inPeriod(a.archivado))).length;
+      $('r-won').textContent = won;
+      $('r-lost').textContent = lost;
+      $('r-rate').textContent = won + lost ? `${Math.round((won / (won + lost)) * 100)}%` : '—';
+      document.querySelectorAll('[data-period]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.period === period)));
+      const due = contacts.filter(isOverdue).length;
+      $('n-due').textContent = due;
+      $('n-due').closest('.stat').classList.toggle('has-items', due > 0);
 
       document.querySelectorAll('[data-filter]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filter === filter)));
 
@@ -513,13 +996,13 @@
         return !q || [c.nombre, c.empresa, c.correo].some(v => v.toLowerCase().includes(q));
       });
 
-      const isBoard = view === 'board';
       document.querySelectorAll('[data-view]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.view === view)));
-      $('chips').hidden = isBoard; // in the pipeline the columns are the status filter
-      $('list').hidden = isBoard;
-      $('board').hidden = !isBoard;
-      if (isBoard) {
-        renderBoard(shown);
+      $('toolbar').hidden = view === 'board'; // in the pipeline the columns are the status filter
+      $('list').hidden = view !== 'list';
+      $('board').hidden = view !== 'board';
+      $('cal').hidden = view !== 'cal';
+      if (view !== 'list') {
+        if (view === 'board') renderBoard(shown); else renderCalendar(shown);
         $('empty').textContent = contacts.length ? '' : 'Todavía no hay contactos.';
         return;
       }
@@ -530,17 +1013,19 @@
         const li = el('li');
         const btn = el('button', 'item');
         btn.type = 'button';
-        btn.append(el('span', 'item-type', c.tipo), el('span', 'item-company', c.empresa), el('span', 'item-meta', `${c.nombre} · ${fmtDate(c.fecha)}`));
+        btn.append(el('span', 'item-type', c.tipo), el('span', 'item-company', c.empresa), el('span', 'item-meta', `${c.nombre} · ${ago(c.fecha)}`));
         const side = el('span', 'item-side');
         const pill = el('span', 'pill', c.estado);
         pill.dataset.s = c.estado;
         side.append(pill);
-        if (c.seguimiento) {
-          side.append(el('span', `follow${isOverdue(c) ? ' is-overdue' : ''}`, `${isOverdue(c) ? 'Vencido' : 'Seguimiento'} ${fmtDay(c.seguimiento)}`));
+        if (c.estado === 'Ganado') {
+          side.append(el('span', 'follow', c.fechaEvento ? `Evento ${fmtDay(c.fechaEvento)}` : 'Sin fecha de evento'));
+        } else if (c.seguimiento) {
+          side.append(el('span', `follow${isOverdue(c) ? ' is-overdue' : ''}`, followLabel(c)));
         }
         btn.append(side);
         btn.addEventListener('click', () => openDetail(c));
-        li.append(btn);
+        li.append(btn, deleteButton(c));
         list.append(li);
       });
 
@@ -551,7 +1036,7 @@
     function renderBoard(shown) {
       const board = $('board');
       board.replaceChildren();
-      STATUSES.forEach(s => {
+      BOARD.forEach(s => {
         const cards = shown.filter(c => c.estado === s);
         const col = el('section', 'column');
         col.dataset.s = s;
@@ -564,11 +1049,11 @@
           const card = el('button', 'card');
           card.type = 'button';
           card.draggable = true;
-          card.append(el('span', 'item-type', c.tipo), el('span', 'card-company', c.empresa), el('span', 'card-meta', `${c.nombre} · ${fmtDate(c.fecha)}`));
-          if (c.seguimiento) {
-            card.append(el('span', `follow${isOverdue(c) ? ' is-overdue' : ''}`, `${isOverdue(c) ? 'Vencido' : 'Seguimiento'} ${fmtDay(c.seguimiento)}`));
-          }
+          card.append(el('span', 'item-type', c.tipo), el('span', 'card-company', c.empresa), el('span', 'card-meta', `${c.nombre} · ${ago(c.fecha)}`));
+          if (c.estado === 'Ganado') card.append(el('span', 'won', c.fechaEvento ? `Evento ${fmtDay(c.fechaEvento)}` : 'Sin fecha de evento'));
+          else if (c.seguimiento) card.append(el('span', `follow${isOverdue(c) ? ' is-overdue' : ''}`, followLabel(c)));
           card.addEventListener('click', () => openDetail(c));
+          const wrap = el('div', 'card-wrap');
           card.addEventListener('dragstart', e => {
             dragged = c;
             e.dataTransfer.effectAllowed = 'move';
@@ -579,7 +1064,8 @@
             dragged = null;
             card.classList.remove('is-dragging');
           });
-          col.append(card);
+          wrap.append(card, deleteButton(c));
+          col.append(wrap);
         });
         if (!cards.length) col.append(el('p', 'column-empty', 'Sin contactos'));
 
@@ -598,22 +1084,103 @@
         });
         board.append(col);
       });
+
+      const lostZone = el('section', 'column is-lost');
+      lostZone.setAttribute('aria-label', 'Perdido');
+      const lh = el('div', 'column-head');
+      lh.append(el('span', 'column-title', 'Perdido'));
+      lostZone.append(lh, el('p', null, 'Suelta aquí una oportunidad perdida para archivarla'));
+      lostZone.addEventListener('dragover', e => { if (dragged) { e.preventDefault(); lostZone.classList.add('is-over'); } });
+      lostZone.addEventListener('dragleave', e => { if (!lostZone.contains(e.relatedTarget)) lostZone.classList.remove('is-over'); });
+      lostZone.addEventListener('drop', e => {
+        e.preventDefault();
+        lostZone.classList.remove('is-over');
+        if (dragged) moveTo(dragged, 'Perdido');
+      });
+      board.append(lostZone);
     }
 
-    // Moves the card right away, then saves; puts it back if the save fails
+    // Month grid of follow-up dates, plus the same month as a list underneath
+    function renderCalendar(shown) {
+      const box = $('cal');
+      box.replaceChildren();
+      const y = calMonth.getFullYear();
+      const m = calMonth.getMonth();
+      const ymd = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+      const monthKey = `${y}-${String(m + 1).padStart(2, '0')}`;
+      // Open follow-ups and won events share the calendar
+      const entries = [
+        ...shown.filter(c => c.seguimiento && OPEN.includes(c.estado)).map(c => ({ c, date: c.seguimiento, isEvent: false })),
+        ...shown.filter(c => c.estado === 'Ganado' && c.fechaEvento).map(c => ({ c, date: c.fechaEvento, isEvent: true }))
+      ];
+
+      const head = el('div', 'cal-head');
+      head.append(el('h2', 'cal-title', capitalize(calMonth.toLocaleDateString('es-MX', { month: 'long', year: 'numeric' }))));
+      [['‹', 'Mes anterior', -1], ['Hoy', 'Ir a hoy', 0], ['›', 'Mes siguiente', 1]].forEach(([label, aria, step]) => {
+        const b = el('button', 'ghost-btn', label);
+        b.type = 'button';
+        b.setAttribute('aria-label', aria);
+        b.addEventListener('click', () => {
+          const now = new Date();
+          calMonth = step ? new Date(y, m + step, 1) : new Date(now.getFullYear(), now.getMonth(), 1);
+          render();
+        });
+        head.append(b);
+      });
+      box.append(head);
+
+      const grid = el('div', 'cal-grid');
+      ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'].forEach(d => grid.append(el('div', 'cal-dow', d)));
+      const first = new Date(y, m, 1);
+      const start = new Date(y, m, 1 - ((first.getDay() + 6) % 7)); // back to Monday
+      const today = todayISO();
+      for (let i = 0; i < 42; i++) {
+        const day = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
+        if (i >= 35 && day.getMonth() !== m) break; // drop a sixth row that's all next month
+        const key = ymd(day);
+        const cell = el('div', `cal-day${day.getMonth() !== m ? ' is-other' : ''}${key === today ? ' is-today' : ''}`);
+        cell.append(el('span', 'cal-num', day.getDate()));
+        const items = entries.filter(x => x.date === key);
+        const dots = el('div', 'cal-dots');
+        items.forEach(({ c, isEvent }) => {
+          const late = !isEvent && isOverdue(c);
+          const b = el('button', `cal-ev${late ? ' is-overdue' : ''}${isEvent ? ' is-event' : ''}`, isEvent ? `★ ${c.empresa}` : c.empresa);
+          b.type = 'button';
+          b.dataset.s = c.estado;
+          b.title = `${isEvent ? 'Evento' : 'Seguimiento'} · ${c.empresa} · ${c.nombre}`;
+          b.addEventListener('click', () => openDetail(c));
+          cell.append(b);
+          dots.append(el('span', late ? 'is-overdue' : isEvent ? 'is-event' : ''));
+        });
+        if (items.length) cell.append(dots);
+        grid.append(cell);
+      }
+      box.append(grid);
+
+      const agenda = el('div', 'agenda');
+      const monthItems = entries.filter(x => x.date.startsWith(monthKey)).sort((a, b) => a.date.localeCompare(b.date));
+      agenda.append(el('h2', null, `Agenda de ${calMonth.toLocaleDateString('es-MX', { month: 'long' })}`));
+      const ul = el('ul');
+      monthItems.forEach(({ c, date, isEvent }) => {
+        const li = el('li');
+        const b = el('button');
+        b.type = 'button';
+        const pill = el('span', 'pill', isEvent ? 'Evento' : 'Seguimiento');
+        pill.dataset.s = isEvent ? 'Ganado' : c.estado;
+        b.append(el('span', `when${!isEvent && isOverdue(c) ? ' is-overdue' : ''}`, fmtDay(date)), el('span', 'who', `${c.empresa} · ${c.nombre}`), pill);
+        b.addEventListener('click', () => openDetail(c));
+        li.append(b);
+        ul.append(li);
+      });
+      if (!monthItems.length) ul.append(el('li', 'empty', 'Nada agendado este mes.'));
+      agenda.append(ul);
+      box.append(agenda);
+    }
+
+    // Dragging a card to another column changes its status
     async function moveTo(c, estado) {
       if (c.estado === estado) return;
-      const before = c.estado;
-      c.estado = estado;
-      render();
-      try {
-        await guarded(() => saveContact(c, { estado, seguimiento: c.seguimiento, notas: c.notas }));
-        showNotice('');
-      } catch (err) {
-        c.estado = before;
-        render();
-        if (!(err instanceof AuthError)) showNotice(`No se pudo mover a "${estado}": ${err.message}`);
-      }
+      await applyChanges(c, { estado }, { askEventDate: true });
     }
 
     function openDetail(c) {
@@ -642,7 +1209,9 @@
         opts.append(label);
       });
       $('d-follow').value = c.seguimiento;
+      $('d-event').value = c.fechaEvento;
       $('d-notes').value = c.notas;
+      syncDrawerFields();
       $('d-msg').textContent = '';
       $('d-msg').classList.remove('is-error');
 
@@ -650,6 +1219,15 @@
       requestAnimationFrame(() => document.body.classList.add('is-open'));
       $('close').focus();
     }
+
+    // Event date only matters once won; follow-ups only while open
+    function syncDrawerFields() {
+      const checked = document.querySelector('input[name="estado"]:checked');
+      const estado = checked ? checked.value : 'Nuevo';
+      $('d-event-field').hidden = estado !== 'Ganado';
+      $('d-follow-field').hidden = !OPEN.includes(estado);
+    }
+    $('d-status').addEventListener('change', syncDrawerFields);
 
     function closeDetail() {
       document.body.classList.remove('is-open');
@@ -662,25 +1240,16 @@
       e.preventDefault();
       if (!current) return;
       const c = current;
-      const changes = {
+      $('d-save').disabled = true;
+      $('d-msg').textContent = 'Guardando…';
+      const saved = await applyChanges(c, {
         estado: document.querySelector('input[name="estado"]:checked').value,
         seguimiento: $('d-follow').value,
+        fechaEvento: $('d-event').value,
         notas: $('d-notes').value
-      };
-      $('d-save').disabled = true;
-      $('d-msg').classList.remove('is-error');
-      $('d-msg').textContent = 'Guardando…';
-      try {
-        await guarded(() => saveContact(c, changes));
-        Object.assign(c, changes);
-        render();
-        $('d-msg').textContent = 'Guardado';
-      } catch (err) {
-        $('d-msg').classList.add('is-error');
-        $('d-msg').textContent = err.message;
-      } finally {
-        $('d-save').disabled = false;
-      }
+      });
+      $('d-save').disabled = false;
+      $('d-msg').textContent = saved && current === c ? 'Guardado' : '';
     });
 
     document.querySelectorAll('[data-filter]').forEach(b => b.addEventListener('click', () => {
@@ -696,9 +1265,18 @@
       render();
     }));
     $('search').addEventListener('input', render);
-    $('refresh').addEventListener('click', load);
+    document.querySelectorAll('[data-period]').forEach(b => b.addEventListener('click', () => { period = b.dataset.period; render(); }));
+    $('refresh').addEventListener('click', async () => { await load(); if (token) toast('Contactos actualizados'); });
     $('logout').addEventListener('click', () => showLogin());
     $('close').addEventListener('click', closeDetail);
+    $('d-delete').addEventListener('click', () => { if (current) deleteContact(current); });
+    document.querySelectorAll('.quick-dates button').forEach(b => b.addEventListener('click', () => {
+      $('d-follow').value = b.dataset.days ? addDays(Number(b.dataset.days)) : '';
+    }));
+    // New form messages show up on their own when Val comes back to the tab
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && token && !current && Date.now() - loadedAt > 120000) load();
+    });
     $('scrim').addEventListener('click', closeDetail);
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && current) closeDetail(); });
 
