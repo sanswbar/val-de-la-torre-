@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Contactos · Val de la Torre</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --paper: #F7F5F2;
+      --sand: #EDE8E0;
+      --sand-dark: #DDD6CB;
+      --black: #0D0D0D;
+      --gray-dark: #3A3835;
+      --gray-mid: #6B655E;
+      --gray-light: #C4BDB5;
+      --accent: #C8522A;
+      --accent-dark: #A33E1A;
+      --overdue: #B3261E;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Jost', 'Helvetica Neue', sans-serif;
+      color-scheme: light;
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+
+    body {
+      background: var(--paper);
+      color: var(--black);
+      font-family: var(--sans);
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    /* Header */
+    .top { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 32px; }
+    h1 { font-family: var(--serif); font-weight: 400; font-size: 44px; line-height: 1.05; }
+    .ghost-btn {
+      background: none; border: 1px solid var(--gray-light); border-radius: 2px;
+      padding: 9px 16px; font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+    }
+    .ghost-btn:hover { border-color: var(--black); }
+
+    /* Counters double as filters */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--sand-dark); border: 1px solid var(--sand-dark); margin-bottom: 28px; }
+    .stat {
+      background: var(--white); border: 0; text-align: left; padding: 18px 20px;
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .stat:hover { background: var(--paper); }
+    .stat[aria-pressed="true"] { box-shadow: inset 0 -2px 0 var(--accent); }
+    .stat-num { font-family: var(--serif); font-size: 38px; line-height: 1; font-variant-numeric: lining-nums; }
+    .stat-label { font-size: 12px; color: var(--gray-mid); }
+    .stat.is-alert .stat-num { color: var(--overdue); }
+
+    /* Filters */
+    .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip {
+      background: none; border: 1px solid var(--sand-dark); border-radius: 999px;
+      padding: 6px 14px; font-size: 13px; color: var(--gray-dark);
+    }
+    .chip[aria-pressed="true"] { background: var(--black); border-color: var(--black); color: var(--white); }
+    .search {
+      margin-left: auto; min-width: 220px; flex: 0 1 280px;
+      background: var(--white); border: 1px solid var(--sand-dark); border-radius: 2px; padding: 9px 12px;
+    }
+    .search:focus, .field input:focus, .field textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; border-color: transparent; }
+
+    /* List */
+    .list { list-style: none; padding: 0; border-top: 1px solid var(--sand-dark); }
+    .item {
+      width: 100%; background: none; border: 0; border-bottom: 1px solid var(--sand-dark);
+      display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; align-items: center;
+      padding: 18px 8px; text-align: left;
+    }
+    .item:hover { background: var(--white); }
+    .item-type { font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+    .item-company { font-family: var(--serif); font-size: 23px; line-height: 1.2; }
+    .item-meta { font-size: 13px; color: var(--gray-mid); }
+    .item-side { grid-row: 1 / span 3; grid-column: 2; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+    .follow { font-size: 12px; color: var(--gray-mid); }
+    .follow.is-overdue { color: var(--overdue); font-weight: 500; }
+
+    .pill { display: inline-block; font-size: 12px; font-weight: 400; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+    .pill[data-s="Nuevo"] { background: #F6E3DA; color: var(--accent-dark); }
+    .pill[data-s="En conversación"] { background: #E3EAF1; color: #2F4E6B; }
+    .pill[data-s="Cerrado"] { background: #E2EDE4; color: #35603F; }
+    .pill[data-s="Descartado"] { background: var(--sand); color: var(--gray-mid); }
+
+    .empty { padding: 48px 8px; color: var(--gray-mid); }
+    .notice { padding: 12px 16px; margin-bottom: 16px; background: #FCE8E6; color: var(--overdue); font-size: 14px; }
+
+    /* Detail drawer */
+    .scrim { position: fixed; inset: 0; background: rgba(13,13,13,.28); opacity: 0; pointer-events: none; transition: opacity 200ms ease; }
+    .drawer {
+      position: fixed; top: 0; right: 0; bottom: 0; width: min(520px, 100%);
+      background: var(--white); overflow-y: auto; padding: 32px 32px 48px;
+      transform: translateX(100%); transition: transform 240ms cubic-bezier(.2,.8,.2,1);
+      box-shadow: -1px 0 0 var(--sand-dark);
+    }
+    .is-open .scrim { opacity: 1; pointer-events: auto; }
+    .is-open .drawer { transform: none; }
+
+    .drawer-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+    .drawer h2 { font-family: var(--serif); font-weight: 400; font-size: 32px; line-height: 1.1; margin-top: 6px; }
+    .close { background: none; border: 0; font-size: 26px; line-height: 1; padding: 4px 8px; color: var(--gray-mid); }
+
+    .info { display: grid; grid-template-columns: 120px 1fr; gap: 8px 16px; font-size: 14px; margin-bottom: 20px; }
+    .info dt { color: var(--gray-mid); }
+    .info dd { word-break: break-word; }
+    .info a { color: inherit; }
+    .message { background: var(--paper); padding: 16px 18px; white-space: pre-wrap; font-size: 15px; margin-bottom: 16px; }
+    .reply {
+      display: inline-block; background: var(--black); color: var(--white); text-decoration: none;
+      padding: 11px 20px; font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; border-radius: 2px;
+      margin-bottom: 32px;
+    }
+    .reply:hover { background: var(--accent-dark); }
+
+    .section-title { font-size: 11px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--gray-mid); padding-top: 24px; border-top: 1px solid var(--sand-dark); margin-bottom: 16px; }
+    .field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .field label, .field legend { font-size: 13px; color: var(--gray-dark); }
+    fieldset.field { border: 0; padding: 0; }
+    .status-opts { display: flex; flex-wrap: wrap; gap: 6px; }
+    .status-opts label { cursor: pointer; }
+    .status-opts input { position: absolute; opacity: 0; }
+    .status-opts span { display: inline-block; border: 1px solid var(--sand-dark); border-radius: 999px; padding: 6px 14px; font-size: 13px; }
+    .status-opts input:checked + span { background: var(--black); border-color: var(--black); color: var(--white); }
+    .status-opts input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .field input[type="date"], .field textarea { background: var(--white); border: 1px solid var(--sand-dark); border-radius: 2px; padding: 10px 12px; }
+    .field textarea { min-height: 120px; resize: vertical; }
+    .save-row { display: flex; align-items: center; gap: 16px; }
+    .save {
+      background: var(--accent); color: var(--white); border: 0; border-radius: 2px;
+      padding: 12px 24px; font-size: 12px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+    }
+    .save:hover { background: var(--accent-dark); }
+    .save:disabled { opacity: .5; cursor: default; }
+    .save-msg { font-size: 13px; color: var(--gray-mid); }
+    .save-msg.is-error { color: var(--overdue); }
+
+    /* Login */
+    .login { min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; }
+    .login-box { width: min(360px, 100%); display: flex; flex-direction: column; gap: 20px; }
+    .login-box h1 { margin-bottom: 8px; }
+    .login-hint { color: var(--gray-mid); }
+    .login-error { font-size: 14px; color: var(--overdue); min-height: 1.5em; }
+    .top-actions { display: flex; gap: 8px; }
+
+    @media (max-width: 720px) {
+      .wrap { padding: 28px 16px 64px; }
+      h1 { font-size: 36px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .search { margin-left: 0; flex: 1 1 100%; min-width: 0; }
+      .item { grid-template-columns: 1fr; padding: 16px 4px; }
+      .item-side { grid-row: auto; grid-column: auto; flex-direction: row; align-items: center; justify-content: flex-start; gap: 12px; margin-top: 6px; }
+      .drawer { padding: 24px 16px 40px; }
+      .info { grid-template-columns: 1fr; gap: 2px; }
+      .info dd { margin-bottom: 8px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .drawer, .scrim { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <section class="login" id="login" hidden>
+    <div class="login-box">
+      <h1>Contactos</h1>
+      <p class="login-hint">Entra con la cuenta de Google que tiene acceso a la hoja de contactos.</p>
+      <button class="save" id="login-btn" type="button">Entrar con Google</button>
+      <p class="login-error" id="login-error" role="alert"></p>
+    </div>
+  </section>
+
+  <main class="wrap" id="app" hidden>
+    <header class="top">
+      <h1>Contactos</h1>
+      <div class="top-actions">
+        <button class="ghost-btn" id="refresh" type="button">Actualizar</button>
+        <button class="ghost-btn" id="logout" type="button">Salir</button>
+      </div>
+    </header>
+
+    <div id="notice" class="notice" role="alert" hidden></div>
+
+    <section class="stats" aria-label="Resumen">
+      <button class="stat" type="button" data-filter="Nuevo"><span class="stat-num" id="n-new">–</span><span class="stat-label">Nuevos sin contestar</span></button>
+      <button class="stat" type="button" data-filter="En conversación"><span class="stat-num" id="n-talk">–</span><span class="stat-label">En conversación</span></button>
+      <button class="stat" type="button" data-filter="Cerrado"><span class="stat-num" id="n-won">–</span><span class="stat-label">Cerrados</span></button>
+      <button class="stat is-alert" type="button" data-filter="vencidos"><span class="stat-num" id="n-due">–</span><span class="stat-label">Seguimientos vencidos</span></button>
+    </section>
+
+    <div class="toolbar">
+      <div class="chips" role="group" aria-label="Filtrar por estado">
+        <button class="chip" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+        <button class="chip" type="button" data-filter="Nuevo" aria-pressed="false">Nuevo</button>
+        <button class="chip" type="button" data-filter="En conversación" aria-pressed="false">En conversación</button>
+        <button class="chip" type="button" data-filter="Cerrado" aria-pressed="false">Cerrado</button>
+        <button class="chip" type="button" data-filter="Descartado" aria-pressed="false">Descartado</button>
+      </div>
+      <input class="search" id="search" type="search" placeholder="Buscar nombre, empresa o correo" aria-label="Buscar">
+    </div>
+
+    <ul class="list" id="list" aria-live="polite"></ul>
+    <p class="empty" id="empty">Cargando contactos…</p>
+  </main>
+
+  <div id="layer">
+    <div class="scrim" id="scrim"></div>
+    <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="d-company" hidden>
+      <div class="drawer-head">
+        <div>
+          <p class="item-type" id="d-type"></p>
+          <h2 id="d-company"></h2>
+        </div>
+        <button class="close" id="close" type="button" aria-label="Cerrar">×</button>
+      </div>
+
+      <dl class="info">
+        <dt>Nombre</dt><dd id="d-name"></dd>
+        <dt>Correo</dt><dd><a id="d-email"></a></dd>
+        <dt>Recibido</dt><dd id="d-date"></dd>
+        <dt>Fecha estimada</dt><dd id="d-when"></dd>
+      </dl>
+      <p class="message" id="d-message"></p>
+      <a class="reply" id="d-reply" target="_blank" rel="noopener">Responder por correo</a>
+
+      <form id="d-form">
+        <p class="section-title">Seguimiento</p>
+        <fieldset class="field">
+          <legend>Estado</legend>
+          <div class="status-opts" id="d-status"></div>
+        </fieldset>
+        <div class="field">
+          <label for="d-follow">Fecha de seguimiento</label>
+          <input type="date" id="d-follow">
+        </div>
+        <div class="field">
+          <label for="d-notes">Notas</label>
+          <textarea id="d-notes" maxlength="4000" placeholder="Qué hablaron, propuesta enviada, precio…"></textarea>
+        </div>
+        <div class="save-row">
+          <button class="save" id="d-save" type="submit">Guardar</button>
+          <span class="save-msg" id="d-msg" role="status"></span>
+        </div>
+      </form>
+    </aside>
+  </div>
+
+  <script src="https://accounts.google.com/gsi/client" async></script>
+  <script>
+    // OAuth client from Google Cloud (APIs y servicios → Credenciales). Not a secret.
+    const CLIENT_ID = '337158472670-nc7nio4saam0sb0le7plni01m3r4h1bk.apps.googleusercontent.com';
+    // The part of the sheet's URL between /d/ and /edit. Not a secret either:
+    // only Google accounts the sheet is shared with can read it.
+    const SHEET_ID = '1autMw4XWsVrqOMyo4Ll_5zMR0k2GbT8sbrbHYV1zRoE';
+    const TAB = 'Contactos';
+    const SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
+    const TOKEN_KEY = 'crm-google-token';
+    const CRM_HEADERS = ['Estado', 'Seguimiento', 'Notas'];
+
+    const STATUSES = ['Nuevo', 'En conversación', 'Cerrado', 'Descartado'];
+    const OPEN = ['Nuevo', 'En conversación'];
+    let contacts = [];
+    let filter = 'todos';
+    let current = null;
+    let lastFocus = null;
+
+    const $ = id => document.getElementById(id);
+    const todayISO = () => {
+      const d = new Date();
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    };
+    const isOverdue = c => c.seguimiento && c.seguimiento < todayISO() && OPEN.includes(c.estado);
+    // Sheet dates arrive as serial day numbers in the sheet's own time zone, so they're shown as UTC
+    const serialToDate = n => new Date(Math.round((n - 25569) * 86400000));
+    const serialToISODay = n => serialToDate(n).toISOString().slice(0, 10);
+    const fmtDate = iso => new Date(iso).toLocaleDateString('es-MX', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+    const fmtDay = ymd => { const [y, m, d] = ymd.split('-').map(Number); return new Date(y, m - 1, d).toLocaleDateString('es-MX', { day: 'numeric', month: 'short' }); };
+
+    function el(tag, cls, text) {
+      const n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text != null) n.textContent = text;
+      return n;
+    }
+
+    // Access token lives for the tab session only and expires after ~1 hour
+    const storage = {
+      get() {
+        try {
+          const t = JSON.parse(sessionStorage.getItem(TOKEN_KEY));
+          return t && t.expires > Date.now() + 60000 ? t.value : null;
+        } catch { return null; }
+      },
+      set(value, seconds) { try { sessionStorage.setItem(TOKEN_KEY, JSON.stringify({ value, expires: Date.now() + seconds * 1000 })); } catch {} },
+      clear() { try { sessionStorage.removeItem(TOKEN_KEY); } catch {} }
+    };
+    let token = storage.get();
+    let headersOk = false;
+    let tokenClient = null;
+
+    class AuthError extends Error {}
+
+    async function sheets(path, options = {}) {
+      const res = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${path}`, {
+        ...options,
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }
+      });
+      if (res.status === 401) throw new AuthError('Tu sesión expiró. Vuelve a entrar.');
+      if (res.status === 403) throw new AuthError('Esta cuenta de Google no tiene acceso a la hoja de contactos.');
+      if (res.status === 404) throw new Error('No se encontró la hoja. Revisa SHEET_ID.');
+      if (!res.ok) throw new Error(`Google respondió ${res.status}.`);
+      return res.json();
+    }
+
+    // Any call that fails on auth sends Val back to the login screen
+    async function guarded(fn) {
+      try {
+        return await fn();
+      } catch (err) {
+        if (err instanceof AuthError) showLogin(err.message);
+        throw err;
+      }
+    }
+
+    function showLogin(msg = '') {
+      if (token && window.google) google.accounts.oauth2.revoke(token, () => {});
+      token = null;
+      storage.clear();
+      contacts = [];
+      if (current) closeDetail();
+      $('app').hidden = true;
+      $('login').hidden = false;
+      $('login-error').textContent = msg;
+    }
+
+    function showApp() {
+      $('login').hidden = true;
+      $('app').hidden = false;
+      load();
+    }
+
+    $('login-btn').addEventListener('click', () => {
+      if (!window.google || !google.accounts) {
+        $('login-error').textContent = 'Google todavía está cargando. Inténtalo en un segundo.';
+        return;
+      }
+      if (!tokenClient) {
+        tokenClient = google.accounts.oauth2.initTokenClient({
+          client_id: CLIENT_ID,
+          scope: SCOPE,
+          callback: resp => {
+            if (resp.error) {
+              $('login-error').textContent = 'No se pudo entrar con Google.';
+              return;
+            }
+            token = resp.access_token;
+            storage.set(token, Number(resp.expires_in) || 3600);
+            $('login-error').textContent = '';
+            showApp();
+          }
+        });
+      }
+      tokenClient.requestAccessToken({ prompt: '' });
+    });
+
+    function showNotice(msg) {
+      $('notice').textContent = msg;
+      $('notice').hidden = !msg;
+    }
+
+    function toContact(r, i) {
+      const cell = k => r[k] ?? '';
+      if (typeof r[0] !== 'number') return null; // skip blank or hand-typed rows
+      return {
+        row: i + 2,
+        stamp: r[0],
+        fecha: serialToDate(r[0]).toISOString(),
+        nombre: String(cell(1)),
+        correo: String(cell(2)),
+        empresa: String(cell(3)),
+        tipo: String(cell(4)),
+        // Sheets can turn a typed date like "15/03/2027" into a serial number
+        fechaEstimada: typeof r[5] === 'number' ? fmtDate(serialToDate(r[5]).toISOString()) : String(cell(5)),
+        mensaje: String(cell(6)),
+        estado: STATUSES.includes(r[7]) ? r[7] : 'Nuevo',
+        seguimiento: typeof r[8] === 'number' ? serialToISODay(r[8]) : '',
+        notas: String(cell(9))
+      };
+    }
+
+    async function load() {
+      $('refresh').disabled = true;
+      try {
+        const data = await guarded(() => sheets(`${TAB}!A1:J?valueRenderOption=UNFORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER`));
+        const [titles = [], ...rows] = data.values || [];
+        headersOk = CRM_HEADERS.every((h, i) => titles[7 + i] === h);
+        contacts = rows.map(toContact).filter(Boolean).reverse();
+        showNotice('');
+        render();
+      } catch (err) {
+        if (!(err instanceof AuthError)) {
+          showNotice(`No se pudieron cargar los contactos: ${err.message}`);
+          $('empty').textContent = '';
+        }
+      } finally {
+        $('refresh').disabled = false;
+      }
+    }
+
+    // Writes Estado, Seguimiento and Notas (columns H–J) for one contact
+    async function saveContact(c, changes) {
+      // The row's timestamp must still match, so a row deleted or moved in the
+      // sheet since the page loaded is never overwritten by mistake
+      const check = await sheets(`${TAB}!A${c.row}?valueRenderOption=UNFORMATTED_VALUE&dateTimeRenderOption=SERIAL_NUMBER`);
+      if (((check.values || [])[0] || [])[0] !== c.stamp) {
+        throw new Error('La hoja cambió. Toca "Actualizar" e inténtalo de nuevo.');
+      }
+      if (!headersOk) {
+        await sheets(`${TAB}!H1:J1?valueInputOption=RAW`, { method: 'PUT', body: JSON.stringify({ values: [CRM_HEADERS] }) });
+        headersOk = true;
+      }
+      // USER_ENTERED turns the date into a real date; a leading ' keeps notes
+      // like "=..." as plain text instead of formulas
+      const notas = /^[=+\-@']/.test(changes.notas) ? `'${changes.notas}` : changes.notas;
+      await sheets(`${TAB}!H${c.row}:J${c.row}?valueInputOption=USER_ENTERED`, {
+        method: 'PUT',
+        body: JSON.stringify({ values: [[changes.estado, changes.seguimiento, notas]] })
+      });
+    }
+
+    function render() {
+      $('n-new').textContent = contacts.filter(c => c.estado === 'Nuevo').length;
+      $('n-talk').textContent = contacts.filter(c => c.estado === 'En conversación').length;
+      $('n-won').textContent = contacts.filter(c => c.estado === 'Cerrado').length;
+      $('n-due').textContent = contacts.filter(isOverdue).length;
+
+      document.querySelectorAll('[data-filter]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filter === filter)));
+
+      const q = $('search').value.trim().toLowerCase();
+      const shown = contacts.filter(c => {
+        if (filter === 'vencidos' && !isOverdue(c)) return false;
+        if (STATUSES.includes(filter) && c.estado !== filter) return false;
+        return !q || [c.nombre, c.empresa, c.correo].some(v => v.toLowerCase().includes(q));
+      });
+
+      const list = $('list');
+      list.replaceChildren();
+      shown.forEach(c => {
+        const li = el('li');
+        const btn = el('button', 'item');
+        btn.type = 'button';
+        btn.append(el('span', 'item-type', c.tipo), el('span', 'item-company', c.empresa), el('span', 'item-meta', `${c.nombre} · ${fmtDate(c.fecha)}`));
+        const side = el('span', 'item-side');
+        const pill = el('span', 'pill', c.estado);
+        pill.dataset.s = c.estado;
+        side.append(pill);
+        if (c.seguimiento) {
+          side.append(el('span', `follow${isOverdue(c) ? ' is-overdue' : ''}`, `${isOverdue(c) ? 'Vencido' : 'Seguimiento'} ${fmtDay(c.seguimiento)}`));
+        }
+        btn.append(side);
+        btn.addEventListener('click', () => openDetail(c));
+        li.append(btn);
+        list.append(li);
+      });
+
+      $('empty').textContent = shown.length ? '' : (contacts.length ? 'Nada con este filtro.' : 'Todavía no hay contactos.');
+    }
+
+    function openDetail(c) {
+      current = c;
+      lastFocus = document.activeElement;
+      $('d-type').textContent = c.tipo;
+      $('d-company').textContent = c.empresa;
+      $('d-name').textContent = c.nombre;
+      $('d-email').textContent = c.correo;
+      $('d-email').href = `mailto:${c.correo}`;
+      $('d-date').textContent = fmtDate(c.fecha);
+      $('d-when').textContent = c.fechaEstimada || '—';
+      $('d-message').textContent = c.mensaje;
+      $('d-reply').href = `mailto:${encodeURIComponent(c.correo)}?subject=${encodeURIComponent(`Re: ${c.tipo} — ${c.empresa}`)}`;
+
+      const opts = $('d-status');
+      opts.replaceChildren();
+      STATUSES.forEach(s => {
+        const label = el('label');
+        const input = el('input');
+        input.type = 'radio';
+        input.name = 'estado';
+        input.value = s;
+        input.checked = s === c.estado;
+        label.append(input, el('span', null, s));
+        opts.append(label);
+      });
+      $('d-follow').value = c.seguimiento;
+      $('d-notes').value = c.notas;
+      $('d-msg').textContent = '';
+      $('d-msg').classList.remove('is-error');
+
+      $('drawer').hidden = false;
+      requestAnimationFrame(() => document.body.classList.add('is-open'));
+      $('close').focus();
+    }
+
+    function closeDetail() {
+      document.body.classList.remove('is-open');
+      setTimeout(() => { $('drawer').hidden = true; }, 240);
+      current = null;
+      if (lastFocus) lastFocus.focus();
+    }
+
+    $('d-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!current) return;
+      const c = current;
+      const changes = {
+        estado: document.querySelector('input[name="estado"]:checked').value,
+        seguimiento: $('d-follow').value,
+        notas: $('d-notes').value
+      };
+      $('d-save').disabled = true;
+      $('d-msg').classList.remove('is-error');
+      $('d-msg').textContent = 'Guardando…';
+      try {
+        await guarded(() => saveContact(c, changes));
+        Object.assign(c, changes);
+        render();
+        $('d-msg').textContent = 'Guardado';
+      } catch (err) {
+        $('d-msg').classList.add('is-error');
+        $('d-msg').textContent = err.message;
+      } finally {
+        $('d-save').disabled = false;
+      }
+    });
+
+    document.querySelectorAll('[data-filter]').forEach(b => b.addEventListener('click', () => {
+      // Clicking the active counter again goes back to "Todos"
+      filter = filter === b.dataset.filter && b.classList.contains('stat') ? 'todos' : b.dataset.filter;
+      render();
+    }));
+    $('search').addEventListener('input', render);
+    $('refresh').addEventListener('click', load);
+    $('logout').addEventListener('click', () => showLogin());
+    $('close').addEventListener('click', closeDetail);
+    $('scrim').addEventListener('click', closeDetail);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && current) closeDetail(); });
+
+    if (token) showApp(); else { $('app').hidden = true; $('login').hidden = false; }
+  </script>
+</body>
+</html>
