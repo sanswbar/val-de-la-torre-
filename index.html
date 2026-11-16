@@ -1,433 +1,328 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Valeria de la Torre — Conferencista y creadora de contenido. Conferencias para empresas, universidades y eventos." />
-  <meta property="og:title" content="Valeria de la Torre" />
-  <meta property="og:description" content="Conferencista · Creadora de contenido" />
-  <!-- OG Image: reemplazar con foto real -->
-  <!-- <meta property="og:image" content="assets/images/og-val.jpg" /> -->
-  <title>Valeria de la Torre</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Valeria de la Torre · Conferencista</title>
+<meta name="description" content="Valeria de la Torre — conferencista y creadora de contenido. Conferencias para empresas, universidades y eventos." />
+<link rel="canonical" href="https://valdelatorre.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="es_MX" />
+<meta property="og:site_name" content="Valeria de la Torre" />
+<meta property="og:url" content="https://valdelatorre.com/" />
+<meta property="og:title" content="Valeria de la Torre · Conferencista" />
+<meta property="og:description" content="Valeria de la Torre — conferencista y creadora de contenido. Conferencias para empresas, universidades y eventos." />
+<meta property="og:image" content="https://valdelatorre.com/assets/home/val-de-pie-bn-1200.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<script>try{if(sessionStorage.getItem("valCurtain"))document.documentElement.classList.add("curtain-cover")}catch(e){}</script>
+<link rel="preload" as="image" type="image/avif" imagesrcset="assets/home/val-de-pie-bn-700.avif 700w, assets/home/val-de-pie-bn-1200.avif 1200w, assets/home/val-de-pie-bn-1800.avif 1800w" imagesizes="(max-width: 640px) 50vw, 32vw" fetchpriority="high" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="stylesheet" href="style.css" />
 </head>
-<body>
-
-  <!-- ==========================================
-       HEADER — Language toggle
-       ========================================== -->
-  <header class="site-header" role="banner">
-    <a href="#" class="site-name">Valeria de la Torre</a>
-    <button
-      id="lang-toggle"
-      class="lang-toggle"
-      aria-label="Switch to English"
-    >
-      EN
-    </button>
-  </header>
-
-
-  <!-- ==========================================
-       HERO — split: texto izquierda, foto derecha
-       ========================================== -->
-  <section class="hero" id="hero" aria-label="Hero">
-
-    <!-- Lado izquierdo: texto -->
-    <div class="hero-text-side">
-      <!-- COPY: Val puede ajustar este título -->
-      <h1 class="hero-title" data-i18n="heroTitle">Redefiniendo<br><em>los límites.</em></h1>
-
-      <!-- Signature element — línea delgada acento -->
-      <hr class="hero-line" aria-hidden="true" />
-
-      <p class="hero-subtitle" data-i18n="heroSubtitle">
-        Conferencista &nbsp;·&nbsp; Creadora de contenido
-      </p>
-
-      <!-- Visible en desktop; en mobile lo cubre la barra fija inferior -->
-      <a href="#contacto" class="btn-primary" data-i18n="heroCTA">
-        Trabajemos juntos
-      </a>
+<body class="page-home">
+<div class="curtain" aria-hidden="true">
+  <div class="c-layer c-1"></div>
+  <div class="c-layer c-2">
+    <div class="c-inner">
+      <span class="c-num">01</span>
+      <span class="c-title"><span>Inicio</span></span>
+      <span class="c-line"></span>
+      <span class="c-mark">Valeria <em>de la</em> Torre</span>
     </div>
-
-    <!-- Lado derecho: foto -->
-    <div class="hero-photo-side" aria-hidden="true">
-      <!-- PLACEHOLDER: Foto principal de Val
-           Formato vertical · mínimo 800 × 1000 px · JPG o WebP
-           Para activar: en style.css, en .hero-bg agregar:
-           background-image: url('assets/images/hero-val.webp');
-      -->
-      <div class="hero-bg" role="img" aria-label="Valeria de la Torre"></div>
-    </div>
-
-  </section>
-
-
-  <!-- ==========================================
-       ABOUT / QUIÉN ES VAL
-       ========================================== -->
-  <div class="quote-strip">
-    <blockquote class="quote-mujica">
-      <p>"Dejar de luchar es dejar de soñar."</p>
-      <cite>Pepe Mujica</cite>
-    </blockquote>
   </div>
+</div>
 
-  <section class="about" id="quien-es-val" aria-labelledby="about-title">
-    <div class="container">
+<header class="nav" id="top">
+  <a href="#top" class="brand" data-sec="top" aria-label="Valeria de la Torre — Inicio"><span class="brand-main">Valeria <em>de la</em> Torre</span></a>
+  <nav class="nav-links" id="menu" aria-label="Principal">
+    <a href="#top" data-sec="top" aria-current="page"><span class="nl-n">01</span><span class="nl-t"><span class="nl-a">Inicio</span><span class="nl-b" aria-hidden="true">Inicio</span></span></a>
+    <a href="#acerca" data-sec="acerca"><span class="nl-n">02</span><span class="nl-t"><span class="nl-a">Acerca de mí</span><span class="nl-b" aria-hidden="true">Acerca de mí</span></span></a>
+    <a href="#conferencias" data-sec="conferencias"><span class="nl-n">03</span><span class="nl-t"><span class="nl-a">Conferencias</span><span class="nl-b" aria-hidden="true">Conferencias</span></span></a>
+    <a href="media.html" data-sec="media"><span class="nl-n">04</span><span class="nl-t"><span class="nl-a">Media / Press</span><span class="nl-b" aria-hidden="true">Media / Press</span></span></a>
+    <a href="#contacto" class="menu-cta" data-sec="contacto"><span class="nl-n">05</span>Contacto <span aria-hidden="true">→</span></a>
+  </nav>
+  <div class="nav-actions">
+    <a href="#contacto" class="nav-pill" data-sec="contacto"><span class="pill-n">05</span><span class="pill-t">Contacto</span><span class="pill-arrow" aria-hidden="true">→</span></a>
+    <button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </div>
+</header>
 
-      <!-- Grid: foto + texto alineados -->
-      <div class="about-grid">
-        <div class="about-photo-wrap fade-in">
-          <img src="assets/images/about-val.webp" width="1200" height="800" loading="lazy" alt="Valeria de la Torre" />
-        </div>
+<main>
 
-        <div class="about-text fade-in">
-          <h2 class="section-title" id="about-title" data-i18n="aboutTitle">Quién soy</h2>
-          <p data-i18n="aboutText1">Soy Valeria de la Torre...</p>
-          <p data-i18n="aboutText2">Ese proceso...</p>
-          <p data-i18n="aboutText3">Hoy continúo...</p>
-        </div>
-      </div>
-
+<!-- ============ HERO: una sola foto (efecto shrink al hacer scroll) ============ -->
+<section class="hero-shrink" aria-label="Retratos de Valeria de la Torre">
+  <div class="hero-sticky">
+    <div class="hero-media hero-tri">
+      <picture class="hp hp-a"><source type="image/avif" srcset="assets/home/val-de-pie-bn-700.avif 700w, assets/home/val-de-pie-bn-1200.avif 1200w, assets/home/val-de-pie-bn-1800.avif 1800w" sizes="(max-width: 640px) 50vw, 32vw" /><source type="image/webp" srcset="assets/home/val-de-pie-bn-700.webp 700w, assets/home/val-de-pie-bn-1200.webp 1200w, assets/home/val-de-pie-bn-1800.webp 1800w" sizes="(max-width: 640px) 50vw, 32vw" /><img src="assets/home/val-de-pie-bn-1200.jpg" srcset="assets/home/val-de-pie-bn-700.jpg 700w, assets/home/val-de-pie-bn-1200.jpg 1200w, assets/home/val-de-pie-bn-1800.jpg 1800w" sizes="(max-width: 640px) 50vw, 32vw" width="4000" height="6000" alt="Valeria de la Torre de pie con sus prótesis, retrato en blanco y negro" fetchpriority="high" /></picture>
+      <picture class="hp hp-b"><source type="image/avif" srcset="assets/home/val-silla-1000.avif 1000w, assets/home/val-silla-1800.avif 1800w, assets/home/val-silla-2600.avif 2600w" sizes="(max-width: 640px) 100vw, 38vw" /><source type="image/webp" srcset="assets/home/val-silla-1000.webp 1000w, assets/home/val-silla-1800.webp 1800w, assets/home/val-silla-2600.webp 2600w" sizes="(max-width: 640px) 100vw, 38vw" /><img src="assets/home/val-silla-1800.jpg" srcset="assets/home/val-silla-1000.jpg 1000w, assets/home/val-silla-1800.jpg 1800w, assets/home/val-silla-2600.jpg 2600w" sizes="(max-width: 640px) 100vw, 38vw" width="6000" height="4000" alt="Valeria de la Torre sentada en una silla, retrato en blanco y negro" /></picture>
+      <picture class="hp hp-c"><source type="image/avif" srcset="assets/home/val-suelo-700.avif 700w, assets/home/val-suelo-1200.avif 1200w, assets/home/val-suelo-1800.avif 1800w" sizes="(max-width: 640px) 50vw, 32vw" /><source type="image/webp" srcset="assets/home/val-suelo-700.webp 700w, assets/home/val-suelo-1200.webp 1200w, assets/home/val-suelo-1800.webp 1800w" sizes="(max-width: 640px) 50vw, 32vw" /><img src="assets/home/val-suelo-1200.jpg" srcset="assets/home/val-suelo-700.jpg 700w, assets/home/val-suelo-1200.jpg 1200w, assets/home/val-suelo-1800.jpg 1800w" sizes="(max-width: 640px) 50vw, 32vw" width="4000" height="6000" alt="Valeria de la Torre sentada en el piso, sonriendo, retrato en blanco y negro" /></picture>
     </div>
-  </section>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <a href="#acerca" class="hero-cue" aria-label="Bajar a Acerca de mí"><span></span></a>
+  </div>
+</section>
 
-
-  <!-- ==========================================
-       TALKS / CONFERENCIAS
-       ========================================== -->
-  <section class="talks" id="conferencias" aria-labelledby="talks-title">
-    <div class="container">
-
-      <div class="talks-header fade-in">
-        <span class="section-label" data-i18n="talksLabel">Conferencias</span>
-        <h2 class="section-title" id="talks-title" data-i18n="talksTitle">Mis conferencias</h2>
-      </div>
-
+<!-- ============ PROOF BAR ============ -->
+<section class="proof" aria-label="Credenciales">
+  <div class="wrap proof-inner">
+    <a class="tedx-badge" href="#tedx">
+      <span class="tedx-mark">TEDx</span>
+      <span class="tedx-txt"><strong>Speaker TEDx</strong>Universidad Panamericana Guadalajara</span>
+    </a>
+    <div class="proof-brands">
+      <p class="eyebrow">Marcas con las que he trabajado</p>
+      <ul class="logos">
+        <li><img src="assets/logo-ossur.svg" alt="Össur" /></li>
+        <li><img src="assets/logo-lululemon.png" alt="lululemon" /></li>
+        <li><img src="assets/logo-amex.svg" alt="American Express" /></li>
+        <li><img src="assets/logo-meta.svg" alt="Meta" /></li>
+      </ul>
     </div>
-
-    <!-- Las tarjetas van fuera del container para que lleguen al borde -->
-    <div class="talks-grid">
-
-      <!-- Conferencia 1 -->
-      <article class="talk-card fade-in" aria-labelledby="talk1-title">
-        <div class="talk-card-photo">
-          <img src="assets/images/conferencia3.webp" width="1000" height="666" loading="lazy" alt="Valeria de la Torre dando conferencia" />
-        </div>
-        <div class="talk-card-body">
-          <p class="talk-card-label" data-i18n="talk1Label">Conferencia 01</p>
-          <h3 id="talk1-title" data-i18n="talk1Name">La montaña que no elegí</h3>
-          <p class="talk-card-subtitle" data-i18n="talk1Subtitle">Una historia sobre pérdida, adaptación y la decisión de seguir adelante.</p>
-          <div class="talk1-desc" data-i18n="talk1Desc"></div>
-          <dl class="talk-facts">
-            <div><dt data-i18n="factDuration">Duración</dt><dd data-i18n="factDurationValue">45–60 min</dd></div>
-            <div><dt data-i18n="factFormat">Modalidad</dt><dd data-i18n="factFormatValue">Presencial o virtual</dd></div>
-            <div><dt data-i18n="factLanguage">Idioma</dt><dd data-i18n="factLanguageValue">Español o inglés</dd></div>
-            <div><dt data-i18n="factAudience">Para</dt><dd data-i18n="talk1Audience">Todo tipo de público</dd></div>
-          </dl>
-          <a href="#contacto" class="btn-secondary" data-i18n="talkCTA" data-prefill="prefillTalk1">Quiero esta conferencia</a>
-        </div>
-      </article>
-
-      <!-- Conferencia 2 — aún no se puede contratar -->
-      <article class="talk-card talk-card--coming-soon fade-in" aria-labelledby="talk2-title">
-        <div class="talk-card-photo talk-card-photo--empty">
-          <div class="talk-card-coming-soon">
-            <span data-i18n="talk2ComingSoon">Próximamente</span>
-          </div>
-        </div>
-        <div class="talk-card-body">
-          <p class="talk-card-label" data-i18n="talk2Label">Conferencia 02</p>
-          <h3 id="talk2-title" data-i18n="talk2Name">De la supervivencia a la reconstrucción</h3>
-          <p class="talk-card-subtitle" data-i18n="talk2Subtitle">Un método práctico para reconstruirte cuando la vida cambia tus planes.</p>
-          <div class="talk1-desc" data-i18n="talk2Desc"></div>
-          <dl class="talk-facts">
-            <div><dt data-i18n="factFormat">Modalidad</dt><dd data-i18n="factFormatValue">Presencial o virtual</dd></div>
-            <div><dt data-i18n="factLanguage">Idioma</dt><dd data-i18n="factLanguageValue">Español o inglés</dd></div>
-            <div><dt data-i18n="factAudience">Para</dt><dd data-i18n="talk2Audience">Todo tipo de público</dd></div>
-          </dl>
-          <a href="#contacto" class="btn-secondary" data-i18n="talk2CTA" data-prefill="prefillTalk2">Avísame cuando esté lista</a>
-        </div>
-      </article>
-
-    </div>
-
-
-  </section>
-
-
-  <!-- ==========================================
-       TED TALK
-       ========================================== -->
-  <section class="ted-section" id="ted" aria-labelledby="ted-title">
-    <div class="container">
-      <div class="ted-layout fade-in">
-
-        <!-- Lado izquierdo: texto -->
-        <div class="ted-text">
-          <span class="section-label" data-i18n="tedLabel">TEDx · Universidad Panamericana Guadalajara</span>
-          <h2 class="section-title" id="ted-title" data-i18n="tedTitle">No hay prótesis para un espíritu amputado</h2>
-          <div class="ted-desc" data-i18n="tedDesc"></div>
-          <a href="https://www.youtube.com/watch?v=KGalxsvs9Kg" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-i18n="tedCTA">Ver TED</a>
-        </div>
-
-        <!-- Lado derecho: foto con link a YouTube -->
-        <div class="ted-media">
-          <a href="https://www.youtube.com/watch?v=KGalxsvs9Kg" target="_blank" rel="noopener noreferrer" class="ted-media-link">
-            <img src="assets/images/tedxval.webp" width="1200" height="671" loading="lazy" alt="Valeria de la Torre — TED Talk" />
-            <div class="ted-play-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ==========================================
-       BRANDS / MARCAS
-       ========================================== -->
-  <section class="brands" id="marcas" aria-labelledby="brands-title">
-    <div class="container">
-      <span class="section-label fade-in" data-i18n="brandsLabel">Colaboraciones</span>
-      <h2 class="section-title fade-in" id="brands-title" data-i18n="brandsTitle">
-        Marcas con las que<br>he trabajado
-      </h2>
-    </div>
-
-    <!-- Scroll horizontal en mobile — va fuera del container -->
-    <div class="container">
-      <div class="brands-track-wrap fade-in">
-        <div class="brands-track" role="list" aria-label="Marcas con las que ha colaborado Valeria de la Torre">
-
-          <!-- primera pasada -->
-          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-ossur.png" alt="Össur" /></div>
-          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-lululemon.png" alt="lululemon" /></div>
-          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-habits.svg" alt="Habits" /></div>
-          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-amex.svg" alt="American Express" /></div>
-          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-meta.svg" alt="Meta" /></div>
-          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-westelm.svg" alt="West Elm" /></div>
-          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-levis.svg" alt="Levi's" /></div>
-          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-nespresso.png" alt="Nespresso" /></div>
-          <div class="brand-slot" role="listitem"><img class="brand-logo" src="assets/images/logo-salomon.svg" alt="Salomon" /></div>
-
-          <!-- duplicado para scroll infinito continuo -->
-          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-ossur.png" alt="Össur" /></div>
-          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-lululemon.png" alt="lululemon" /></div>
-          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-habits.svg" alt="Habits" /></div>
-          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-amex.svg" alt="American Express" /></div>
-          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-meta.svg" alt="Meta" /></div>
-          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-westelm.svg" alt="West Elm" /></div>
-          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-levis.svg" alt="Levi's" /></div>
-          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-nespresso.png" alt="Nespresso" /></div>
-          <div class="brand-slot" aria-hidden="true"><img class="brand-logo" src="assets/images/logo-salomon.svg" alt="Salomon" /></div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ==========================================
-       CONTACT / FORMULARIO
-       ========================================== -->
-  <section class="contact" id="contacto" aria-labelledby="contact-title">
-    <div class="container">
-
-      <div class="contact-layout">
-
-        <!-- Intro text -->
-        <div class="contact-intro fade-in">
-          <span class="section-label" data-i18n="contactLabel">Contacto</span>
-          <h2 class="section-title" id="contact-title" data-i18n="contactTitle">
-            Compárteme los detalles de tu proyecto.
-          </h2>
-        </div>
-
-        <!-- Formulario -->
-        <div class="fade-in">
-          <form
-            id="contact-form"
-            class="contact-form"
-            action="https://script.google.com/macros/s/AKfycbwWgLQikM7xIi0Fe75mzFHzctuhWTr9WTCbsFKoXeSg_MsxmiXzze1I678qBouAlIg7WQ/exec"
-            method="POST"
-            novalidate
-            aria-labelledby="contact-title"
-          >
-            <!-- Honeypot: invisible para personas; si un bot lo llena, el envío se descarta -->
-            <div class="form-honeypot" aria-hidden="true">
-              <label for="field-website">Sitio web</label>
-              <input type="text" id="field-website" name="website" tabindex="-1" autocomplete="off" />
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="field-name" data-i18n="fieldName">Nombre completo</label>
-                <input
-                  type="text"
-                  id="field-name"
-                  name="name"
-                  autocomplete="name"
-                  maxlength="120"
-                  required
-                  aria-describedby="field-name-error"
-                  data-error="errName"
-                />
-                <p class="field-error" id="field-name-error" hidden></p>
-              </div>
-              <div class="form-group">
-                <label for="field-company" data-i18n="fieldCompany">Empresa u organización</label>
-                <input
-                  type="text"
-                  id="field-company"
-                  name="company"
-                  autocomplete="organization"
-                  maxlength="160"
-                  required
-                  aria-describedby="field-company-error"
-                  data-error="errCompany"
-                />
-                <p class="field-error" id="field-company-error" hidden></p>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="field-email" data-i18n="fieldEmail">Correo electrónico</label>
-              <input
-                type="email"
-                id="field-email"
-                name="email"
-                autocomplete="email"
-                inputmode="email"
-                spellcheck="false"
-                maxlength="254"
-                required
-                aria-describedby="field-email-error"
-                data-error="errEmailEmpty"
-                data-i18n-placeholder="fieldEmailPlaceholder"
-                placeholder="tu@empresa.com"
-              />
-              <p class="field-error" id="field-email-error" hidden></p>
-            </div>
-
-            <div class="form-group">
-              <label for="field-type" data-i18n="fieldType">Tipo de colaboración</label>
-              <div class="select-wrap">
-                <select
-                  id="field-type"
-                  name="type"
-                  required
-                  aria-describedby="field-type-error"
-                  data-error="errType"
-                >
-                  <option value="" disabled selected data-i18n="fieldTypeDefault">Selecciona una opción</option>
-                  <option value="Conferencia" data-i18n="fieldTypeConf">Conferencia</option>
-                  <option value="Colaboración con marca" data-i18n="fieldTypeBrand">Colaboración con marca</option>
-                  <option value="Contenido / Creación" data-i18n="fieldTypeContent">Contenido / Creación</option>
-                  <option value="Otro" data-i18n="fieldTypeOther">Otro</option>
-                </select>
-              </div>
-              <p class="field-error" id="field-type-error" hidden></p>
-            </div>
-
-            <div class="form-group">
-              <label for="field-date" data-i18n="fieldDate">Fecha estimada (opcional)</label>
-              <input
-                type="text"
-                id="field-date"
-                name="date"
-                maxlength="120"
-                data-i18n-placeholder="fieldDatePlaceholder"
-                placeholder="Ej. marzo 2027, primer semestre 2027…"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="field-desc" data-i18n="fieldDesc">Cuéntame sobre tu proyecto</label>
-              <textarea
-                id="field-desc"
-                name="message"
-                maxlength="4000"
-                required
-                aria-describedby="field-desc-error"
-                data-error="errDesc"
-                data-i18n-placeholder="fieldDescPlaceholder"
-                placeholder="Cuéntame para qué audiencia es, qué esperas lograr y cualquier detalle relevante."
-              ></textarea>
-              <p class="field-error" id="field-desc-error" hidden></p>
-            </div>
-
-            <div class="form-error" id="form-error" role="alert" hidden></div>
-
-            <button type="submit" id="submit-btn" class="btn-submit" data-i18n="submitBtn">
-              Enviar
-            </button>
-
-          </form>
-
-          <!-- Mensaje de confirmación — aparece en la misma página, sin redirigir -->
-          <div id="form-success" class="form-success" role="status" tabindex="-1" data-i18n="successMsg">
-            Val recibió tu mensaje y se pondrá en contacto pronto.
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ==========================================
-       FOOTER
-       ========================================== -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-
-      <nav class="footer-socials" aria-label="Redes sociales">
-        <a href="https://www.instagram.com/valdelatorre/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Valeria de la Torre" class="footer-social-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
-        </a>
-        <a href="https://www.linkedin.com/in/valdelatorrega/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Valeria de la Torre" class="footer-social-link">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </a>
-      </nav>
-
-      <div class="footer-signature-wrap">
-        <img src="assets/images/firma-val.png" width="382" height="416" loading="lazy" alt="Firma de Valeria de la Torre" class="footer-signature" />
-        <p class="footer-copy" data-i18n="footerCopy">Valeria de la Torre, 2026.</p>
-      </div>
-
-    </div>
-  </footer>
-
-
-  <!-- ==========================================
-       MOBILE: Barra CTA fija en la parte inferior
-       ========================================== -->
-  <div class="mobile-cta-bar" role="complementary" aria-label="Acción principal">
-    <a href="#contacto" class="btn-primary" data-i18n="heroCTA">
-      Trabajemos juntos
+    <a class="proof-press" href="media.html" aria-label="Presencia en medios: ver notas en Media / Press">
+      <span class="eyebrow">Presencia en medios</span>
+      <ul class="outlets">
+        <li>Quién</li>
+        <li class="o-caps">ELLE</li>
+        <li>Caras</li>
+        <li>InStyle</li>
+        <li class="o-caps">WIRED</li>
+        <li>Reforma</li>
+      </ul>
     </a>
   </div>
+</section>
+
+<!-- ============ ACERCA DE MÍ ============ -->
+<section class="story" id="acerca" aria-labelledby="about-title">
+  <div class="wrap story-grid">
+    <div class="story-media reveal">
+      <picture class="story-pic"><source type="image/avif" srcset="assets/home/val-retrato-640.avif 640w, assets/home/val-retrato-1067.avif 1067w" sizes="(max-width: 1020px) 90vw, 40vw" /><source type="image/webp" srcset="assets/home/val-retrato-640.webp 640w, assets/home/val-retrato-1067.webp 1067w" sizes="(max-width: 1020px) 90vw, 40vw" /><img src="assets/home/val-retrato-640.jpg" srcset="assets/home/val-retrato-640.jpg 640w, assets/home/val-retrato-1067.jpg 1067w" sizes="(max-width: 1020px) 90vw, 40vw" width="1067" height="1600" alt="Retrato de Valeria de la Torre sonriendo" loading="lazy" /></picture>
+    </div>
+    <div class="story-copy reveal">
+      <p class="eyebrow"><span class="dot"></span>Acerca de mí</p>
+      <h2 class="h-xl" id="about-title">Soy Valeria <span class="nobr"><em>de la</em> Torre.</span></h2>
+      <div class="about-text">
+        <p>Soy creadora, comunicadora y conferencista. Me mueve la curiosidad por explorar la vida en todas sus dimensiones: el movimiento, la naturaleza, los viajes, las ideas, las relaciones y las experiencias que nos transforman.</p>
+        <p>Mi trabajo nace de una inquietud constante por entender mejor el mundo y nuestra manera de habitarlo. A través de mis experiencias, historias y reflexiones, busco abrir conversaciones sobre la adversidad, la identidad, el crecimiento y las posibilidades que existen cuando nos atrevemos a cuestionar lo que conocemos.</p>
+        <p>Comunico estas ideas a través de distintos formatos y plataformas: desde conferencias y proyectos editoriales hasta contenido y colaboraciones con marcas que conectan con mi universo y mis intereses.</p>
+        <p>Más que compartir respuestas, me interesa despertar preguntas, generar nuevas perspectivas e invitar a las personas a vivir con mayor curiosidad, intención y apertura.</p>
+      </div>
+    </div>
+  </div>
+  <figure class="wrap story-quote reveal">
+    <blockquote>“Muchas veces las experiencias más difíciles terminan revelándonos <em>fortalezas que no sabíamos que teníamos.</em>”</blockquote>
+    <figcaption class="quote-sign"><span class="quote-line" aria-hidden="true"></span><span class="quote-name">Valeria <em>de la</em> Torre</span></figcaption>
+  </figure>
+</section>
+
+<!-- ============ CONFERENCIAS ============ -->
+<section class="talks" id="conferencias" aria-labelledby="talks-title">
+  <div class="wrap">
+    <div class="sec-head sec-head-split reveal">
+      <div>
+        <p class="eyebrow"><span class="dot"></span>Conferencias y eventos presenciales</p>
+        <h2 class="h-xl" id="talks-title">Mis <em>conferencias</em>.</h2>
+      </div>
+      <p class="sec-intro">Para empresas, universidades y eventos. Presencial o virtual, en español o inglés.</p>
+    </div>
+
+    <div class="talk-pair">
+      <article class="tcard reveal" aria-labelledby="t1">
+        <div class="tcard-media cover" style="aspect-ratio:1600/897"><picture><source type="image/avif" srcset="assets/conf/talk01-cover-800.avif 800w, assets/conf/talk01-cover-1280.avif 1280w, assets/conf/talk01-cover-1600.avif 1600w" sizes="(max-width: 1020px) 92vw, 46vw" /><source type="image/webp" srcset="assets/conf/talk01-cover-800.webp 800w, assets/conf/talk01-cover-1280.webp 1280w, assets/conf/talk01-cover-1600.webp 1600w" sizes="(max-width: 1020px) 92vw, 46vw" /><img src="assets/conf/talk01-cover-1280.jpg" srcset="assets/conf/talk01-cover-800.jpg 800w, assets/conf/talk01-cover-1280.jpg 1280w, assets/conf/talk01-cover-1600.jpg 1600w" sizes="(max-width: 1020px) 92vw, 46vw" width="1600" height="897" alt="Portada de la conferencia «La montaña que no elegí»" loading="lazy" /></picture>
+          <span class="tcard-num">01</span>
+        </div>
+        <div class="tcard-body">
+          <h3 class="h-lg t-title t-one" id="t1">La montaña que no elegí</h3>
+          <p class="talk-sub">Una historia sobre pérdida, adaptación y la decisión de seguir adelante.</p>
+          <div class="talk-text">
+            <p class="talk-desc">Hay montañas que elegimos escalar y otras que la vida pone frente a nosotros sin previo aviso. Una pérdida, un cambio inesperado o una experiencia que transforma por completo nuestra manera de entender el mundo.</p>
+            <p class="talk-desc">A través de una historia profundamente personal, esta conferencia explora cómo enfrentamos aquello que no podemos controlar, cómo encontramos un nuevo sentido de dirección cuando el camino parece incierto y cómo aprendemos a encontrar significado, calma y felicidad incluso en los momentos más difíciles.</p>
+            <p class="talk-desc">Porque quizá no podemos elegir las montañas que nos toca atravesar, pero sí podemos descubrir nuevas formas de recorrerlas. Una invitación a cuestionar nuestra propia manera de enfrentar la adversidad, reconectar con aquello que nos mueve y recordar que, muchas veces, la vida no está esperando en la cima: está sucediendo en el camino.</p>
+          </div>
+          <dl class="facts">
+            <div><dt>Duración</dt><dd>45 a 60 minutos</dd></div>
+            <div><dt>Modalidad</dt><dd>Presencial o virtual</dd></div>
+            <div><dt>Idioma</dt><dd>Español o inglés</dd></div>
+            <div><dt>Para</dt><dd>Todo tipo de público</dd></div>
+          </dl>
+          <a href="#contacto" class="btn btn-accent btn-block" data-talk="La montaña que no elegí">Quiero esta conferencia <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="tcard reveal" aria-labelledby="t2">
+        <div class="tcard-media cover" style="aspect-ratio:1600/891"><picture><source type="image/avif" srcset="assets/conf/talk02-cover-800.avif 800w, assets/conf/talk02-cover-1280.avif 1280w, assets/conf/talk02-cover-1600.avif 1600w" sizes="(max-width: 1020px) 92vw, 46vw" /><source type="image/webp" srcset="assets/conf/talk02-cover-800.webp 800w, assets/conf/talk02-cover-1280.webp 1280w, assets/conf/talk02-cover-1600.webp 1600w" sizes="(max-width: 1020px) 92vw, 46vw" /><img src="assets/conf/talk02-cover-1280.jpg" srcset="assets/conf/talk02-cover-800.jpg 800w, assets/conf/talk02-cover-1280.jpg 1280w, assets/conf/talk02-cover-1600.jpg 1600w" sizes="(max-width: 1020px) 92vw, 46vw" width="1600" height="891" alt="Portada de la conferencia «Ingeniería inversa de una vida interrumpida»" loading="lazy" /></picture>
+          <span class="tcard-num">02</span>
+        </div>
+        <div class="tcard-body">
+          <h3 class="h-lg t-title" id="t2">Ingeniería inversa <br class="t-br" />de una vida interrumpida</h3>
+          <div class="talk-text">
+            <p class="talk-desc talk-lead">¿Qué hace posible reconstruir una vida cuando todo cambia de un momento a otro?</p>
+            <p class="talk-desc">Después de atravesar uno de los años más desafiantes de su vida, Valeria se encontró con una pregunta que despertó su curiosidad: ¿qué había sucedido entre el día en que perdió sus piernas y aquel en que, 365 días después, realizó su primera caminata larga en la naturaleza con prótesis?</p>
+            <p class="talk-desc">A partir de su propia experiencia, emprendió un ejercicio de ingeniería inversa para entender y desentrañar el proceso que la llevó de un escenario que jamás habría imaginado a construir una vida que tampoco habría imaginado antes.</p>
+            <p class="talk-desc">En esta conferencia comparte las reflexiones y herramientas que descubrió en ese recorrido, invitando a la audiencia a cuestionar cómo responde ante los cambios inesperados, cómo atraviesa sus propios procesos de transformación y qué posibilidades existen cuando dejamos de intentar volver a donde estábamos para comenzar a construir lo que sigue.</p>
+          </div>
+          <dl class="facts">
+            <div><dt>Duración</dt><dd>45 a 60 minutos</dd></div>
+            <div><dt>Modalidad</dt><dd>Presencial o virtual</dd></div>
+            <div><dt>Idioma</dt><dd>Español o inglés</dd></div>
+            <div><dt>Para</dt><dd>Todo tipo de público</dd></div>
+          </dl>
+          <a href="#contacto" class="btn btn-accent btn-block" data-talk="Ingeniería inversa de una vida interrumpida">Quiero esta conferencia <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TEDx ============ -->
+<section class="tedx" id="tedx" aria-labelledby="tedx-title">
+  <div class="wrap">
+    <div class="sec-head sec-head-split reveal">
+      <div>
+        <p class="eyebrow"><span class="dot"></span>TEDx · Universidad Panamericana Guadalajara</p>
+        <h2 class="h-xl" id="tedx-title">No hay prótesis para un <em>espíritu</em> amputado.</h2>
+      </div>
+      <p class="sec-intro">Escucha mi TEDx</p>
+    </div>
+    <div class="tedx-embed reveal">
+      <button type="button" class="yt-facade" data-yt="KGalxsvs9Kg" aria-label="Reproducir la charla TEDx">
+        <img src="assets/tedxval.webp" alt="" width="1200" height="671" loading="lazy" />
+        <span class="tedx-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="tedx-cap">Reproducir aquí · TEDx</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EN ESCENA + DÓNDE HE HABLADO ============ -->
+<section class="talks talks-more" aria-label="En escena y dónde he hablado">
+  <div class="wrap">
+    <div class="escena" aria-roledescription="carrusel" aria-label="En escena: galería de fotos">
+      <div class="escena-head reveal">
+        <p class="eyebrow"><span class="dot"></span>En escena</p>
+        <div class="es-ctrl">
+          <span class="es-count" aria-live="polite"><b class="es-cur">01</b> / 10</span>
+          <button class="es-btn es-prev" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="es-btn es-next" type="button" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <div class="es-viewport">
+        <ul class="es-track" tabindex="0" aria-label="Fotos de Valeria en escena; usa las flechas del teclado para avanzar">
+          <li class="es-slide" role="group" aria-roledescription="foto" aria-label="01 de 10"><figure class="es"><picture><source type="image/avif" srcset="assets/conf/es-01-420.avif 420w, assets/conf/es-01-760.avif 760w, assets/conf/es-01-1100.avif 1100w" sizes="(max-width: 760px) 62vw, 420px" /><source type="image/webp" srcset="assets/conf/es-01-420.webp 420w, assets/conf/es-01-760.webp 760w, assets/conf/es-01-1100.webp 1100w" sizes="(max-width: 760px) 62vw, 420px" /><img src="assets/conf/es-01-760.jpg" srcset="assets/conf/es-01-420.jpg 420w, assets/conf/es-01-760.jpg 760w, assets/conf/es-01-1100.jpg 1100w" sizes="(max-width: 760px) 62vw, 420px" width="3024" height="4032" alt="Valeria de la Torre hablando en el escenario, de cerca" draggable="false" /></picture></figure></li>
+          <li class="es-slide es-land" role="group" aria-roledescription="foto" aria-label="02 de 10"><figure class="es"><picture><source type="image/avif" srcset="assets/conf/es-02-600.avif 600w, assets/conf/es-02-1100.avif 1100w, assets/conf/es-02-1600.avif 1600w" sizes="(max-width: 760px) 112vw, 760px" /><source type="image/webp" srcset="assets/conf/es-02-600.webp 600w, assets/conf/es-02-1100.webp 1100w, assets/conf/es-02-1600.webp 1600w" sizes="(max-width: 760px) 112vw, 760px" /><img src="assets/conf/es-02-1100.jpg" srcset="assets/conf/es-02-600.jpg 600w, assets/conf/es-02-1100.jpg 1100w, assets/conf/es-02-1600.jpg 1600w" sizes="(max-width: 760px) 112vw, 760px" width="5712" height="4284" alt="Valeria de la Torre frente a un auditorio lleno, con una montaña en pantalla" draggable="false" /></picture></figure></li>
+          <li class="es-slide" role="group" aria-roledescription="foto" aria-label="03 de 10"><figure class="es"><picture><source type="image/avif" srcset="assets/conf/es-03-420.avif 420w, assets/conf/es-03-760.avif 760w, assets/conf/es-03-1100.avif 1100w" sizes="(max-width: 760px) 62vw, 420px" /><source type="image/webp" srcset="assets/conf/es-03-420.webp 420w, assets/conf/es-03-760.webp 760w, assets/conf/es-03-1100.webp 1100w" sizes="(max-width: 760px) 62vw, 420px" /><img src="assets/conf/es-03-760.jpg" srcset="assets/conf/es-03-420.jpg 420w, assets/conf/es-03-760.jpg 760w, assets/conf/es-03-1100.jpg 1100w" sizes="(max-width: 760px) 62vw, 420px" width="4284" height="5712" alt="Auditorio lleno durante la conferencia de Valeria de la Torre" draggable="false" /></picture></figure></li>
+          <li class="es-slide es-land" role="group" aria-roledescription="foto" aria-label="04 de 10"><figure class="es"><picture><source type="image/avif" srcset="assets/conf/es-05-600.avif 600w, assets/conf/es-05-1100.avif 1100w, assets/conf/es-05-1600.avif 1600w" sizes="(max-width: 760px) 112vw, 760px" /><source type="image/webp" srcset="assets/conf/es-05-600.webp 600w, assets/conf/es-05-1100.webp 1100w, assets/conf/es-05-1600.webp 1600w" sizes="(max-width: 760px) 112vw, 760px" /><img src="assets/conf/es-05-1100.jpg" srcset="assets/conf/es-05-600.jpg 600w, assets/conf/es-05-1100.jpg 1100w, assets/conf/es-05-1600.jpg 1600w" sizes="(max-width: 760px) 112vw, 760px" width="5712" height="4284" alt="Valeria de la Torre en pantalla gigante frente al público" loading="lazy" draggable="false" /></picture></figure></li>
+          <li class="es-slide" role="group" aria-roledescription="foto" aria-label="05 de 10"><figure class="es"><picture><source type="image/avif" srcset="assets/conf/es-04-420.avif 420w, assets/conf/es-04-760.avif 760w, assets/conf/es-04-1100.avif 1100w" sizes="(max-width: 760px) 62vw, 420px" /><source type="image/webp" srcset="assets/conf/es-04-420.webp 420w, assets/conf/es-04-760.webp 760w, assets/conf/es-04-1100.webp 1100w" sizes="(max-width: 760px) 62vw, 420px" /><img src="assets/conf/es-04-760.jpg" srcset="assets/conf/es-04-420.jpg 420w, assets/conf/es-04-760.jpg 760w, assets/conf/es-04-1100.jpg 1100w" sizes="(max-width: 760px) 62vw, 420px" width="4284" height="5712" alt="Valeria de la Torre en un auditorio a oscuras, de pie en el escenario" loading="lazy" draggable="false" /></picture></figure></li>
+          <li class="es-slide es-land" role="group" aria-roledescription="foto" aria-label="06 de 10"><figure class="es"><picture><source type="image/avif" srcset="assets/conf/es-07-600.avif 600w, assets/conf/es-07-1100.avif 1100w, assets/conf/es-07-1600.avif 1600w" sizes="(max-width: 760px) 112vw, 760px" /><source type="image/webp" srcset="assets/conf/es-07-600.webp 600w, assets/conf/es-07-1100.webp 1100w, assets/conf/es-07-1600.webp 1600w" sizes="(max-width: 760px) 112vw, 760px" /><img src="assets/conf/es-07-1100.jpg" srcset="assets/conf/es-07-600.jpg 600w, assets/conf/es-07-1100.jpg 1100w, assets/conf/es-07-1600.jpg 1600w" sizes="(max-width: 760px) 112vw, 760px" width="5712" height="4284" alt="Valeria de la Torre en pantalla junto a la imagen de una montaña" loading="lazy" draggable="false" /></picture></figure></li>
+          <li class="es-slide" role="group" aria-roledescription="foto" aria-label="07 de 10"><figure class="es"><picture><source type="image/avif" srcset="assets/conf/es-06-420.avif 420w, assets/conf/es-06-760.avif 760w, assets/conf/es-06-1100.avif 1100w" sizes="(max-width: 760px) 62vw, 420px" /><source type="image/webp" srcset="assets/conf/es-06-420.webp 420w, assets/conf/es-06-760.webp 760w, assets/conf/es-06-1100.webp 1100w" sizes="(max-width: 760px) 62vw, 420px" /><img src="assets/conf/es-06-760.jpg" srcset="assets/conf/es-06-420.jpg 420w, assets/conf/es-06-760.jpg 760w, assets/conf/es-06-1100.jpg 1100w" sizes="(max-width: 760px) 62vw, 420px" width="4284" height="5712" alt="Vista del auditorio durante la conferencia de Valeria de la Torre" loading="lazy" draggable="false" /></picture></figure></li>
+          <li class="es-slide es-land" role="group" aria-roledescription="foto" aria-label="08 de 10"><figure class="es"><picture><source type="image/avif" srcset="assets/conf/es-10-600.avif 600w, assets/conf/es-10-1100.avif 1100w, assets/conf/es-10-1600.avif 1600w" sizes="(max-width: 760px) 112vw, 760px" /><source type="image/webp" srcset="assets/conf/es-10-600.webp 600w, assets/conf/es-10-1100.webp 1100w, assets/conf/es-10-1600.webp 1600w" sizes="(max-width: 760px) 112vw, 760px" /><img src="assets/conf/es-10-1100.jpg" srcset="assets/conf/es-10-600.jpg 600w, assets/conf/es-10-1100.jpg 1100w, assets/conf/es-10-1600.jpg 1600w" sizes="(max-width: 760px) 112vw, 760px" width="5712" height="4284" alt="Escenario con pantallas durante la conferencia de Valeria de la Torre" loading="lazy" draggable="false" /></picture></figure></li>
+          <li class="es-slide" role="group" aria-roledescription="foto" aria-label="09 de 10"><figure class="es"><picture><source type="image/avif" srcset="assets/conf/es-08-420.avif 420w, assets/conf/es-08-760.avif 760w, assets/conf/es-08-1100.avif 1100w" sizes="(max-width: 760px) 62vw, 420px" /><source type="image/webp" srcset="assets/conf/es-08-420.webp 420w, assets/conf/es-08-760.webp 760w, assets/conf/es-08-1100.webp 1100w" sizes="(max-width: 760px) 62vw, 420px" /><img src="assets/conf/es-08-760.jpg" srcset="assets/conf/es-08-420.jpg 420w, assets/conf/es-08-760.jpg 760w, assets/conf/es-08-1100.jpg 1100w" sizes="(max-width: 760px) 62vw, 420px" width="3024" height="4032" alt="Valeria de la Torre en el escenario, vista desde la cabina" loading="lazy" draggable="false" /></picture></figure></li>
+          <li class="es-slide" role="group" aria-roledescription="foto" aria-label="10 de 10"><figure class="es"><picture><source type="image/avif" srcset="assets/conf/es-09-420.avif 420w, assets/conf/es-09-760.avif 760w, assets/conf/es-09-1100.avif 1100w" sizes="(max-width: 760px) 62vw, 420px" /><source type="image/webp" srcset="assets/conf/es-09-420.webp 420w, assets/conf/es-09-760.webp 760w, assets/conf/es-09-1100.webp 1100w" sizes="(max-width: 760px) 62vw, 420px" /><img src="assets/conf/es-09-760.jpg" srcset="assets/conf/es-09-420.jpg 420w, assets/conf/es-09-760.jpg 760w, assets/conf/es-09-1100.jpg 1100w" sizes="(max-width: 760px) 62vw, 420px" width="4284" height="5712" alt="Valeria de la Torre sentada en el escenario frente al público" loading="lazy" draggable="false" /></picture></figure></li>
+        </ul>
+      </div>
+      <div class="es-progress" aria-hidden="true"><span></span></div>
+    </div>
+
+    <div class="trust reveal" aria-labelledby="trust-title">
+      <div class="trust-head">
+        <p class="eyebrow"><span class="dot"></span>Dónde he hablado</p>
+        <h3 class="h-lg" id="trust-title">Han confiado <em>en mí.</em></h3>
+        <p class="sec-intro">Estas son algunas de las empresas, universidades y congresos en donde he compartido mi testimonio.</p>
+      </div>
+      <ol class="events">
+          <li><span class="ev-n">01</span><span class="ev-name">Heinz</span><span class="ev-city">CDMX</span></li>
+          <li><span class="ev-n">02</span><span class="ev-name">Cetaphil</span><span class="ev-city">CDMX</span></li>
+          <li><span class="ev-n">03</span><span class="ev-name">Habits</span><span class="ev-city">CDMX</span></li>
+          <li><span class="ev-n">04</span><span class="ev-name">UDEM</span><span class="ev-city">Monterrey</span></li>
+          <li><span class="ev-n">05</span><span class="ev-name">Vinos Concha y Toro</span><span class="ev-city">Ensenada</span></li>
+          <li><span class="ev-n">06</span><span class="ev-name">MPA Group</span><span class="ev-city">Los Cabos</span></li>
+          <li><span class="ev-n">07</span><span class="ev-name">Deloitte</span><span class="ev-city">CDMX</span></li>
+          <li><span class="ev-n">08</span><span class="ev-name">Sueños a Mano</span><span class="ev-city">Tepatitlán</span></li>
+          <li><span class="ev-n">09</span><span class="ev-name">LCK Experience</span><span class="ev-city">CDMX</span></li>
+          <li><span class="ev-n">10</span><span class="ev-name">Motor de México</span><span class="ev-city">Monterrey</span></li>
+          <li><span class="ev-n">11</span><span class="ev-name">Dairy Queen</span><span class="ev-city">CDMX</span></li>
+          <li><span class="ev-n">12</span><span class="ev-name">Beyond Movement</span><span class="ev-city">Puebla</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
 
 
-  <script src="translations.js"></script>
-  <script src="main.js"></script>
+<!-- ============ FORMULARIO CONFERENCIAS ============ -->
+<section class="contact" id="contacto" aria-labelledby="contact-title">
+  <div class="wrap contact-grid">
+    <div class="contact-intro">
+      <p class="eyebrow"><span class="dot"></span>Contacto · Conferencias</p>
+      <h2 class="h-xl" id="contact-title">Trabajemos juntos<em>.</em></h2>
+      <p class="sec-intro">Llena este formulario y nos pondremos en contacto contigo a la brevedad.</p>
+      <div class="direct">
+        <p class="small muted-dark">¿Eres medio o periodista? <a href="media.html#prensa">Solicita una entrevista aquí →</a></p>
+      </div>
+    </div>
 
+    <div class="form-wrap">
+    <form class="cform" id="cform" action="https://script.google.com/macros/s/AKfycbwWgLQikM7xIi0Fe75mzFHzctuhWTr9WTCbsFKoXeSg_MsxmiXzze1I678qBouAlIg7WQ/exec" method="POST" novalidate>
+      <input type="hidden" name="source" value="Conferencias" />
+      <div class="form-honeypot" aria-hidden="true"><label>Sitio web <input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+      <input type="hidden" name="ts" value="" />
+      <div class="row">
+        <label class="f"><span>Nombre completo</span><input name="name" autocomplete="name" maxlength="120" required /></label>
+        <label class="f"><span>Empresa u organización</span><input name="company" autocomplete="organization" maxlength="160" required /></label>
+      </div>
+      <div class="row">
+        <label class="f"><span>Correo electrónico</span><input type="email" name="email" autocomplete="email" inputmode="email" spellcheck="false" placeholder="tu@empresa.com" maxlength="254" required /></label>
+        <label class="f"><span>Teléfono / WhatsApp</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="Ej. +52 55 1234 5678" maxlength="40" pattern="[0-9+\(\)\s\-]{7,40}" required /></label>
+      </div>
+      <label class="f"><span>Tipo de colaboración</span>
+        <select name="type" id="f-type" required>
+          <option value="" disabled>Selecciona una opción</option>
+          <option value="Conferencia" selected>Conferencia</option>
+          <option value="Colaboración con marca">Colaboración con marca</option>
+          <option value="Entrevista">Entrevista</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </label>
+      <label class="f"><span>Fecha estimada <i>(opcional)</i></span><input name="date" maxlength="120" placeholder="Ej. marzo 2027, primer semestre 2027…" /></label>
+      <label class="f"><span>Cuéntame sobre tu proyecto</span><textarea name="message" id="f-msg" rows="5" maxlength="4000" placeholder="Para qué audiencia es, qué esperas lograr y cualquier detalle relevante." required></textarea></label>
+      <p class="form-error" role="alert" hidden></p>
+      <button class="btn btn-accent btn-block" type="submit">Enviar <span aria-hidden="true">→</span></button>
+    </form>
+    <div class="form-success" role="status" tabindex="-1" hidden>
+      <h3 class="h-lg">Gracias<em>.</em></h3>
+      <p>Recibimos tu mensaje y nos pondremos en contacto contigo a la brevedad.</p>
+    </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="eyebrow">Valeria de la Torre</p>
+        <p class="muted-dark small">Conferencista y creadora de contenido.</p>
+      </div>
+      <nav aria-label="Pie de página" class="foot-nav">
+        <a href="index.html#top">Inicio</a><a href="index.html#acerca">Acerca de mí</a><a href="index.html#conferencias">Conferencias</a><a href="media.html">Media / Press</a><a href="index.html#contacto">Contacto</a>
+      </nav>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/valdelatorre/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://www.linkedin.com/in/valdelatorrega/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://www.tiktok.com/@valdelatorreg" target="_blank" rel="noopener">TikTok ↗</a>
+      </div>
+    </div>
+    <p class="foot-copy">© 2026 Valeria de la Torre</p>
+  </div>
+</footer>
+
+<div class="mbar"><a href="#contacto" class="btn btn-accent btn-block">Contacto <span aria-hidden="true">→</span></a></div>
+
+<script src="main.js"></script>
 </body>
 </html>
