@@ -1016,3 +1016,50 @@ picture{display:block}
 .form-success p{font:300 17px/1.6 var(--body);color:var(--gray-dark);max-width:36ch;margin:0}
 .form-success:focus{outline:none}
 .cform[hidden]{display:none!important}
+
+/* r13: svg stroke arrows (currentColor, 1em) + mobile compact pass */
+.ico{display:inline-block;width:1em;height:1em;flex-shrink:0;vertical-align:-0.15em;overflow:visible}
+.ico path{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.pill-arrow .ico{width:13px;height:13px;vertical-align:0}
+.foot-social a,.more-talks a,.acard-cta{display:inline-flex;align-items:center;gap:.35em}
+.muted-dark a .ico{margin-left:.15em}
+.btn .ico,.menu-cta .ico{flex-shrink:0}
+
+@media (max-width:640px){
+  /* proof strip: compact, proportionate, no overflow */
+  .proof-inner{padding-top:16px;padding-bottom:16px}
+  .proof-inner>*{padding:12px 0!important}
+  .proof-press{padding-top:12px!important}
+  .tedx-badge{gap:10px;max-width:100%}
+  .tedx-mark{font-size:18px;letter-spacing:.04em}
+  .tedx-txt{font-size:11px;line-height:1.3;text-align:left}
+  .tedx-txt strong{font-size:12px}
+  .proof-brands .eyebrow,.proof-press .eyebrow{font-size:10px;letter-spacing:.1em;margin-bottom:8px;gap:6px;line-height:1.35;max-width:100%}
+  .logos{gap:8px 16px!important}
+  .logos img{height:15px!important;max-width:56px}
+  .logos li:nth-child(1) img{height:17px!important}
+  .logos li:nth-child(2) img{height:19px!important}
+  .logos li:nth-child(3) img{height:16px!important}
+  .outlets{column-gap:14px!important;row-gap:6px!important}
+  .outlets li{font-size:16px!important}
+  .outlets li.o-caps{font-size:11px!important;letter-spacing:.1em}
+
+  /* typography and section rhythm */
+  .eyebrow{letter-spacing:.14em}
+  .tedx,.talks,.where,.story,.agenda,.kit,.contact,.press,.videos{padding:64px 0}
+  .media-hero{padding:110px 0 48px}
+  .escena{margin-top:56px}
+
+  /* buttons / forms / taps */
+  .btn{white-space:normal;text-align:center;min-height:44px;padding:14px 18px;letter-spacing:.16em}
+  .cform{padding:22px 18px;border-radius:18px;gap:14px}
+  .f input,.f select,.f textarea{min-height:44px;font-size:16px}
+  .foot-nav a,.foot-social a{min-height:44px;padding:8px 0}
+  .foot-nav,.foot-social{gap:2px}
+  .brand{padding:8px 0}
+  .es-btn{width:44px;height:44px}
+  .tedx-embed{margin-left:0;margin-right:0}
+
+  /* long inline links shouldn't drop just the arrow */
+  .muted-dark a{display:inline}
+}
