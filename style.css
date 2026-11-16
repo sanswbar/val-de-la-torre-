@@ -1063,3 +1063,8 @@ picture{display:block}
   /* long inline links shouldn't drop just the arrow */
   .muted-dark a{display:inline}
 }
+
+/* r14: divider between brands and media, same as the TEDx line */
+@media (max-width:1023px){
+  .proof-press{border-top:1px solid var(--line)!important}
+}
