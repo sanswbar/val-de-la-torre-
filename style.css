@@ -666,7 +666,6 @@ html.static .hero-shrink .hero-sticky{position:relative}
 /* Contacto pill */
 .nav-pill{display:inline-flex;align-items:center;gap:10px;padding:6px 6px 6px 16px;border-radius:999px;background:var(--black);color:var(--white);text-decoration:none;font:500 11px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;border:1px solid transparent;transition:background .35s,border-color .35s}
 .nav:not(.solid):not(.open) .nav-pill{border-color:rgba(255,255,255,.35)}
-.pill-n{font-size:9px;letter-spacing:.14em;opacity:.55}
 .pill-arrow{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--off-white);color:var(--black);font-size:13px;letter-spacing:0;transition:transform .45s cubic-bezier(.2,.75,.2,1)}
 .nav-pill:hover,.nav-pill:focus-visible,.nav-pill[aria-current="page"]{background:var(--ember-dark)}
 .nav-pill:hover .pill-arrow,.nav-pill:focus-visible .pill-arrow{transform:rotate(-45deg)}
