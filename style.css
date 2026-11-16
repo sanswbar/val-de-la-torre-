@@ -641,7 +641,7 @@ html.static .hero-shrink .hero-sticky{position:relative}
 
 /* ============ v6: nav personality + screen-change curtain ============ */
 .nav-links{gap:30px}
-.nav-links a{position:relative;display:inline-flex;align-items:flex-start;gap:7px;padding:6px 0 8px;opacity:.92;box-shadow:none!important;text-decoration:none!important}
+.nav-links a{position:relative;display:inline-flex;align-items:flex-start;gap:0;padding:6px 0 8px;opacity:.92;box-shadow:none!important;text-decoration:none!important}
 .nav-links a:hover,.nav-links a[aria-current="page"]{opacity:1}
 .nl-n{font:500 9px/1 var(--body);letter-spacing:.14em;opacity:.55;margin-top:1px;transition:opacity .3s}
 .nl-t{position:relative;display:block;height:20px;line-height:20px;clip-path:inset(0 -40px 0 -40px)}
@@ -651,7 +651,7 @@ html.static .hero-shrink .hero-sticky{position:relative}
 .nav-links a:hover .nl-a,.nav-links a:focus-visible .nl-a,.nav-links a:hover .nl-b,.nav-links a:focus-visible .nl-b{transform:translateY(-100%)}
 .nav-links a:hover .nl-n,.nav-links a[aria-current="page"] .nl-n{opacity:1}
 /* the terracotta mark: same 1px hairline the original hero uses */
-.nav-links a::after{content:"";position:absolute;left:16px;right:0;bottom:0;height:1px;background:var(--ember);transform:scaleX(0);transform-origin:right;transition:transform .5s cubic-bezier(.2,.75,.2,1)}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ember);transform:scaleX(0);transform-origin:right;transition:transform .5s cubic-bezier(.2,.75,.2,1)}
 .nav-links a:hover::after,.nav-links a:focus-visible::after{transform:scaleX(1);transform-origin:left}
 .nav-links a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left;background:currentColor}
 .nav-links a[aria-current="page"]:hover::after{background:var(--ember)}
@@ -673,7 +673,7 @@ html.static .hero-shrink .hero-sticky{position:relative}
 
 @media (max-width:1020px){
   .nav-pill{display:none}
-  .nav-links a{display:flex;align-items:baseline;gap:14px;padding:14px 0}
+  .nav-links a{display:flex;align-items:baseline;gap:0;padding:14px 0}
   .nav-links a::after{left:0;bottom:-1px}
   .nl-n{font-size:11px;opacity:.5;margin:0;min-width:20px}
   .nl-t{height:auto;line-height:1.1;clip-path:none}
