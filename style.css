@@ -1072,9 +1072,8 @@ picture{display:block}
 /* Acerca de mí: foto al ras del texto (desktop) */
 @media (min-width:1021px){
   .story-grid{align-items:stretch}
-  .story-media{display:flex}
-  .story-media .story-pic{display:block;width:100%;height:100%}
-  .story-media .story-pic img{height:100%;aspect-ratio:auto;min-height:100%}
-  .story-copy{display:flex;flex-direction:column;justify-content:flex-start}
+  .story-media{position:relative;min-height:420px}
+  .story-media .story-pic{position:absolute;inset:0;display:block}
+  .story-media .story-pic img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover}
   .story-copy .about-text p:last-child{margin-bottom:0}
 }
