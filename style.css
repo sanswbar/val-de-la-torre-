@@ -1068,3 +1068,13 @@ picture{display:block}
 @media (max-width:1023px){
   .proof-press{border-top:1px solid var(--line)!important}
 }
+
+/* Acerca de mí: foto al ras del texto (desktop) */
+@media (min-width:1021px){
+  .story-grid{align-items:stretch}
+  .story-media{display:flex}
+  .story-media .story-pic{display:block;width:100%;height:100%}
+  .story-media .story-pic img{height:100%;aspect-ratio:auto;min-height:100%}
+  .story-copy{display:flex;flex-direction:column;justify-content:flex-start}
+  .story-copy .about-text p:last-child{margin-bottom:0}
+}
