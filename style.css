@@ -1077,3 +1077,62 @@ picture{display:block}
   .story-media .story-pic img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover}
   .story-copy .about-text p:last-child{margin-bottom:0}
 }
+
+
+/* Form fields: underline only, no boxes */
+.f input,
+.f select,
+.f textarea{
+  background-color:transparent;
+  border:0;
+  border-bottom:1px solid var(--gray-light);
+  border-radius:0;
+  padding:12px 0 10px;
+  box-shadow:none;
+  transition:border-color .2s;
+  -webkit-appearance:none;
+  appearance:none;
+}
+.f input:focus,
+.f select:focus,
+.f textarea:focus,
+.f input:focus-visible,
+.f select:focus-visible,
+.f textarea:focus-visible{
+  outline:none;
+  border-bottom-color:var(--black);
+  box-shadow:none;
+}
+.f input[aria-invalid="true"],
+.f select[aria-invalid="true"],
+.f textarea[aria-invalid="true"],
+.f input[aria-invalid="true"]:focus,
+.f select[aria-invalid="true"]:focus,
+.f textarea[aria-invalid="true"]:focus{
+  border-bottom-color:var(--ember-dark);
+}
+.f select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' stroke='%230D0D0D' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 0 center;
+  background-size:12px 8px;
+  padding-right:22px;
+  cursor:pointer;
+}
+.f textarea{resize:vertical}
+.f input::placeholder,
+.f textarea::placeholder{
+  color:var(--gray-mid);
+  opacity:1;
+}
+.f input:-webkit-autofill,
+.f input:-webkit-autofill:hover,
+.f input:-webkit-autofill:focus,
+.f select:-webkit-autofill,
+.f textarea:-webkit-autofill{
+  -webkit-text-fill-color:var(--black);
+  caret-color:var(--black);
+  box-shadow:0 0 0 1000px var(--white) inset;
+  -webkit-box-shadow:0 0 0 1000px var(--white) inset;
+  transition:background-color 99999s ease-out 0s;
+}
