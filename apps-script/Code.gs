@@ -6,7 +6,7 @@
  * Los envíos que parecen spam NO se borran: van a la hoja "Spam" (con el motivo)
  * y no generan correo. Al bot siempre se le responde { ok: true } para que no aprenda.
  *
- *  - Conferencias (index.html): source=Conferencias, name, company, email, phone, type, date, message
+ *  - Conferencias (index.html): source=Conferencias, name, company, email, phone, type, city, date, audience, message
  *  - Prensa (media.html):       source=Prensa, outlet, name, email, phone, type, deadline, message
  *    → se guarda con el medio en "Empresa", la fecha límite en "Fecha estimada"
  *      y el tipo como "Prensa · Entrevista" (etc.), para distinguirlo en la hoja.
@@ -20,12 +20,12 @@
 const NOTIFY_EMAIL = 'valedelatorreg@gmail.com,valdelatorreg@gmail.com';
 const SHEET_NAME = 'Contactos';
 const SPAM_SHEET_NAME = 'Spam';
-// 'Teléfono' goes LAST so existing rows keep their columns
-const HEADERS = ['Fecha', 'Nombre', 'Correo', 'Empresa', 'Tipo de colaboración', 'Fecha estimada', 'Mensaje', 'Teléfono'];
+// New optional fields go LAST so existing rows keep their columns
+const HEADERS = ['Fecha', 'Nombre', 'Correo', 'Empresa', 'Tipo de colaboración', 'Fecha estimada', 'Mensaje', 'Teléfono', 'Ciudad y país', 'Audiencia'];
 const SPAM_HEADERS = HEADERS.concat(['Motivo']);
 
 // Same limits as the maxlength attributes in index.html and media.html
-const MAX_LENGTH = { name: 120, email: 254, company: 160, type: 60, date: 120, message: 4000, phone: 40 };
+const MAX_LENGTH = { name: 120, email: 254, company: 160, type: 60, date: 120, message: 4000, phone: 40, city: 160, audience: 200 };
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const MIN_FILL_MS = 3000;        // a person needs more than 3 s to fill the form
@@ -175,7 +175,9 @@ function saveRow(sheetName, headers, data, extra) {
       safeCell(data.type),
       safeCell(data.date),
       safeCell(data.message),
-      safeCell(data.phone)
+      safeCell(data.phone),
+      safeCell(data.city),
+      safeCell(data.audience)
     ].concat(extra.map(safeCell)));
   } finally {
     lock.releaseLock();
@@ -215,7 +217,7 @@ function ensureHeaders(sheet, headers) {
 
 /**
  * Run once from the editor (select it → Run) to add the titles to row 1
- * of "Contactos" (adds "Teléfono") and create the "Spam" tab now.
+ * of "Contactos" (adds "Ciudad y país" and "Audiencia" at the end) and create the "Spam" tab now.
  */
 function setupSheet() {
   getSheet(SHEET_NAME, HEADERS);
@@ -232,6 +234,8 @@ function sendNotification(data) {
     `Empresa / medio: ${data.company}`,
     `Tipo de colaboración: ${data.type}`,
     `Fecha estimada / límite: ${data.date || '—'}`,
+    `Ciudad y país: ${data.city || '—'}`,
+    `Audiencia / alcance: ${data.audience || '—'}`,
     '',
     'Mensaje:',
     data.message,
@@ -276,6 +280,8 @@ function testSubmission() {
     company: 'Prueba',
     type: 'Otro',
     date: '',
+    city: 'Ciudad de México, México',
+    audience: '500 asistentes',
     message: 'Mensaje de prueba del formulario.'
   }});
   console.log(res.getContent());
